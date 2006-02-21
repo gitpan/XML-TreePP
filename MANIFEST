@@ -3,3 +3,10 @@ lib/XML/TreePP.pm
 README
 MANIFEST
 META.yml
+t/family.xml
+t/force_array.t
+t/index.rdf
+t/parse.t
+t/parsefile.t
+t/parsehttp.t
+t/write.t

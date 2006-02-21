@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<family name="Kawasaki">
+    <father>Yasuhisa</father>
+    <mother>Chizuko</mother>
+    <children>
+        <girl>Shiori</girl>
+        <boy me="true">Yusuke</boy>
+        <boy>Kairi</boy>
+    </children>
+</family>

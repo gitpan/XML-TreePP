@@ -1,178 +1,179 @@
-XML::TreePP(3)        User Contributed Perl Documentation       XML::TreePP(3)
+NAME
+    XML::TreePP -- Pure Perl implementation for parsing/writing xml file
 
+SYNOPSIS
+    # parse xml file into hash tree
 
+        use XML::TreePP;
+        my $tpp = XML::TreePP->new();
+        my $tree = $tpp->parsefile( "index.rdf" );
+        print "Title: ", $tree->{"rdf:RDF"}->{item}->[0]->{title}, "\n";
+        print "URL:   ", $tree->{"rdf:RDF"}->{item}->[0]->{link}, "\n";
 
-NNAAMMEE
-       XML::TreePP -- Pure Perl implementation for parsing/writing xml file
+    # write xml from hash tree
 
-SSYYNNOOPPSSIISS
-           # parse xml file into hash tree
+        use XML::TreePP;
+        my $tpp = XML::TreePP->new();
+        my $tree = { rss => { channel => { item => [ {
+            title   => "The Perl Directory",
+            link    => "http://www.perl.org/",
+        }, { 
+            title   => "The Comprehensive Perl Archive Network",
+            link    => "http://cpan.perl.org/",
+        } ] } } };
+        my $xml = $tpp->write( $tree );
+        print $xml;
 
-           use XML::TreePP;
-           my $tpp = XML::TreePP->new();
-           my $tree = $tpp->parsefile( "index.rdf" );
-           print "Title: ", $tree->{"rdf:RDF"}->{item}->[0]->{title}, "\n";
-           print "URL:   ", $tree->{"rdf:RDF"}->{item}->[0]->{link}, "\n";
+    # get remote xml file with HTTP-GET and parse it into hash tree
 
-           # write xml from hash tree
+        use XML::TreePP;
+        my $tpp = XML::TreePP->new();
+        my $tree = $tpp->parsehttp( GET => "http://use.perl.org/index.rss" );
+        print "Title: ", $tree->{"rdf:RDF"}->{channel}->{title}, "\n";
+        print "URL:   ", $tree->{"rdf:RDF"}->{channel}->{link}, "\n";
 
-           use XML::TreePP;
-           my $tpp = XML::TreePP->new();
-           my $tree = { rss => { channel => { item => [ {
-               title   => "The Perl Directory",
-               link    => "http://www.perl.org/",
-           }, {
-               title   => "The Comprehensive Perl Archive Network",
-               link    => "http://cpan.perl.org/",
-           } ] } } };
-           my $xml = $tpp->write( $tree );
-           print $xml;
+    # get remote xml file with HTTP-POST and parse it into hash tree
 
-           # get remote xml file with HTTP-GET and parse it into hash tree
+        use XML::TreePP;
+        my $tpp = XML::TreePP->new( array_element => [qw( item )] );
+        my $cgiurl = "http://search.hatena.ne.jp/keyword";
+        my $keyword = "ajax";
+        my $cgiquery = "mode=rss2&word=".$keyword;
+        my $tree = $tpp->parsehttp( POST => $cgiurl, $cgiquery );
+        print "Link: ", $tree->{rss}->{channel}->{item}->[0]->{link}, "\n";
+        print "Desc: ", $tree->{rss}->{channel}->{item}->[0]->{description}, "\n";
 
-           use XML::TreePP;
-           my $tpp = XML::TreePP->new();
-           my $tree = $tpp->parsehttp( GET => "http://use.perl.org/index.rss" );
-           print "Title: ", $tree->{"rdf:RDF"}->{channel}->{title}, "\n";
-           print "URL:   ", $tree->{"rdf:RDF"}->{channel}->{link}, "\n";
+DESCRIPTION
+    XML::TreePP module parses XML file and expand it for a hash tree. And
+    also generate XML file from a hash tree. This is a pure Perl
+    implementation. You can also download XML from remote web server like
+    XMLHttpRequest object at JavaScript language.
 
-           # get remote xml file with HTTP-POST and parse it into hash tree
+EXAMPLES
+    Sample XML source:
 
-           use XML::TreePP;
-           my $tpp = XML::TreePP->new( array_element => [qw( item )] );
-           my $cgiurl = "http://search.hatena.ne.jp/keyword";
-           my $keyword = "ajax";
-           my $cgiquery = "mode=rss2&word=".$keyword;
-           my $tree = $tpp->parsehttp( POST => $cgiurl, $cgiquery );
-           print "Link: ", $tree->{rss}->{channel}->{item}->[0]->{link}, "\n";
-           print "Desc: ", $tree->{rss}->{channel}->{item}->[0]->{description}, "\n";
+        <?xml version="1.0" encoding="UTF-8"?>
+        <family name="Kawasaki">
+            <father>Yasuhisa</father>
+            <mother>Chizuko</mother>
+            <children>
+                <girl>Shiori</girl>
+                <boy>Yusuke</boy>
+                <boy>Kairi</boy>
+            </children>
+        </family>
 
-DDEESSCCRRIIPPTTIIOONN
-       Sample XML source:
+    Sample program to read a xml file and dump it:
 
-       <?xml version="1.0" encoding="UTF-8"?> <family name="Kawasaki">
-           <father>Yasuhisa</father>
-           <mother>Chizuko</mother>
-           <children>
-               <girl>Shiori</girl>
-               <boy>Yusuke</boy>
-               <boy>Kairi</boy>
-           </children> </family>
+        use XML::TreePP;
+        use Data::Dumper;
+        my $tpp = XML::TreePP->new();
+        my $tree = $tpp->parsefile( "family.xml" );
+        my $text = Dumper( $tree );
+        print $text;
 
-       Sample program to read a xml file and dump it:
+    Result dumped:
 
-           use XML::TreePP;
-           use Data::Dumper;
-           my $tpp = XML::TreePP->new();
-           my $tree = $tpp->parsefile( "family.xml" );
-           my $text = Dumper( $tree );
-           print $text;
+        $VAR1 = {
+            'family' => {
+                '-name' => 'Kawasaki',
+                'father' => 'Yasuhisa',
+                'mother' => 'Chizuko',
+                'children' => {
+                    'girl' => 'Shiori'
+                    'boy' => [
+                        'Yusuke',
+                        'Kairi'
+                    ],
+                }
+            }
+        };
 
-       Result dumped:
+    Note:
 
-           $VAR1 = {
-               'family' => {
-                   '-name' => 'Kawasaki',
-                   'father' => 'Yasuhisa',
-                   'mother' => 'Chizuko',
-                   'children' => {
-                       'girl' => 'Shiori'
-                       'boy' => [
-                           'Yusuke',
-                           'Kairi'
-                       ],
-                   }
-               }
-           };
+        The father's given name is in $tree->{family}->{father}.
+        The family name of the family is in $tree->{family}->{"-name"}.
+        The prefix '-' is added on every attributes' name.
 
-       Note:
+        The second boy's name is in $tree->{family}->{children}->{boy}->[1].
+        The array is used because the family has two boys.
 
-           The father's given name is in $tree->{family}->{father}.
-           The family name of the family is in $tree->{family}->{"-name"}.
-           The prefix '-' is added on every attributes' name.
+        The girl's name is in $tree->{family}->{children}->{girl}.
 
-           The second boy's name is in $tree->{family}->{children}->{boy}->[1].
-           The array is used because the family has two boys.
+    Text node and attributes:
 
-           The girl's name is in $tree->{family}->{children}->{girl}.
+        If a element has both of a text node and attributes
+        or both of a text node and other child nodes,
+        value of a text node is moved to "#text" like child nodes.
 
-       Text node and attributes:
+        use XML::TreePP;
+        use Data::Dumper;
+        my $tpp = XML::TreePP->new();
+        my $source = '<span class="author">Kawasaki Yusuke</span>';
+        my $tree = $tpp->parse( $source );
+        my $text = Dumper( $tree );
+        print $text;
 
-           If a element has both of a text node and attributes
-           or both of a text node and other child nodes,
-           value of a text node is moved to "#text" like child nodes.
+    The result dumped is following:
 
-           use XML::TreePP;
-           use Data::Dumper;
-           my $tpp = XML::TreePP->new();
-           my $source = '<span class="author">Kawasaki Yusuke</span>';
-           my $tree = $tpp->parse( $source );
-           my $text = Dumper( $tree );
-           print $text;
+        $VAR1 = {
+            'span' => {
+                '-class' => 'author',
+                '#text' => 'Kawasaki Yusuke'
+            }
+        };
 
-           The result dumped is following:
+        The special node name of "#text" is used because this elements 
+        has attribute(s) in addition to the text node.
 
-           $VAR1 = {
-               'span' => {
-                   '-class' => 'author',
-                   '#text' => 'Kawasaki Yusuke'
-               }
-           };
+METHODS
+        my $tpp = XML::TreePP->new( %attributes )
+            This method constructs a new "XML::TreePP" object.
+            Optional attributes are following:
 
-           The special node name of "#text" is used because this elements
-           has attribute(s) in addition to the text node.
+        output_encoding => "UTF-8",
+            You can define a encoding of xml file generated by write/writefile 
+            methods. On Perl 5.8.x and later, you can select it from every 
+            encodings supported by Encode.pm. On Perl 5.6.x or before with 
+            Jcode.pm, you can use "Shift_JIS", "EUC-JP", "ISO-2022-JP" and 
+            "UTF-8". The default value is "UTF-8".
 
-MMEETTHHOODDSS
-           my $tpp = XML::TreePP->new( %attributes )
-               This method constructs a new "XML::TreePP" object.
-               Optional attributes are following:
+        array_element => [],
+            This option allows you to specify a list of element names which 
+            should always be forced into an array representation
+            The default value is null, it means that context of the elements 
+            will determine to make array or to keep it scalar.
 
-           output_encoding => "UTF-8",
-               You can define a encoding of xml file generated by write/writefile
-               methods. On Perl 5.8.x and later, you can select it from every
-               encodings supported by Encode.pm. On Perl 5.6.x or before with
-               Jcode.pm, you can use "Shift_JIS", "EUC-JP", "ISO-2022-JP" and
-               "UTF-8". The default value is "UTF-8".
+        my $tree = $tpp->parse( $source );
+            This method reads XML source and returns a hash tree converted.
+            The first argument is a scalar or a reference to a scalar.
 
-           array_element => [],
-               This option allows you to specify a list of element names which
-               should always be forced into an array representation
-               The default value is null, it means that context of the elements
-               will determine to make array or to keep it scalar.
+        my $tree = $tpp->parsefile( $file );
+            This method reads a XML file and returns a hash tree converted.
+            The first argument is a filename.
 
-           my $tree = $tpp->parse( $source );
-               This method reads XML source and returns a hash tree converted.
-               The first argument is a scalar or a reference to a scalar.
+        my $tree = $tpp->parsefile( $method, $url, $body );
+            This method receive a XML file from a remote server via HTTP and 
+            returns a hash tree converted. 
+            This medhot requires LWP::UserAgent module.
+            $method is a method of HTTP connection: GET/POST/PUT/DELETE
+            $url is URI of a XML file. 
+            $body is request body when you use POST method.
 
-           my $tree = $tpp->parsefile( $file );
-               This method reads a XML file and returns a hash tree converted.
-               The first argument is a filename.
+        my $source = $tpp->write( $tree );
+            This method parse a hash tree and returns a XML source generated.
+            $tree is a referecen to a hash tree.
 
-           my $tree = $tpp->parsefile( $method, $url, $body );
-               This method receive a XML file from a remote server via HTTP and
-               returns a hash tree converted.
-               This medhot requires LWP::UserAgent module.
-               $method is a method of HTTP connection: GET/POST/PUT/DELETE
-               $url is URI of a XML file.
-               $body is request body when you use POST method.
+        $tpp->writefile( $file, $tree );
+            This method parse a hash tree and writes a XML source into a file.
+            $file is a filename to create.
+            $tree is a referecen to a hash tree.
 
-           my $source = $tpp->write( $tree );
-               This method parse a hash tree and returns a XML source generated.
-               $tree is a referecen to a hash tree.
+AUTHOR
+    Yusuke Kawasaki, <u-suke [at] kawa.net>
 
-           $tpp->writefile( $file, $tree );
-               This method parse a hash tree and writes a XML source into a file.
-               $file is a filename to create.
-               $tree is a referecen to a hash tree.
+COPYRIGHT AND LICENSE
+    Copyright (c) 2006 Yusuke Kawasaki. All rights reserved. This program is
+    free software; you can redistribute it and/or modify it under the same
+    terms as Perl itself.
 
-AAUUTTHHOORR
-       Yusuke Kawasaki, <u-suke [at] kawa.net>
-
-CCOOPPYYRRIIGGHHTT AANNDD LLIICCEENNSSEE
-       Copyright (c) 2006 Yusuke Kawasaki.  All rights reserved.  This program
-       is free software; you can redistribute it and/or modify it under the
-       same terms as Perl itself.
-
-
-
-perl v5.8.6                       2006-02-20                    XML::TreePP(3)

@@ -2,11 +2,10 @@
 # ----------------------------------------------------------------
     package XML::TreePP;
     use strict;
-    use warnings;
     use Symbol;
     use Carp;
     use vars qw( $VERSION );
-    $VERSION = "0.01";
+    $VERSION = "0.02";
 # ----------------------------------------------------------------
     my $XML_ENCODING = "UTF-8";
     my $INTERNAL_ENCODING = "UTF-8";
@@ -18,7 +17,7 @@ XML::TreePP -- Pure Perl implementation for parsing/writing xml file
 
 =head1 SYNOPSIS
 
-    # parse xml file into hash tree
+# parse xml file into hash tree
 
     use XML::TreePP;
     my $tpp = XML::TreePP->new();
@@ -26,7 +25,7 @@ XML::TreePP -- Pure Perl implementation for parsing/writing xml file
     print "Title: ", $tree->{"rdf:RDF"}->{item}->[0]->{title}, "\n";
     print "URL:   ", $tree->{"rdf:RDF"}->{item}->[0]->{link}, "\n";
 
-    # write xml from hash tree
+# write xml from hash tree
 
     use XML::TreePP;
     my $tpp = XML::TreePP->new();
@@ -40,7 +39,7 @@ XML::TreePP -- Pure Perl implementation for parsing/writing xml file
     my $xml = $tpp->write( $tree );
     print $xml;
 
-    # get remote xml file with HTTP-GET and parse it into hash tree
+# get remote xml file with HTTP-GET and parse it into hash tree
 
     use XML::TreePP;
     my $tpp = XML::TreePP->new();
@@ -48,7 +47,7 @@ XML::TreePP -- Pure Perl implementation for parsing/writing xml file
     print "Title: ", $tree->{"rdf:RDF"}->{channel}->{title}, "\n";
     print "URL:   ", $tree->{"rdf:RDF"}->{channel}->{link}, "\n";
 
-    # get remote xml file with HTTP-POST and parse it into hash tree
+# get remote xml file with HTTP-POST and parse it into hash tree
 
     use XML::TreePP;
     my $tpp = XML::TreePP->new( array_element => [qw( item )] );
@@ -61,18 +60,26 @@ XML::TreePP -- Pure Perl implementation for parsing/writing xml file
 
 =head1 DESCRIPTION
 
+XML::TreePP module parses XML file and expand it for a hash tree.
+And also generate XML file from a hash tree.
+This is a pure Perl implementation.
+You can also download XML from remote web server 
+like XMLHttpRequest object at JavaScript language. 
+
+=head1 EXAMPLES
+
 Sample XML source:
 
-<?xml version="1.0" encoding="UTF-8"?>
-<family name="Kawasaki">
-    <father>Yasuhisa</father>
-    <mother>Chizuko</mother>
-    <children>
-        <girl>Shiori</girl>
-        <boy>Yusuke</boy>
-        <boy>Kairi</boy>
-    </children>
-</family>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <family name="Kawasaki">
+        <father>Yasuhisa</father>
+        <mother>Chizuko</mother>
+        <children>
+            <girl>Shiori</girl>
+            <boy>Yusuke</boy>
+            <boy>Kairi</boy>
+        </children>
+    </family>
 
 Sample program to read a xml file and dump it:
 
@@ -125,7 +132,7 @@ Text node and attributes:
     my $text = Dumper( $tree );
     print $text;
 
-    The result dumped is following:
+The result dumped is following:
 
     $VAR1 = {
         'span' => {
@@ -508,9 +515,13 @@ sub encode_from_to {
     return if ( $from eq "" );
     return if ( $to eq "" );
     return $to if ( uc($from) eq uc($to) );
+    local $@;
     eval { require Encode; } unless defined $Encode::VERSION;
     if ( defined $Encode::VERSION ) {
         Encode::from_to( $$str, $from, $to, Encode::FB_XMLCREF() );
+    } elsif (( uc($from) eq "ISO-8859-1" || uc($from) eq "LATIN-1" ) &&
+               uc($to) eq "UTF-8" ) {
+		&latin1_to_utf8( $str );
     } else {
         my $jfrom = &get_jcode_name( $from );
         my $jto   = &get_jcode_name( $to );
@@ -527,6 +538,15 @@ sub encode_from_to {
         }
     }
     $to;
+}
+# ----------------------------------------------------------------
+sub latin1_to_utf8 {
+    my $strref = shift;
+    $$strref =~ s{
+        ([\x80-\xFF])
+    }{
+        pack( "C2" => 0xC0|(ord($1)>>6),0x80|(ord($1)&0x3F) )
+    }exg;
 }
 # ----------------------------------------------------------------
 sub get_jcode_name {
