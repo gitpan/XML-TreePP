@@ -1,0 +1,16 @@
+#   XML::TreePP Changes
+
+0.03 2006/02/22 (Yusuke Kawasaki)
+        + Changes
+
+0.02 2006/02/21 (Yusuke Kawasaki)
+        ! lib/XML/TreePP.pm
+        * Change encoding from ISO-8859-1 to UTF-8 is natively supported.
+        + t/force_array.t t/parse.t t/parsefile.t t/parsehttp.t t/write.t
+          t/index.rdf t/family.xml
+        * Test scripts added.
+
+0.01 2006/02/20 (Yusuke Kawasaki)
+        * first release.
+
+#   http://www.kawa.net/works/perl/treepp/treepp-e.html
