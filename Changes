@@ -1,7 +1,10 @@
 #   XML::TreePP Changes
 
-0.04 2006/02/27 
-    ! lib/XML/TreePP.pm
+0.06 2006/03/01
+    * parsehttp() method now supports the HTTP::Lite pure Perl module as well.
+    * Bug fix: xml_escape() call in hash_to_xml() method. (thanx to suVene)
+
+0.04 2006/02/26 
     * Correct POD about force_array option of new() method.
     * parsehttp() method returns a hash tree and xml source on array context.
 
@@ -9,7 +12,6 @@
     + Changes
 
 0.02 2006/02/21 
-    ! lib/XML/TreePP.pm
     * Change encoding from ISO-8859-1 to UTF-8 is natively supported.
     + t/force_array.t t/parse.t t/parsefile.t t/parsehttp.t t/write.t
       t/index.rdf t/family.xml

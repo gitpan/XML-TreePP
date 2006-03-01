@@ -6,7 +6,7 @@
 #   use warnings;
 # ----------------------------------------------------------------
     use vars qw( $VERSION );
-    $VERSION = "0.05";
+    $VERSION = "0.06";
 # ----------------------------------------------------------------
     my $XML_ENCODING = "UTF-8";
     my $INTERNAL_ENCODING = "UTF-8";
@@ -267,27 +267,48 @@ sub write {
 # ----------------------------------------------------------------
 sub parsehttp {
     my $self = shift;
+
+    return $self->parsehttp_lwp(@_) if defined $LWP::UserAgent::VERSION;
+    return $self->parsehttp_lite(@_) if defined $HTTP::Lite::VERSION;
+
+    local $@;
+    eval { require LWP::UserAgent; };
+    return $self->parsehttp_lwp(@_) if defined $LWP::UserAgent::VERSION;
+
+    eval { require HTTP::Lite; };
+    return $self->parsehttp_lite(@_) if defined $HTTP::Lite::VERSION;
+
+    Carp::croak "LWP::UserAgent or HTTP::Lite is required: $_[1]";
+}
+# ----------------------------------------------------------------
+sub parsehttp_lwp {
+    my $self = shift;
     my $method = shift;
     my $url = shift;
     my $body = shift;
 
-    local $@;
-    eval { require LWP::UserAgent; } unless defined $LWP::UserAgent::VERSION;
-    Carp::croak "LWP::UserAgent is required: $url" if $@;
-    eval { require HTTP::Request; } unless defined $HTTP::Request::VERSION;
-    Carp::croak "HTTP::Request is required: $url" if $@;
-
     my $ua = LWP::UserAgent->new();
     $ua->timeout(10);
     $ua->env_proxy();
-
     my $req = HTTP::Request->new( $method, $url );
     $req->content( $body ) if defined $body;
-
     my $res = $ua->request( $req );
     return unless $res->is_success();
-
     my $text = $res->content();
+    $self->parse( \$text );
+}
+# ----------------------------------------------------------------
+sub parsehttp_lite {
+    my $self = shift;
+    my $method = shift;
+    my $url = shift;
+    my $body = shift;
+
+    my $http = HTTP::Lite->new();
+    $http->method( $method );
+    $http->{content} = $body if defined $body;
+    $http->request( $url ) or return;
+    my $text = $http->body();
     $self->parse( \$text );
 }
 # ----------------------------------------------------------------
@@ -475,9 +496,9 @@ sub hash_to_xml {
             }
         }
         foreach my $key ( grep { /^-/} @$loopkey ) {
-            my $val = &xml_unescape($hash->{$key});
-            $key =~ s/^-//;
-            push( @$attr, " ".$key.'="'.$val.'"' );
+            my $name = ( $key =~ /^-(.*)$/s )[0];
+            my $val = &xml_escape($hash->{$key});
+            push( @$attr, " ".$name.'="'.$val.'"' );
         }
     }
     my $jattr = join( "", @$attr );
