@@ -3,10 +3,9 @@
     use strict;
     use Carp;
     use Symbol;
-#   use warnings;
 # ----------------------------------------------------------------
     use vars qw( $VERSION );
-    $VERSION = "0.06";
+    $VERSION = "0.07";
 # ----------------------------------------------------------------
     my $XML_ENCODING = "UTF-8";
     my $INTERNAL_ENCODING = "UTF-8";
@@ -61,7 +60,7 @@ get remote xml file with HTTP-POST and parse it into hash tree
 
 =head1 DESCRIPTION
 
-XML::TreePP module parses XML file and expand it for a hash tree.
+XML::TreePP module parses XML file and expands it for a hash tree.
 And also generate XML file from a hash tree.
 This is a pure Perl implementation.
 You can also download XML from remote web server
@@ -192,23 +191,23 @@ The first argument is a scalar or a reference to a scalar.
 This method reads a XML file and returns a hash tree converted.
 The first argument is a filename.
 
-=head2 $tree = $tpp->parsefile( $method, $url, $body );
+=head2 $tree = $tpp->parsehttp( $method, $url, $body );
 
-This method receive a XML file from a remote server via HTTP and
+This method receives a XML file from a remote server via HTTP and
 returns a hash tree converted.
-This medhot requires LWP::UserAgent module.
 $method is a method of HTTP connection: GET/POST/PUT/DELETE
 $url is URI of a XML file.
 $body is request body when you use POST method.
+LWP::UserAgent module or HTTP::Lite module is required to fetch a file.
 
 =head2 $source = $tpp->write( $tree, $encode );
 
-This method parse a hash tree and returns a XML source generated.
+This method parses a hash tree and returns a XML source generated.
 $tree is a referecen to a hash tree.
 
 =head2 $tpp->writefile( $file, $tree, $encode );
 
-This method parse a hash tree and writes a XML source into a file.
+This method parses a hash tree and writes a XML source into a file.
 $file is a filename to create.
 $tree is a referecen to a hash tree.
 
