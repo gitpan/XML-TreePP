@@ -1,5 +1,10 @@
 #   XML::TreePP Changes
 
+2006/04/08 (0.08)
+    * set() and get() method added.
+    * cdata_scalar_ref option added. CDATASection's round trip supported.
+    * some error checkes added, thanks to Nadim.
+
 2006/03/09 (0.07)
     * Correct POD about parsehttp() method
 

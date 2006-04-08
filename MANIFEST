@@ -5,10 +5,13 @@ README
 Changes
 MANIFEST
 META.yml
+make-dist.sh
+t/cdata.t
+t/empty.t
+t/escape.t
+t/force_array.t
+t/http-lite.t
+t/http-lwp.t
 t/parse.t
 t/parsefile.t
 t/write.t
-t/force_array.t
-t/escape.t
-t/http-lite.t
-t/http-lwp.t
