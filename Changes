@@ -1,16 +1,21 @@
-#   XML::TreePP Changes
+# XML::TreePP Changes
+
+2006/04/30 (0.10)
+    * attr_prefix parameter added to emulate E4X, ECMAScript for XML.
+    * user_agent parameter and its default value added.
+    * source code passed perltidy. (thanks to Nadim)
 
 2006/04/08 (0.08)
     * set() and get() method added.
     * cdata_scalar_ref option added. CDATASection's round trip supported.
-    * some error checkes added, thanks to Nadim.
+    * some error checkes added. (thanks to Nadim)
 
 2006/03/09 (0.07)
     * Correct POD about parsehttp() method
 
 2006/03/02 (0.06)
     * parsehttp() method now supports the HTTP::Lite pure Perl module as well.
-    * Bug fix: xml_escape() call in hash_to_xml() method. (thanx to suVene)
+    * Bug fix: xml_escape() call in hash_to_xml() method. (thanks to suVene)
 
 2006/02/26 (0.04)
     * Correct POD about force_array option of new() method.
@@ -28,4 +33,5 @@
 2006/02/20  (0.01)
     * first release.
 
-#   http://www.kawa.net/works/perl/treepp/treepp-e.html
+# http://www.kawa.net/works/perl/treepp/treepp-e.html (English)
+# http://www.kawa.net/works/perl/treepp/treepp.html#changes (Japanese)

@@ -5,6 +5,7 @@ README
 Changes
 MANIFEST
 META.yml
+example/envxml.cgi
 make-dist.sh
 t/cdata.t
 t/empty.t
@@ -15,3 +16,4 @@ t/http-lwp.t
 t/parse.t
 t/parsefile.t
 t/write.t
+t/attr_prefix.t
