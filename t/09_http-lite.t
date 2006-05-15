@@ -1,14 +1,17 @@
 # ----------------------------------------------------------------
     use strict;
     use Test::More tests => 5;
-    BEGIN { use_ok('XML::TreePP') };
 # ----------------------------------------------------------------
 SKIP: {
     local $@;
-    eval { require LWP::UserAgent; };
-    if ( ! defined $LWP::UserAgent::VERSION ) {
-        skip( "LWP::UserAgent is not loaded.", 4 );
+    eval { require HTTP::Lite; } unless defined $HTTP::Lite::VERSION;
+    if ( ! defined $HTTP::Lite::VERSION ) {
+        skip( "HTTP::Lite is not loaded.", 5 );
     }
+    if ( ! defined $ENV{MORE_TESTS} ) {
+        skip( "\$MORE_TESTS is not defined.", 5 );
+    }
+    use_ok('XML::TreePP');
     &parsehttp_get();
     &parsehttp_post();
 }
@@ -18,7 +21,7 @@ sub parsehttp_get {
     my $url = "http://use.perl.org/index.rss";
     my $tree = $tpp->parsehttp( GET => $url );
     ok( ref $tree, $url );
-    like( $tree->{"rdf:RDF"}->{channel}->{link}, qr{^http://}, $url );
+    like( $tree->{"rdf:RDF"}->{channel}->{link}, qr{^http://}, "$url link" );
 }
 # ----------------------------------------------------------------
 sub parsehttp_post {
@@ -28,7 +31,7 @@ sub parsehttp_post {
     my $body = "mode=rss2&word=".$query;
     my $tree = $tpp->parsehttp( POST => $url, $body );
     ok( ref $tree, $url );
-    like( $tree->{rss}->{channel}->{item}->[0]->{link}, qr{^http://}, $url );
+    like( $tree->{rss}->{channel}->{item}->[0]->{link}, qr{^http://}, "$url link" );
 }
 # ----------------------------------------------------------------
 ;1;

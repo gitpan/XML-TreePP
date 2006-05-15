@@ -1,5 +1,15 @@
 # XML::TreePP Changes
 
+2006/05/15 (0.14)
+    * new encodings: eucJP-win and eucJP-ms (for Perl 5.005/5.6.1)
+    * new entity references: &apos;
+    * character references supported: &#38; &#x26;
+    * spaces in text node are not deleted on parse() method.
+    * returns are not added in text node on write() method.
+    * HTTP tests are skipped per default: 09_http-lite.t 10_http-lwp.t
+    * new tests: t/00_pod.t t/13_encoding_en.t t/14_encoding_zh.t
+                 t/15_encoding_ja.t t/16_encoding_ko.t t/17_output_encoding.t
+
 2006/04/30 (0.10)
     * attr_prefix parameter added to emulate E4X, ECMAScript for XML.
     * user_agent parameter and its default value added.

@@ -1,14 +1,17 @@
 # ----------------------------------------------------------------
     use strict;
     use Test::More tests => 5;
-    BEGIN { use_ok('XML::TreePP') };
 # ----------------------------------------------------------------
 SKIP: {
     local $@;
-    eval { require HTTP::Lite; };
-    if ( ! defined $HTTP::Lite::VERSION ) {
-        skip( "HTTP::Lite is not loaded.", 4 );
+    eval { require LWP::UserAgent; } unless defined $LWP::UserAgent::VERSION;
+    if ( ! defined $LWP::UserAgent::VERSION ) {
+        skip( "LWP::UserAgent is not loaded.", 5 );
     }
+    if ( ! defined $ENV{MORE_TESTS} ) {
+        skip( "\$MORE_TESTS is not defined.", 5 );
+    }
+    use_ok('XML::TreePP');
     &parsehttp_get();
     &parsehttp_post();
 }
@@ -26,7 +29,7 @@ sub parsehttp_post {
     my $url = "http://search.hatena.ne.jp/keyword";
     my $query = "ajax";
     my $body = "mode=rss2&word=".$query;
-    my $tree = $tpp->parsehttp( POST => $url, $body );
+    my( $tree, $xml ) = $tpp->parsehttp( POST => $url, $body );
     ok( ref $tree, $url );
     like( $tree->{rss}->{channel}->{item}->[0]->{link}, qr{^http://}, $url );
 }

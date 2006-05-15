@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rdf:RDF xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<channel rdf:about="http://www.kawa.net/xp/index-e.html">
+<dc:date>2006-05-14T02:43:00+09:00</dc:date>
+<dc:language>en</dc:language>
+<dc:rights>Copyright 1995-2006 Yusuke Kawasaki. All rights reserved.</dc:rights>
+<image rdf:resource="http://www.kawa.net/xp/images/xp-title-128x32.gif" />
+<link>http://www.kawa.net/xp/index-e.html</link>
+<title>Kawa.net xp - ajax/JavaScript/Perl/CGI by Yusuke Kawasaki</title>
+<description>Yusuke Kawasaki's homepage from Japan. Ajax/JavaScript/Perl/CGI/etc. technical articles and photos.</description>
+<items>
+<rdf:Seq>
+<rdf:li rdf:resource="http://www.kawa.net/works/js/xml/objtree-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/tips/crash-safari/intelmac-e.html" />
+<rdf:li rdf:resource="http://www.flickr.com/photos/u-suke/145610582/" />
+<rdf:li rdf:resource="http://www.flickr.com/photos/u-suke/144983424/" />
+<rdf:li rdf:resource="http://www.flickr.com/photos/u-suke/143337294/" />
+<rdf:li rdf:resource="http://www.flickr.com/photos/u-suke/143337293/" />
+<rdf:li rdf:resource="http://www.kawa.net/works/perl/romanize/romanize-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/romanize/japanese-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/perl/feedpp/feedpp-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/perl/html/tagparser-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/ajaxtb/ajaxtb-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/ajaxcom/ajaxcom-e.html" />
+<rdf:li rdf:resource="http://www.flickr.com/photos/u-suke/140293503/" />
+<rdf:li rdf:resource="http://www.kawa.net/service/jsan/search/index.html" />
+<rdf:li rdf:resource="http://www.flickr.com/photos/u-suke/138067687/" />
+<rdf:li rdf:resource="http://www.flickr.com/photos/u-suke/138067686/" />
+<rdf:li rdf:resource="http://www.kawa.net/works/js/animation/cube-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/js/animation/raster-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/perl/treepp/treepp-e.html" />
+<rdf:li rdf:resource="http://www.flickr.com/photos/u-suke/135752828/" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/romanize/hangul-e.html" />
+<rdf:li rdf:resource="http://www.flickr.com/photos/u-suke/134768832/" />
+<rdf:li rdf:resource="http://www.flickr.com/photos/u-suke/134768830/" />
+<rdf:li rdf:resource="http://www.kawa.net/works/js/game/ncross-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/js/date/w3cdtf-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/perl/romanize/roman-demo-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/romanize/chinese-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/cantonese/canton.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/js/jkl/parsexml-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/tips/dump/dom-tree.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/tips/dump/icab-omniweb-bug.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/cantonese/ccdict.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/js/data-scheme/base64-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/greasemonkey/myscripts-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/rss/rss-box-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/js/passwd/gen-passwds-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/perl/catch/KCatch.pm.html" />
+</rdf:Seq>
+</items>
+</channel>
+<image rdf:about="http://www.kawa.net/xp/images/xp-title-128x32.gif">
+<link>http://www.kawa.net/xp/index-e.html</link>
+<title>Kawa.net xp - ajax/JavaScript/Perl/CGI by Yusuke Kawasaki</title>
+<url>http://www.kawa.net/xp/images/xp-title-128x32.gif</url>
+</image>
+<item rdf:about="http://www.kawa.net/works/js/xml/objtree-e.html">
+<dc:date>2006-05-14T02:43:00+09:00</dc:date>
+<dc:subject>JavaScript</dc:subject>
+<link>http://www.kawa.net/works/js/xml/objtree-e.html</link>
+<title>[JavaScript] XML.ObjTree - XML source code from/to JavaScript object like E4X</title>
+<description>XML.ObjTree class is a parser/generater for XML source code and JavaScript object.
+This is a JavaScript version of
+XML::TreePP
+for Perl.
+This also works as a wrapper for XMLHTTPRequest
+and successor to
+JKL.ParseXML class
+when using with prototype.js or
+JSAN's
+HTTP.Request class.
+Attributes' prefix '@' like
+E4X (ECMAScript for XML) is also available.
+Safari for Intel Mac is supported. (2006/05/14)</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/ajax/tips/crash-safari/intelmac-e.html">
+<dc:date>2006-05-14T00:40:00+09:00</dc:date>
+<dc:subject>Mac</dc:subject>
+<link>http://www.kawa.net/works/ajax/tips/crash-safari/intelmac-e.html</link>
+<title>[Mac] One click to crash Safari for Intel Mac</title>
+<description>Do you know any differences between Safari for Intel Mac and for PowerPC?
+Just two lines of JavaScript code below crashes Safari for Intel Mac.
+But Safari for PowerPC and other browsers are never crased.</description>
+</item>
+<item rdf:about="http://www.flickr.com/photos/u-suke/145610582/">
+<creator>nobody@flickr.com (Yusuke,SF)</creator>
+<dc:date>2006-05-13T09:10:33-08:00</dc:date>
+<link>http://www.flickr.com/photos/u-suke/145610582/</link>
+<media:category scheme="urn:flickr:tags">mac safari intel javascript</media:category>
+<media:content type="image/jpeg" url="http://static.flickr.com/56/145610582_79743261d7_o.jpg" height="240" width="480" />
+<media:credit role="photographer">Yusuke,SF</media:credit>
+<media:text type="html">
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/145610582/&quot; title=&quot;Browser Crasher（ブラクラ）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/56/145610582_79743261d7_m.jpg&quot; width=&quot;240&quot; height=&quot;120&quot; alt=&quot;Browser Crasher（ブラクラ）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I wrote just two lines of JavaScript which make Safari for Intel Mac crashed.&lt;br /&gt;
+See &lt;a href=&quot;http://www.kawa.net/works/ajax/tips/crash-safari/intelmac-e.html&quot;&gt;www.kawa.net/works/ajax/tips/crash-safari/intelmac-e.html&lt;/a&gt;&lt;/p&gt;</media:text>
+<media:thumbnail url="http://static.flickr.com/56/145610582_79743261d7_s.jpg" height="75" width="75" />
+<media:title>[flickr] Browser Crasher（ブラクラ）</media:title>
+<title>[flickr] Browser Crasher（ブラクラ）</title>
+<description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/145610582/&quot; title=&quot;Browser Crasher（ブラクラ）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/56/145610582_79743261d7_m.jpg&quot; width=&quot;240&quot; height=&quot;120&quot; alt=&quot;Browser Crasher（ブラクラ）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I wrote just two lines of JavaScript which make Safari for Intel Mac crashed.&lt;br /&gt;
+See &lt;a href=&quot;http://www.kawa.net/works/ajax/tips/crash-safari/intelmac-e.html&quot;&gt;www.kawa.net/works/ajax/tips/crash-safari/intelmac-e.html&lt;/a&gt;&lt;/p&gt;</description>
+</item>
+<item rdf:about="http://www.flickr.com/photos/u-suke/144983424/">
+<creator>nobody@flickr.com (Yusuke,SF)</creator>
+<dc:date>2006-05-12T02:00:16-08:00</dc:date>
+<link>http://www.flickr.com/photos/u-suke/144983424/</link>
+<media:category scheme="urn:flickr:tags">prudential subtech cybozulabs</media:category>
+<media:content type="image/jpeg" url="http://static.flickr.com/48/144983424_af02e6d0b8_o.jpg" height="640" width="480" />
+<media:credit role="photographer">Yusuke,SF</media:credit>
+<media:text type="html">
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/144983424/&quot; title=&quot;CybozuLabs（サイボウズ・ラボ）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/48/144983424_af02e6d0b8_m.jpg&quot; width=&quot;180&quot; height=&quot;240&quot; alt=&quot;CybozuLabs（サイボウズ・ラボ）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;At the Prudential Tower, Akasaka.&lt;/p&gt;</media:text>
+<media:thumbnail url="http://static.flickr.com/48/144983424_af02e6d0b8_s.jpg" height="75" width="75" />
+<media:title>[flickr] CybozuLabs（サイボウズ・ラボ）</media:title>
+<title>[flickr] CybozuLabs（サイボウズ・ラボ）</title>
+<description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/144983424/&quot; title=&quot;CybozuLabs（サイボウズ・ラボ）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/48/144983424_af02e6d0b8_m.jpg&quot; width=&quot;180&quot; height=&quot;240&quot; alt=&quot;CybozuLabs（サイボウズ・ラボ）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;At the Prudential Tower, Akasaka.&lt;/p&gt;</description>
+</item>
+<item rdf:about="http://www.flickr.com/photos/u-suke/143337294/">
+<creator>nobody@flickr.com (Yusuke,SF)</creator>
+<dc:date>2006-05-09T02:54:53-08:00</dc:date>
+<link>http://www.flickr.com/photos/u-suke/143337294/</link>
+<media:category scheme="urn:flickr:tags">mmm excel</media:category>
+<media:content type="image/jpeg" url="http://static.flickr.com/49/143337294_d0458d55f5_o.jpg" height="480" width="640" />
+<media:credit role="photographer">Yusuke,SF</media:credit>
+<media:text type="html">
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/143337294/&quot; title=&quot;Trying the MMM, 9/May/2005&quot;&gt;&lt;img src=&quot;http://static.flickr.com/49/143337294_d0458d55f5_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Trying the MMM, 9/May/2005&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I made a new spreadsheet on Excel. Humm...&lt;/p&gt;</media:text>
+<media:thumbnail url="http://static.flickr.com/49/143337294_d0458d55f5_s.jpg" height="75" width="75" />
+<media:title>[flickr] Trying the MMM, 9/May/2005</media:title>
+<title>[flickr] Trying the MMM, 9/May/2005</title>
+<description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/143337294/&quot; title=&quot;Trying the MMM, 9/May/2005&quot;&gt;&lt;img src=&quot;http://static.flickr.com/49/143337294_d0458d55f5_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Trying the MMM, 9/May/2005&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I made a new spreadsheet on Excel. Humm...&lt;/p&gt;</description>
+</item>
+<item rdf:about="http://www.flickr.com/photos/u-suke/143337293/">
+<creator>nobody@flickr.com (Yusuke,SF)</creator>
+<dc:date>2006-05-09T02:54:53-08:00</dc:date>
+<link>http://www.flickr.com/photos/u-suke/143337293/</link>
+<media:category scheme="urn:flickr:tags">diary den mmm satoh</media:category>
+<media:content type="image/jpeg" url="http://static.flickr.com/51/143337293_9515ff3fa2_o.jpg" height="640" width="480" />
+<media:credit role="photographer">Yusuke,SF</media:credit>
+<media:text type="html">
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/143337293/&quot; title=&quot;MMM（曼荼羅マトリクスメソッド）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/51/143337293_9515ff3fa2_m.jpg&quot; width=&quot;180&quot; height=&quot;240&quot; alt=&quot;MMM（曼荼羅マトリクスメソッド）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The MMM, Mandala Matrix Method, is a style of writing dialy avocated by Den Satoh.&lt;/p&gt;</media:text>
+<media:thumbnail url="http://static.flickr.com/51/143337293_9515ff3fa2_s.jpg" height="75" width="75" />
+<media:title>[flickr] MMM（曼荼羅マトリクスメソッド）</media:title>
+<title>[flickr] MMM（曼荼羅マトリクスメソッド）</title>
+<description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/143337293/&quot; title=&quot;MMM（曼荼羅マトリクスメソッド）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/51/143337293_9515ff3fa2_m.jpg&quot; width=&quot;180&quot; height=&quot;240&quot; alt=&quot;MMM（曼荼羅マトリクスメソッド）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The MMM, Mandala Matrix Method, is a style of writing dialy avocated by Den Satoh.&lt;/p&gt;</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/perl/romanize/romanize-e.html">
+<dc:date>2006-05-08T05:10:00+09:00</dc:date>
+<dc:subject>Perl</dc:subject>
+<link>http://www.kawa.net/works/perl/romanize/romanize-e.html</link>
+<title>[Perl] Lingua::*::Romanize::* - Romanization of CJK characters</title>
+<description>Lingua::*::Romanize::* modules generate roman letteres from CJK characters.
+Lingua::ZH::Romanize::Pinyin module parses
+Chinese
+characters, both of Mandarin and Cantonese.
+Lingua::JA::Romanize::Japanese module parses
+Japanese
+characters, both of Kanji and Kana.
+Lingua::KO::Romanize::Hangul module parses
+Korean
+characters, Hangul.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/ajax/romanize/japanese-e.html">
+<dc:date>2006-05-08T04:07:00+09:00</dc:date>
+<dc:subject>Ajax</dc:subject>
+<link>http://www.kawa.net/works/ajax/romanize/japanese-e.html</link>
+<title>[Ajax] Romanization of Japanese language (Kanji and Kana)</title>
+<description>Japanese language is written with a mix of
+Kanji
+and
+Kana
+characters.
+Most of Kanji characters used in Japan were imported from China.
+Two types of Kana characters, called Katakana and Hiragana, were created in Japan.
+Kana characters are general terms for the syllabic Japanese scripts.
+Enter some Japanese phrases and push the button below.
+This page is implemented by ajax and POX over HTTP.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/perl/feedpp/feedpp-e.html">
+<dc:date>2006-05-07T06:29:00+09:00</dc:date>
+<dc:subject>Perl</dc:subject>
+<link>http://www.kawa.net/works/perl/feedpp/feedpp-e.html</link>
+<title>[Perl] XML::FeedPP - Parse/write/merge web feeds, RSS/RDF/Atom</title>
+<description>XML::FeedPP module parses a RSS/RDF/Atom file, converts its format,
+ and marges another files, and generates a XML file. This module is a
+ pure Perl implementation and do not requires any other modules
+ expcept for XML::FeedPP, which is also a pure perl implementation.
+ XML::Parser and XML::Parser::Expat is not required.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/perl/html/tagparser-e.html">
+<dc:date>2006-05-06T07:09:00+09:00</dc:date>
+<dc:subject>Perl</dc:subject>
+<link>http://www.kawa.net/works/perl/html/tagparser-e.html</link>
+<title>[Perl] HTML::TagParser - Yet another HTML tag parser by pure Perl implementation</title>
+<description>HTML::TagParser is a pure Perl implementaion for parsing HTML files.
+This module provides some methods like DOM.
+This module is not strict about XHTML format
+because many of HTML pages are not strict.
+You know, many pages use &lt;br&gt; elemtents instead of &lt;br/&gt;
+and have &lt;p&gt; elements which are not closed.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/ajax/ajaxtb/ajaxtb-e.html">
+<dc:date>2006-05-05T08:09:00+09:00</dc:date>
+<dc:subject>ajax</dc:subject>
+<link>http://www.kawa.net/works/ajax/ajaxtb/ajaxtb-e.html</link>
+<title>[ajax] AjaxTB - a pluggable trackback feature in static HTML page</title>
+<description>AjaxTB provides your static pages with trackback feature.
+AjaxTB' CGI part works to receive a trackback which is sent by visiters.
+AjaxTB' JavaScript part works to display trackbacks received.
+CMS is not needed. PHP is not required.
+AjaxTB is really pluggable and easy to use.
+Indexed RSS and JSON files are also generated when a trackback is posted.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/ajax/ajaxcom/ajaxcom-e.html">
+<dc:date>2006-05-05T08:08:00+09:00</dc:date>
+<dc:subject>ajax</dc:subject>
+<link>http://www.kawa.net/works/ajax/ajaxcom/ajaxcom-e.html</link>
+<title>[ajax] AjaxCom - one line comment box in static HTML page</title>
+<description>AjaxCom provides your pages with one line comment box.
+You and your visiters can write comments in your static page!
+You know, ajax is used here.
+CMS is not required. PHP is not required.
+Ajaxcom is pluggable and easy to use.
+Perl/CGI works only when comments are entered.
+A plain text file is loaded when comments are displayed.</description>
+</item>
+<item rdf:about="http://www.flickr.com/photos/u-suke/140293503/">
+<creator>nobody@flickr.com (Yusuke,SF)</creator>
+<dc:date>2006-05-04T06:37:04-08:00</dc:date>
+<link>http://www.flickr.com/photos/u-suke/140293503/</link>
+<media:category scheme="urn:flickr:tags">tooth</media:category>
+<media:content type="image/jpeg" url="http://static.flickr.com/51/140293503_94b37a7ece_o.jpg" height="480" width="640" />
+<media:credit role="photographer">Yusuke,SF</media:credit>
+<media:text type="html">
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/140293503/&quot; title=&quot;Oyashirazu（親知らず）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/51/140293503_94b37a7ece_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Oyashirazu（親知らず）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I got my wisdom tooth pulled yesterday.&lt;br /&gt;
+I have a heavy pain and swelling in my cheek today!&lt;br /&gt;
+In Japanese, wisdom tooth is called as &amp;quot;Oyashirazu&amp;quot; which literally means &amp;quot;parents don't know it.&amp;quot;&lt;br /&gt;
+I know my parents don't know I got these teeth pulled.&lt;/p&gt;</media:text>
+<media:thumbnail url="http://static.flickr.com/51/140293503_94b37a7ece_s.jpg" height="75" width="75" />
+<media:title>[flickr] Oyashirazu（親知らず）</media:title>
+<title>[flickr] Oyashirazu（親知らず）</title>
+<description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/140293503/&quot; title=&quot;Oyashirazu（親知らず）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/51/140293503_94b37a7ece_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Oyashirazu（親知らず）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I got my wisdom tooth pulled yesterday.&lt;br /&gt;
+I have a heavy pain and swelling in my cheek today!&lt;br /&gt;
+In Japanese, wisdom tooth is called as &amp;quot;Oyashirazu&amp;quot; which literally means &amp;quot;parents don't know it.&amp;quot;&lt;br /&gt;
+I know my parents don't know I got these teeth pulled.&lt;/p&gt;</description>
+</item>
+<item rdf:about="http://www.kawa.net/service/jsan/search/index.html">
+<dc:date>2006-05-03T20:53:00+09:00</dc:date>
+<link>http://www.kawa.net/service/jsan/search/index.html</link>
+<title>JSAN Search - JavaScript Libraries Database</title>
+<description>A yet another search engine for JavaScript libraries registered on JSAN.</description>
+</item>
+<item rdf:about="http://www.flickr.com/photos/u-suke/138067687/">
+<creator>nobody@flickr.com (Yusuke,SF)</creator>
+<dc:date>2006-04-30T23:21:01-08:00</dc:date>
+<link>http://www.flickr.com/photos/u-suke/138067687/</link>
+<media:category scheme="urn:flickr:tags">ikea pasta spaghetti</media:category>
+<media:content type="image/jpeg" url="http://static.flickr.com/47/138067687_44999a5344_o.jpg" height="480" width="640" />
+<media:credit role="photographer">Yusuke,SF</media:credit>
+<media:text type="html">
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/138067687/&quot; title=&quot;Spaghetti Aglio, Olio e Peperoncino（ペペロンチーノ）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/47/138067687_44999a5344_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Spaghetti Aglio, Olio e Peperoncino（ペペロンチーノ）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Spaghetti from Italy.&lt;br /&gt;
+Garlic from China.&lt;br /&gt;
+Oil from Ajinomoto.&lt;br /&gt;
+Red pepper from Mexico.&lt;br /&gt;
+And a plate from IKEA.&lt;/p&gt;</media:text>
+<media:thumbnail url="http://static.flickr.com/47/138067687_44999a5344_s.jpg" height="75" width="75" />
+<media:title>[flickr] Spaghetti Aglio, Olio e Peperoncino（ペペロンチーノ）</media:title>
+<title>[flickr] Spaghetti Aglio, Olio e Peperoncino（ペペロンチーノ）</title>
+<description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/138067687/&quot; title=&quot;Spaghetti Aglio, Olio e Peperoncino（ペペロンチーノ）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/47/138067687_44999a5344_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Spaghetti Aglio, Olio e Peperoncino（ペペロンチーノ）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Spaghetti from Italy.&lt;br /&gt;
+Garlic from China.&lt;br /&gt;
+Oil from Ajinomoto.&lt;br /&gt;
+Red pepper from Mexico.&lt;br /&gt;
+And a plate from IKEA.&lt;/p&gt;</description>
+</item>
+<item rdf:about="http://www.flickr.com/photos/u-suke/138067686/">
+<creator>nobody@flickr.com (Yusuke,SF)</creator>
+<dc:date>2006-04-30T23:21:01-08:00</dc:date>
+<link>http://www.flickr.com/photos/u-suke/138067686/</link>
+<media:category scheme="urn:flickr:tags">sake amazake</media:category>
+<media:content type="image/jpeg" url="http://static.flickr.com/51/138067686_0a1a734490_o.jpg" height="480" width="640" />
+<media:credit role="photographer">Yusuke,SF</media:credit>
+<media:text type="html">
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/138067686/&quot; title=&quot;Amazake（甘酒）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/51/138067686_0a1a734490_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Amazake（甘酒）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Amazake is a traditional Japanese drink which is made by a by-product of Sake.&lt;/p&gt;</media:text>
+<media:thumbnail url="http://static.flickr.com/51/138067686_0a1a734490_s.jpg" height="75" width="75" />
+<media:title>[flickr] Amazake（甘酒）</media:title>
+<title>[flickr] Amazake（甘酒）</title>
+<description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/138067686/&quot; title=&quot;Amazake（甘酒）&quot;&gt;&lt;img src=&quot;http://static.flickr.com/51/138067686_0a1a734490_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Amazake（甘酒）&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Amazake is a traditional Japanese drink which is made by a by-product of Sake.&lt;/p&gt;</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/js/animation/cube-e.html">
+<dc:date>2006-04-30T08:26:00+09:00</dc:date>
+<dc:subject>JavaScript</dc:subject>
+<link>http://www.kawa.net/works/js/animation/cube-e.html</link>
+<title>[JavaScript] Animation.Cube - Rotating Cube Animation Effect</title>
+<description>Animation.Cube class is a JavaScript library for a rotating cube animation effect.
+This effect needs CPU speed faster than
+Animation.Raster class.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/js/animation/raster-e.html">
+<dc:date>2006-04-30T08:25:00+09:00</dc:date>
+<dc:subject>JavaScript</dc:subject>
+<link>http://www.kawa.net/works/js/animation/raster-e.html</link>
+<title>[JavaScript] Animation.Raster - Virtual Raster Scrolling Effect</title>
+<description>This library provides a virtual
+raster scrolling's
+effect for images and block elements.
+Tested on
+Internet Explorer 7.0, Firefox 1.5, Opera 8.5, Safari 2.0.3 and OmniWeb 5.1.3.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/perl/treepp/treepp-e.html">
+<dc:date>2006-04-30T08:22:00+09:00</dc:date>
+<dc:subject>Perl</dc:subject>
+<link>http://www.kawa.net/works/perl/treepp/treepp-e.html</link>
+<title>[Perl] XML::TreePP - A pure Perl implementation for parsing/writing xml file</title>
+<description>XML::TreePP module parses XML file and expand it for a hash tree.
+And also generate XML file from a hash tree.
+This is a pure Perl implementation.
+You can also download XML from remote web server
+like XMLHttpRequest object of JavaScript language.
+I think that XML::TreePP is enough fast and easy to use!
+XML.ObjTree
+class is a JavaScript version of this module.</description>
+</item>
+<item rdf:about="http://www.flickr.com/photos/u-suke/135752828/">
+<creator>nobody@flickr.com (Yusuke,SF)</creator>
+<dc:date>2006-04-26T22:09:06-08:00</dc:date>
+<link>http://www.flickr.com/photos/u-suke/135752828/</link>
+<media:category scheme="urn:flickr:tags">candy papabubble</media:category>
+<media:content type="image/jpeg" url="http://static.flickr.com/55/135752828_51a571dc2d_o.jpg" height="480" width="640" />
+<media:credit role="photographer">Yusuke,SF</media:credit>
+<media:text type="html">
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/135752828/&quot; title=&quot;Papabubble Tokyo's fruit candy&quot;&gt;&lt;img src=&quot;http://static.flickr.com/55/135752828_51a571dc2d_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Papabubble Tokyo's fruit candy&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Pretty candy!&lt;br /&gt;
+&lt;a href=&quot;http://www.papabubble.com/&quot;&gt;www.papabubble.com/&lt;/a&gt;&lt;br /&gt;
+Cool website!&lt;/p&gt;</media:text>
+<media:thumbnail url="http://static.flickr.com/55/135752828_51a571dc2d_s.jpg" height="75" width="75" />
+<media:title>[flickr] Papabubble Tokyo's fruit candy</media:title>
+<title>[flickr] Papabubble Tokyo's fruit candy</title>
+<description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/135752828/&quot; title=&quot;Papabubble Tokyo's fruit candy&quot;&gt;&lt;img src=&quot;http://static.flickr.com/55/135752828_51a571dc2d_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Papabubble Tokyo's fruit candy&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Pretty candy!&lt;br /&gt;
+&lt;a href=&quot;http://www.papabubble.com/&quot;&gt;www.papabubble.com/&lt;/a&gt;&lt;br /&gt;
+Cool website!&lt;/p&gt;</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/ajax/romanize/hangul-e.html">
+<dc:date>2006-04-25T13:20:00+09:00</dc:date>
+<dc:subject>Ajax</dc:subject>
+<link>http://www.kawa.net/works/ajax/romanize/hangul-e.html</link>
+<title>[Ajax] Romanization of Korean language (Hangul)</title>
+<description>Hangul is phonemic characters used in Korea.
+Enter some Korean phrases and push the button below.
+E.g. you can now sing songs which lyrics are written in Korean!
+This page is implemented by ajax and POX over HTTP.</description>
+</item>
+<item rdf:about="http://www.flickr.com/photos/u-suke/134768832/">
+<creator>nobody@flickr.com (Yusuke,SF)</creator>
+<dc:date>2006-04-25T04:31:09-08:00</dc:date>
+<link>http://www.flickr.com/photos/u-suke/134768832/</link>
+<media:category scheme="urn:flickr:tags">ikea</media:category>
+<media:content type="image/jpeg" url="http://static.flickr.com/46/134768832_4d3ed10b75_o.jpg" height="480" width="640" />
+<media:credit role="photographer">Yusuke,SF</media:credit>
+<media:text type="html">
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/134768832/&quot; title=&quot;Smakling Måltid!&quot;&gt;&lt;img src=&quot;http://static.flickr.com/46/134768832_4d3ed10b75_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Smakling Måltid!&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;KÖTTBULLAR is Swedish meatballs. It tastes good! I like this. Heｊ Då!&lt;/p&gt;</media:text>
+<media:thumbnail url="http://static.flickr.com/46/134768832_4d3ed10b75_s.jpg" height="75" width="75" />
+<media:title>[flickr] Smakling Måltid!</media:title>
+<title>[flickr] Smakling Måltid!</title>
+<description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/134768832/&quot; title=&quot;Smakling Måltid!&quot;&gt;&lt;img src=&quot;http://static.flickr.com/46/134768832_4d3ed10b75_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;Smakling Måltid!&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;KÖTTBULLAR is Swedish meatballs. It tastes good! I like this. Heｊ Då!&lt;/p&gt;</description>
+</item>
+<item rdf:about="http://www.flickr.com/photos/u-suke/134768830/">
+<creator>nobody@flickr.com (Yusuke,SF)</creator>
+<dc:date>2006-04-25T04:31:09-08:00</dc:date>
+<link>http://www.flickr.com/photos/u-suke/134768830/</link>
+<media:category scheme="urn:flickr:tags">ikea alleby</media:category>
+<media:content type="image/jpeg" url="http://static.flickr.com/44/134768830_3188ada700_o.jpg" height="480" width="640" />
+<media:credit role="photographer">Yusuke,SF</media:credit>
+<media:text type="html">
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/134768830/&quot; title=&quot;ALLEBY's Toy Snake&quot;&gt;&lt;img src=&quot;http://static.flickr.com/44/134768830_3188ada700_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;ALLEBY's Toy Snake&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Few people bought this toy. I guess most of Japanese consumers would not understand how to play with it.&lt;/p&gt;</media:text>
+<media:thumbnail url="http://static.flickr.com/44/134768830_3188ada700_s.jpg" height="75" width="75" />
+<media:title>[flickr] ALLEBY's Toy Snake</media:title>
+<title>[flickr] ALLEBY's Toy Snake</title>
+<description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt; posted a photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/134768830/&quot; title=&quot;ALLEBY's Toy Snake&quot;&gt;&lt;img src=&quot;http://static.flickr.com/44/134768830_3188ada700_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; alt=&quot;ALLEBY's Toy Snake&quot; style=&quot;border: 1px solid #ddd;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Few people bought this toy. I guess most of Japanese consumers would not understand how to play with it.&lt;/p&gt;</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/js/game/ncross-e.html">
+<dc:date>2006-04-18T21:54:00+09:00</dc:date>
+<dc:subject>Sudoku</dc:subject>
+<link>http://www.kawa.net/works/js/game/ncross-e.html</link>
+<title>[Sudoku] Quick Sudoku Solving by JavaScript</title>
+<description>I think the most important thing of Sudoku is not getting its answer but is solving it.
+However, ...</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/js/date/w3cdtf-e.html">
+<dc:date>2006-04-05T22:49:00+09:00</dc:date>
+<dc:subject>JSAN</dc:subject>
+<link>http://www.kawa.net/works/js/date/w3cdtf-e.html</link>
+<title>[JSAN] Date.W3CDTF - JavaScript Date object's W3CDTF extension</title>
+<description>Date.W3CDTF class understands the W3CDTF date/time format, an ISO 8601 profile, defined by W3C.
+This date/time format is the native date format of RSS 1.0.
+It can be used to parse these formats in order to create the appropriate objects.
+This is my first library to be contributed to
+JSAN.
+Date.W3CDTF class supports two types of formats below:
+2005-04-23T17:20:00+09:00 (with timezone)
+2005-04-23T17:20:00Z (without timezone)</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/perl/romanize/roman-demo-e.html">
+<dc:date>2006-04-01T20:20:00+09:00</dc:date>
+<dc:subject>Perl</dc:subject>
+<link>http://www.kawa.net/works/perl/romanize/roman-demo-e.html</link>
+<title>[Perl] Lingua::*::Romanize::* - Online Demo</title>
+<description>This page is online-demo of
+Lingua::*::Romanize::* modules for Perl.
+Enter some CJK phrases and push the button below.
+Chinese,
+Japanese and
+Korean
+characters are available.
+This is not a translation system but to get phonemic notation by roman letters.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/ajax/romanize/chinese-e.html">
+<dc:date>2006-03-27T01:55:00+09:00</dc:date>
+<dc:subject>Ajax</dc:subject>
+<link>http://www.kawa.net/works/ajax/romanize/chinese-e.html</link>
+<title>[Ajax] Romanization of Chinese language (Pinyin)</title>
+<description>Pinyin is a romanization system (phonemic notation) of Chinese characters.
+Enter some Chinese phrases and push the button below.
+Both of Simplified Chinese (GB2312) and Traditional Chinese (BIG5) are allowed.
+This page is implemented by ajax and POX over HTTP.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/cantonese/canton.html">
+<dc:date>2006-03-22T11:42:00+09:00</dc:date>
+<link>http://www.kawa.net/works/cantonese/canton.html</link>
+<title>Ruby on Chinese Pinyin</title>
+<description>Web service (ajax) version is available now!
+Type (or copy&amp;paste) some chinese characters and push the button.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/js/jkl/parsexml-e.html">
+<dc:date>2006-03-22T02:47:00+09:00</dc:date>
+<dc:subject>ajax</dc:subject>
+<link>http://www.kawa.net/works/js/jkl/parsexml-e.html</link>
+<title>[ajax] JKL.ParseXML - parse remote XML file into JavaScript object (JSON)</title>
+<description>JKL.ParseXML is a JavaScript class to convert a remote XML file into JavaScript object (JSON)</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/ajax/tips/dump/dom-tree.html">
+<dc:date>2006-03-21T02:41:00+09:00</dc:date>
+<dc:subject>ajax</dc:subject>
+<link>http://www.kawa.net/works/ajax/tips/dump/dom-tree.html</link>
+<title>[ajax] Expanding DOM tree (cross browser DOM inspector)</title>
+<description>XML URL:</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/ajax/tips/dump/icab-omniweb-bug.html">
+<dc:date>2006-03-21T02:40:00+09:00</dc:date>
+<dc:subject>ajax</dc:subject>
+<link>http://www.kawa.net/works/ajax/tips/dump/icab-omniweb-bug.html</link>
+<title>[ajax] XML parser bug on iCab and OmniWeb</title>
+<description>Source XML file:
+Flickr's RSS 2.0 file (as example)
+Demonstration:
+Expanding DOM tree (cross browser DOM inspector)</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/cantonese/ccdict.html">
+<dc:date>2006-03-08T16:20:00+09:00</dc:date>
+<link>http://www.kawa.net/works/cantonese/ccdict.html</link>
+<title>CCDICT - Chinese Dictionary Search</title>
+<description>Enter (or copy&amp;paste) some chinese characters and push the button.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/js/data-scheme/base64-e.html">
+<dc:date>2006-03-05T08:56:00+09:00</dc:date>
+<dc:subject>JavaScript</dc:subject>
+<link>http://www.kawa.net/works/js/data-scheme/base64-e.html</link>
+<title>[JavaScript] data: scheme URI generator / base64-encoded image file</title>
+<description>The data: scheme can contain binary data such as image.
+Firefox and Opera supports the data: scheme, but IE doesn't yet.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/greasemonkey/myscripts-e.html">
+<dc:date>2006-02-13T21:14:00+09:00</dc:date>
+<dc:subject>Greasemonkey</dc:subject>
+<link>http://www.kawa.net/works/greasemonkey/myscripts-e.html</link>
+<title>[Greasemonkey] User Scripts by kawa.net</title>
+<description>Here are my User Scripts
+for Greasemonkey.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html">
+<dc:date>2006-02-09T01:05:00+09:00</dc:date>
+<dc:subject>ajax</dc:subject>
+<link>http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html</link>
+<title>[ajax] Content-Type: availablity on XMLHttpRequest</title>
+<description>Some of content-types are only available on many browsers' XMLHttpRequest.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/ajax/rss/rss-box-e.html">
+<dc:date>2006-02-09T01:04:00+09:00</dc:date>
+<dc:subject>ajax</dc:subject>
+<link>http://www.kawa.net/works/ajax/rss/rss-box-e.html</link>
+<title>[ajax] RSS BOX in your website</title>
+<description>How to put a RSS BOX in your website.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/js/passwd/gen-passwds-e.html">
+<dc:date>2005-10-27T01:10:00+09:00</dc:date>
+<link>http://www.kawa.net/works/js/passwd/gen-passwds-e.html</link>
+<title>JavaScript: Generating Random Passwords</title>
+</item>
+<item rdf:about="http://www.kawa.net/works/perl/catch/KCatch.pm.html">
+<dc:date>2004-11-24T00:47:00+09:00</dc:date>
+<link>http://www.kawa.net/works/perl/catch/KCatch.pm.html</link>
+<title>KCatch.pm - Catch warn and die to avoid &quot;Internal Server Error&quot;</title>
+<description>NAME</description>
+</item>
+</rdf:RDF>

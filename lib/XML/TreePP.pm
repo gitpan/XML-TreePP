@@ -246,18 +246,18 @@ terms as Perl itself.
 
 =cut
 
-    package XML::TreePP;
-    use strict;
-    use Carp;
-    use Symbol;
+package XML::TreePP;
+use strict;
+use Carp;
+use Symbol;
 
-    use vars qw( $VERSION );
-    $VERSION = '0.10';
+use vars qw( $VERSION );
+$VERSION = '0.14';
 
-    my $XML_ENCODING      = 'UTF-8';
-    my $INTERNAL_ENCODING = 'UTF-8';
-    my $USER_AGENT        = 'XML-TreePP/'.$VERSION." ";
-    my $ATTR_PREFIX       = '-';
+my $XML_ENCODING      = 'UTF-8';
+my $INTERNAL_ENCODING = 'UTF-8';
+my $USER_AGENT        = 'XML-TreePP/'.$VERSION." ";
+my $ATTR_PREFIX       = '-';
 
 sub new {
     my $package = shift;
@@ -480,8 +480,8 @@ sub xml_to_flat {
             Carp::carp "Invalid Tag: <$match>";
         }
         if ( $follow =~ /\S/ ) {                # text node
-            $follow =~ s/^([ \t]*[\r\n])+//s;
-            $follow =~ s/([\r\n][ \t]*)+$//s;
+#           $follow =~ s/^([ \t]*[\r\n])+//s;
+#           $follow =~ s/([\r\n][ \t]*)+$//s;
             my $val = &xml_unescape($follow);
             push( @$flat, $val );
         }
@@ -603,12 +603,7 @@ sub hash_to_xml {
     my $text = join( "", @$out );
     if ( defined $name ) {
         if ( scalar @$out ) {
-            if ( $text =~ /\n/s ) {
-                $text = "<$name$jattr>\n$text</$name>\n";
-            }
-            else {
-                $text = "<$name$jattr>$text</$name>\n";
-            }
+            $text = "<$name$jattr>$text</$name>\n";
         }
         else {
             $text = "<$name$jattr />\n";
@@ -688,39 +683,43 @@ sub read_raw_xml {
 
 sub xml_decl_encoding {
     my $textref = shift;
-    my $line    = ( $$textref =~ /^([^\r\n]*)/s )[0];
     my $args    = ( $$textref =~ /^\s*<\?xml(\s+\S.*)\?>/s )[0] or return;
     my $getcode = ( $args =~ /\s+encoding="(.*?)"/ )[0] or return;
     $getcode;
 }
 
 sub encode_from_to {
-    my ( $str, $from, $to ) = @_;
-    return     if ( $from     eq "" );
-    return     if ( $to       eq "" );
+    my $txtref = shift or return;
+    my $from   = shift or return;
+    my $to     = shift or return;
     return $to if ( uc($from) eq uc($to) );
-    local $@;
-    eval { require Encode; } unless defined $Encode::VERSION;
+    &load_encode() if ( $] > 5.008 );
+
+    unless ( defined $Encode::EUCJPMS::VERSION ) {
+         $from = "EUC-JP" if ( $from =~ /\beuc-?jp-?(win|ms)$/i );
+         $to   = "EUC-JP" if ( $to   =~ /\beuc-?jp-?(win|ms)$/i );
+    }
+
     if ( defined $Encode::VERSION ) {
-        Encode::from_to( $$str, $from, $to, Encode::FB_XMLCREF() );
+#      Encode::from_to( $$txtref, $from, $to, Encode::FB_XMLCREF() );
+       Encode::from_to( $$txtref, $from, $to );
     }
     elsif ( (  uc($from) eq "ISO-8859-1"
             || uc($from) eq "US-ASCII"
             || uc($from) eq "LATIN-1" ) && uc($to) eq "UTF-8" ) {
-        &latin1_to_utf8($str);
+        &latin1_to_utf8($txtref);
     }
     else {
         my $jfrom = &get_jcode_name($from);
         my $jto   = &get_jcode_name($to);
         return $to if ( uc($jfrom) eq uc($jto) );
         if ( $jfrom && $jto ) {
-            eval { require Jcode; } unless defined $Jcode::VERSION;
+            &load_jcode();
             if ( defined $Jcode::VERSION ) {
-                Jcode::convert( $str, $jto, $jfrom );
+                Jcode::convert( $txtref, $jto, $jfrom );
             }
             else {
-                Carp::croak
-                  "Encode.pm or Jcode.pm is required: $from to $to";
+                Carp::croak "Jcode.pm is required: $from to $to";
             }
         }
         else {
@@ -728,6 +727,18 @@ sub encode_from_to {
         }
     }
     $to;
+}
+
+sub load_jcode {
+    return if defined $Jcode::VERSION;
+    local $@;
+    eval { require Jcode; };
+}
+
+sub load_encode {
+    return if defined $Encode::VERSION;
+    local $@;
+    eval { require Encode; };
 }
 
 sub latin1_to_utf8 {
@@ -745,7 +756,7 @@ sub get_jcode_name {
     if ( $src =~ /^utf-?8$/i ) {
         $dst = "utf8";
     }
-    elsif ( $src =~ /^euc.*jp$/i ) {
+    elsif ( $src =~ /^euc.*jp(-?(win|ms))?$/i ) {
         $dst = "euc";
     }
     elsif ( $src =~ /^(shift.*jis|cp932|windows-31j)$/i ) {
@@ -759,20 +770,56 @@ sub get_jcode_name {
 
 sub xml_escape {
     my $str = shift;
-    $str =~ s/&/&amp;/g;
+    # except for TAB(\x09),CR(\x0D),LF(\x0A)
+    $str =~ s{
+        ([\x00-\x08\x0B\x0C\x0E-\x1F\x7F])
+    }{
+        sprintf( '&#%d;', ord($1) );
+    }gex;
+    $str =~ s/&(?!#)/&amp;/g;
     $str =~ s/</&lt;/g;
     $str =~ s/>/&gt;/g;
+    $str =~ s/'/&apos;/g;
     $str =~ s/"/&quot;/g;
     $str;
 }
 
 sub xml_unescape {
     my $str = shift;
-    $str =~ s/&quot;/"/g;
-    $str =~ s/&lt;/</g;
-    $str =~ s/&gt;/>/g;
-    $str =~ s/&amp;/&/g;
+    my $map = {qw( quot " lt < gt > apos ' amp & )};
+    $str =~ s{
+        (&(?:\#(\d+)|\#x([0-9a-fA-F]+)|(quot|lt|gt|apos|amp));)
+    }{
+        $4 ? $map->{$4} : &char_deref($1,$2,$3);
+    }gex;
     $str;
+}
+
+sub char_deref {
+    my( $str, $dec, $hex ) = @_;
+    if ( defined $dec ) {
+        return &code_to_utf8( $dec ) if ( $dec < 256 );
+    }
+    elsif ( defined $hex ) {
+        my $num = hex($hex);
+        return &code_to_utf8( $num ) if ( $num < 256 );
+    }
+    return $str;
+}
+
+sub code_to_utf8 {
+    my $code = shift;
+    if ( $code < 128 ) {
+        return pack( C => $code );
+    }
+    elsif ( $code < 256 ) {
+        return pack( C2 => 0xC0|($code>>6), 0x80|($code&0x3F));
+    }
+    elsif ( $code < 65536 ) {
+        return pack( C3 => 0xC0|($code>>12), 0x80|(($code>>6)&0x3F), 0x80|($code&0x3F));
+    }
+    return shift if scalar @_;      # default value
+    sprintf( '&#x%04X;', $code );
 }
 
 1;
