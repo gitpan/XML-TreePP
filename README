@@ -90,7 +90,7 @@ EXAMPLES
             }
         };
 
-    Explain:
+    Details:
 
         print $tree->{family}->{father};        # the father's given name.
 

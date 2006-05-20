@@ -1,16 +1,17 @@
 # ----------------------------------------------------------------
     use strict;
-    use Test::More tests => 5;
+    use Test::More;
 # ----------------------------------------------------------------
 SKIP: {
     local $@;
     eval { require LWP::UserAgent; } unless defined $LWP::UserAgent::VERSION;
     if ( ! defined $LWP::UserAgent::VERSION ) {
-        skip( "LWP::UserAgent is not loaded.", 5 );
+        plan skip_all =>  'LWP::UserAgent is not loaded.';
     }
     if ( ! defined $ENV{MORE_TESTS} ) {
-        skip( "\$MORE_TESTS is not defined.", 5 );
+        plan skip_all =>  'define $MORE_TESTS to test LWP::UserAgent.';
     }
+    plan tests => 5;
     use_ok('XML::TreePP');
     &parsehttp_get();
     &parsehttp_post();

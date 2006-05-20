@@ -96,7 +96,7 @@ Result dumped:
         }
     };
 
-Explain:
+Details:
 
     print $tree->{family}->{father};        # the father's given name.
 
@@ -252,7 +252,7 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.14';
+$VERSION = '0.15';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
@@ -480,8 +480,6 @@ sub xml_to_flat {
             Carp::carp "Invalid Tag: <$match>";
         }
         if ( $follow =~ /\S/ ) {                # text node
-#           $follow =~ s/^([ \t]*[\r\n])+//s;
-#           $follow =~ s/([\r\n][ \t]*)+$//s;
             my $val = &xml_unescape($follow);
             push( @$flat, $val );
         }
@@ -776,7 +774,7 @@ sub xml_escape {
     }{
         sprintf( '&#%d;', ord($1) );
     }gex;
-    $str =~ s/&(?!#)/&amp;/g;
+    $str =~ s/&(?!#(\d+;|x[\dA-Fa-f]+;))/&amp;/g;
     $str =~ s/</&lt;/g;
     $str =~ s/>/&gt;/g;
     $str =~ s/'/&apos;/g;

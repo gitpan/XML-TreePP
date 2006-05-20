@@ -1,16 +1,17 @@
 # ----------------------------------------------------------------
     use strict;
-    use Test::More tests => 5;
+    use Test::More;
 # ----------------------------------------------------------------
 SKIP: {
     local $@;
     eval { require HTTP::Lite; } unless defined $HTTP::Lite::VERSION;
     if ( ! defined $HTTP::Lite::VERSION ) {
-        skip( "HTTP::Lite is not loaded.", 5 );
+        plan skip_all => 'HTTP::Lite is not loaded.';
     }
     if ( ! defined $ENV{MORE_TESTS} ) {
-        skip( "\$MORE_TESTS is not defined.", 5 );
+        plan skip_all => 'define $MORE_TESTS to test HTTP::Lite.';
     }
+    plan tests => 5;
     use_ok('XML::TreePP');
     &parsehttp_get();
     &parsehttp_post();
