@@ -1,7 +1,8 @@
 # XML::TreePP Changes
 
-2006/05/21 (0.15)
+2006/05/21 (0.16)
     * bug fix: character references support (since 0.14)
+    * Encode::FB_XMLCREF support (again)
     * new test: 18_escape_amp.t
 
 2006/05/15 (0.14)

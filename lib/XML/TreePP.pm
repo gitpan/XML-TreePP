@@ -252,7 +252,7 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.15';
+$VERSION = '0.16';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
@@ -694,13 +694,13 @@ sub encode_from_to {
     &load_encode() if ( $] > 5.008 );
 
     unless ( defined $Encode::EUCJPMS::VERSION ) {
-         $from = "EUC-JP" if ( $from =~ /\beuc-?jp-?(win|ms)$/i );
-         $to   = "EUC-JP" if ( $to   =~ /\beuc-?jp-?(win|ms)$/i );
+        $from = "EUC-JP" if ( $from =~ /\beuc-?jp-?(win|ms)$/i );
+        $to   = "EUC-JP" if ( $to   =~ /\beuc-?jp-?(win|ms)$/i );
     }
 
     if ( defined $Encode::VERSION ) {
-#      Encode::from_to( $$txtref, $from, $to, Encode::FB_XMLCREF() );
-       Encode::from_to( $$txtref, $from, $to );
+        my $check = ( $Encode::VERSION < 2.13 ) ? 0x400 : Encode::FB_XMLCREF();
+        Encode::from_to( $$txtref, $from, $to, $check );
     }
     elsif ( (  uc($from) eq "ISO-8859-1"
             || uc($from) eq "US-ASCII"
