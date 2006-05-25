@@ -1,5 +1,9 @@
 # XML::TreePP Changes
 
+2006/05/25 (0.17)
+    * bug fix: multiple CDATA or text nodes in a element (thanks to junichi)
+    * new test: 19_multi_text.t
+
 2006/05/21 (0.16)
     * bug fix: character references support (since 0.14)
     * Encode::FB_XMLCREF support (again)

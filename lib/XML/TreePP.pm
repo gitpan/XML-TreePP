@@ -252,7 +252,7 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.16';
+$VERSION = '0.17';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
@@ -496,8 +496,6 @@ sub flat_to_tree {
 
     while ( scalar @$source ) {
         my $node = shift @$source;
-
-        # print Data::Dumper::Dumper( $node );
         if ( !ref $node || UNIVERSAL::isa( $node, "SCALAR" ) ) {
             push( @$text, $node );              # cdata or text node
             next;
@@ -511,7 +509,7 @@ sub flat_to_tree {
         if ( $node->{startTag} ) {              # recursive call
             my $child = $self->flat_to_tree( $source, $name );
             if ( ref $elem && scalar keys %$elem ) {
-                if ( ref $child ) {
+                if ( UNIVERSAL::isa( $child, "HASH" ) ) {
                     # some attributes and some child nodes
                     foreach my $key ( keys %$child ) {
                         $elem->{$key} = $child->{$key};
@@ -527,7 +525,6 @@ sub flat_to_tree {
                 $elem = $child;
             }
         }
-
         # next unless defined $elem;
         $tree->{$name} ||= [];
         push( @{ $tree->{$name} }, $elem );
@@ -538,7 +535,16 @@ sub flat_to_tree {
         $tree->{$key} = shift @{ $tree->{$key} };
     }
     if ( scalar @$text ) {
-        $text = shift @$text if ( scalar @$text == 1 );
+		if ( scalar @$text == 1 ) {
+	        $text = shift @$text;
+        }
+		elsif ( ! scalar grep {ref $_} @$text ) {
+            $text = join( "", @$text );
+		}
+		else {
+            my $join = join( "", map {ref $_ ? $$_ : $_} @$text );
+			$text = \$join;
+		}
         if ( scalar keys %$tree ) {
             # some child nodes and also text node
             $tree->{"#text"} = $text;

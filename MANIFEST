@@ -38,3 +38,4 @@ t/15_encoding_ja.t
 t/16_encoding_ko.t
 t/17_output_encoding.t
 t/18_escape_amp.t
+t/19_multi_text.t
