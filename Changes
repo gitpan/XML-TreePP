@@ -1,5 +1,12 @@
 # XML::TreePP Changes
 
+2006/08/13 (0.18)
+    * parsehttp()'s 4th argument: an HTTP request header as a hash ref.
+    * new option: ignore_error  (thanks to Riyousha)
+    * new option: xml_decl (thanks to Stephen and Jon)
+    * new tests: 20_http-lite-cached.t 21_http-lwp-cached.t
+      22_http-lite-headers.t 23_http-lwp-headers.t 24_ignore_error.t
+
 2006/05/25 (0.17)
     * bug fix: multiple CDATA or text nodes in a element (thanks to junichi)
     * new test: 19_multi_text.t

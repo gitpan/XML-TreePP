@@ -105,7 +105,7 @@ EXAMPLES
 
   Text node and attributes:
     If a element has both of a text node and attributes or both of a text
-    node and other child nodes, value of a text node is moved to "#text"
+    node and other child nodes, value of a text node is moved to '#text'
     like child nodes.
 
         use XML::TreePP;
@@ -125,7 +125,7 @@ EXAMPLES
             }
         };
 
-    The special node name of "#text" is used because this elements has
+    The special node name of '#text' is used because this elements has
     attribute(s) in addition to the text node.
 
 CONSTRUCTOR AND OPTIONS
@@ -177,6 +177,14 @@ CONSTRUCTOR AND OPTIONS
     inserted before each attribute names. The default character is '-'. Or
     set '@' to access attribute values like E4X, ECMAScript for XML.
 
+  $tpp->set( ignore_error => 1 );
+    This module calls Carp::croak function on an error per default. This
+    option makes all errors ignored and just return.
+
+  $tpp->set( xml_decl => '' );
+    This module generates an XML declaration on writing an XML code per
+    default. This option forces to change or leave it.
+
   $tpp->get( "option_name" );
     This method returns a current option value for "option_name".
 
@@ -189,12 +197,12 @@ METHODS
     This method reads a XML file and returns a hash tree converted. The
     first argument is a filename.
 
-  $tree = $tpp->parsehttp( $method, $url, $body );
+  $tree = $tpp->parsehttp( $method, $url, $body, $head );
     This method receives a XML file from a remote server via HTTP and
     returns a hash tree converted. $method is a method of HTTP connection:
-    GET/POST/PUT/DELETE $url is URI of a XML file. $body is request body
-    when you use POST method. LWP::UserAgent module or HTTP::Lite module is
-    required to fetch a file.
+    GET/POST/PUT/DELETE $url is an URI of a XML file. $body is a request
+    body when you use POST method. $head is a request headers as a hash ref.
+    LWP::UserAgent module or HTTP::Lite module is required to fetch a file.
 
   $source = $tpp->write( $tree, $encode );
     This method parses a hash tree and returns a XML source generated. $tree

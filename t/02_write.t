@@ -1,6 +1,6 @@
 # ----------------------------------------------------------------
     use strict;
-    use Test::More tests => 4;
+    use Test::More tests => 6;
     BEGIN { use_ok('XML::TreePP') };
 # ----------------------------------------------------------------
     my $tpp = XML::TreePP->new();
@@ -17,6 +17,17 @@
 
     my $back = $tpp->parse( $xml );
     is_deeply( $tree, $back, "write and parse" );
+
+#   2006/08/13 added
+
+    $tpp->set( xml_decl => '' );
+    my $nodecl = $tpp->write( $back );
+    unlike( $nodecl, qr{^<\?xml}, "xml_decl is null" );
+
+    my $decl = '<?xml version="1.0" ?>';
+    $tpp->set( xml_decl => $decl );
+    my $setdecl = $tpp->write( $back );
+    like( $setdecl, qr{^\Q$decl\E}, "xml_decl is set" );
 # ----------------------------------------------------------------
 ;1;
 # ----------------------------------------------------------------

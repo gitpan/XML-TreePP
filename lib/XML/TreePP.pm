@@ -113,7 +113,7 @@ The array is used because the family has two boys.
 
 If a element has both of a text node and attributes
 or both of a text node and other child nodes,
-value of a text node is moved to "#text" like child nodes.
+value of a text node is moved to '#text' like child nodes.
 
     use XML::TreePP;
     use Data::Dumper;
@@ -132,7 +132,7 @@ The result dumped is following:
         }
     };
 
-The special node name of "#text" is used because this elements
+The special node name of '#text' is used because this elements
 has attribute(s) in addition to the text node.
 
 =head1 CONSTRUCTOR AND OPTIONS
@@ -198,6 +198,16 @@ is inserted before each attribute names.
 The default character is '-'.
 Or set '@' to access attribute values like E4X, ECMAScript for XML.
 
+=head2 $tpp->set( ignore_error => 1 );
+
+This module calls Carp::croak function on an error per default.
+This option makes all errors ignored and just return.
+
+=head2 $tpp->set( xml_decl => '' );
+
+This module generates an XML declaration on writing an XML code per default.
+This option forces to change or leave it.
+
 =head2 $tpp->get( "option_name" );
 
 This method returns a current option value for "option_name".
@@ -214,13 +224,14 @@ The first argument is a scalar or a reference to a scalar.
 This method reads a XML file and returns a hash tree converted.
 The first argument is a filename.
 
-=head2 $tree = $tpp->parsehttp( $method, $url, $body );
+=head2 $tree = $tpp->parsehttp( $method, $url, $body, $head );
 
 This method receives a XML file from a remote server via HTTP and
 returns a hash tree converted.
 $method is a method of HTTP connection: GET/POST/PUT/DELETE
-$url is URI of a XML file.
-$body is request body when you use POST method.
+$url is an URI of a XML file.
+$body is a request body when you use POST method.
+$head is a request headers as a hash ref.
 LWP::UserAgent module or HTTP::Lite module is required to fetch a file.
 
 =head2 $source = $tpp->write( $tree, $encode );
@@ -252,11 +263,11 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.17';
+$VERSION = '0.18';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
-my $USER_AGENT        = 'XML-TreePP/'.$VERSION." ";
+my $USER_AGENT        = 'XML-TreePP/'.$VERSION.' ';
 my $ATTR_PREFIX       = '-';
 
 sub new {
@@ -264,6 +275,20 @@ sub new {
     my $self    = {@_};
     bless $self, $package;
     $self;
+}
+
+sub die {
+    my $self = shift;
+    my $mess = shift;
+    return if $self->{ignore_error};
+    Carp::croak $mess;
+}
+
+sub warn {
+    my $self = shift;
+    my $mess = shift;
+    return if $self->{ignore_error};
+    Carp::carp $mess;
 }
 
 sub set {
@@ -287,19 +312,20 @@ sub get {
 sub writefile {
     my $self   = shift;
     my $file   = shift;
-    my $tree   = shift or Carp::croak "Invalid tree";
+    my $tree   = shift or return $self->die( 'Invalid tree' );
     my $encode = shift;
-    Carp::croak "Invalid filename" unless defined $file;
+    return $self->die( 'Invalid filename' ) unless defined $file;
     my $text = $self->write( $tree, $encode );
-    &write_raw_xml( $file, $text );
+    $self->write_raw_xml( $file, $text );
 }
 
 sub write {
     my $self = shift;
-    my $tree = shift or Carp::croak "Invalid tree";
+    my $tree = shift or return $self->die( 'Invalid tree' );
     my $from = $self->{internal_encoding} || $INTERNAL_ENCODING;
     my $to   = shift || $self->{output_encoding} || $XML_ENCODING;
-    my $decl = '<?xml version="1.0" encoding="' . $to . '" ?>';
+    my $decl = $self->{xml_decl};
+    $decl = '<?xml version="1.0" encoding="' . $to . '" ?>' unless defined $decl;
     if ( exists $self->{first_out} ) {
         my $keys = $self->{first_out};
         $keys = [$keys] unless ref $keys;
@@ -312,9 +338,10 @@ sub write {
     }
     my $text = $self->hash_to_xml( undef, $tree );
     if ( $from && $to ) {
-        my $stat = &encode_from_to( \$text, $from, $to );
-        Carp::croak "Unsupported encoding: $to" unless $stat;
+        my $stat = $self->encode_from_to( \$text, $from, $to );
+        return $self->die( "Unsupported encoding: $to" ) unless $stat;
     }
+    return $text if ( $decl eq '' );
     join( "\n", $decl, $text );
 }
 
@@ -324,36 +351,65 @@ sub parsehttp {
     if ( exists $self->{user_agent} ) {
         my $agent = $self->{user_agent};
         $agent .= $USER_AGENT if ( $agent =~ /\s$/s );
-        $self->{__user_agent} = $agent;
+        $self->{__user_agent} = $agent if ( $agent ne '' );
     } else {
         $self->{__user_agent} = $USER_AGENT;
     }
 
-    return $self->parsehttp_lwp(@_)  if defined $LWP::UserAgent::VERSION;
-    return $self->parsehttp_lite(@_) if defined $HTTP::Lite::VERSION;
+    my $http = $self->{__http_module};
+    unless ( $http ) {
+        $http = &find_http_module();
+        $self->{__http_module} = $http;
+    }
+
+    if ( $http eq 'LWP::UserAgent' ) {
+        return $self->parsehttp_lwp(@_);
+    }
+    elsif ( $http eq 'HTTP::Lite' ) {
+        return $self->parsehttp_lite(@_);
+    }
+    else {
+        return $self->die( "LWP::UserAgent or HTTP::Lite is required: $_[1]" );
+    }
+}
+
+sub find_http_module {
+    return 'LWP::UserAgent' if defined $LWP::UserAgent::VERSION;
+    return 'HTTP::Lite'     if defined $HTTP::Lite::VERSION;
 
     local $@;
     eval { require LWP::UserAgent; };
-    return $self->parsehttp_lwp(@_) if defined $LWP::UserAgent::VERSION;
+    return 'LWP::UserAgent' if defined $LWP::UserAgent::VERSION;
 
     eval { require HTTP::Lite; };
-    return $self->parsehttp_lite(@_) if defined $HTTP::Lite::VERSION;
-
-    Carp::croak "LWP::UserAgent or HTTP::Lite is required: $_[1]";
+    return 'HTTP::Lite'     if defined $HTTP::Lite::VERSION;
+    return;
 }
 
 sub parsehttp_lwp {
     my $self   = shift;
-    my $method = shift or Carp::croak "Invalid HTTP method";
-    my $url    = shift or Carp::croak "Invalid URL";
+    my $method = shift or return $self->die( 'Invalid HTTP method' );
+    my $url    = shift or return $self->die( 'Invalid URL' );
     my $body   = shift;
+    my $header = shift;
 
     my $ua = LWP::UserAgent->new();
     $ua->timeout(10);
     $ua->env_proxy();
 
-    $ua->agent( $self->{__user_agent} );
+    $ua->agent( $self->{__user_agent} ) if defined $self->{__user_agent};
     my $req = HTTP::Request->new( $method, $url );
+    my $ct = 0;
+    if ( ref $header ) {
+        foreach my $field ( sort keys %$header ) {
+            my $value = $header->{$field};
+            $req->header( $field => $value );
+            $ct ++ if ( $field =~ /^Content-Type$/i );
+        }
+    }
+    if ( defined $body && ! $ct ) {
+        $req->header( 'Content-Type' => 'application/x-www-form-urlencoded' );
+    }
     $req->content($body) if defined $body;
     my $res = $ua->request($req);
     return unless $res->is_success();
@@ -363,13 +419,24 @@ sub parsehttp_lwp {
 
 sub parsehttp_lite {
     my $self   = shift;
-    my $method = shift or Carp::croak "Invalid HTTP method";
-    my $url    = shift or Carp::croak "Invalid URL";
+    my $method = shift or return $self->die( 'Invalid HTTP method' );
+    my $url    = shift or return $self->die( 'Invalid URL' );
     my $body   = shift;
+    my $header = shift;
 
     my $http = HTTP::Lite->new();
     $http->method($method);
-    $http->add_req_header( "User-Agent", $self->{__user_agent} );
+    my $ua = 0;
+    if ( ref $header ) {
+        foreach my $field ( sort keys %$header ) {
+            my $value = $header->{$field};
+            $http->add_req_header( $field, $value );
+            $ua ++ if ( $field =~ /^User-Agent$/i );
+        }
+    }
+    if ( defined $self->{__user_agent} && ! $ua ) {
+        $http->add_req_header( 'User-Agent', $self->{__user_agent} );
+    }
     $http->{content} = $body if defined $body;
     $http->request($url) or return;
     my $text = $http->body();
@@ -379,22 +446,23 @@ sub parsehttp_lite {
 sub parsefile {
     my $self = shift;
     my $file = shift;
-    Carp::croak "Invalid filename" unless defined $file;
-    my $text = &read_raw_xml($file);
+    return $self->die( 'Invalid filename' ) unless defined $file;
+    my $text = $self->read_raw_xml($file);
     $self->parse( \$text );
 }
 
 sub parse {
     my $self = shift;
     my $textref = ref $_[0] ? $_[0] : \$_[0];
-    Carp::croak "Invalid XML source" if ( ref($textref) ne "SCALAR" );
+    return $self->die( 'Invalid XML source' ) if ( ref($textref) ne 'SCALAR' );
+    return $self->die( 'Null XML source' ) unless defined $$textref;
 
     my $to = $self->{internal_encoding} || $INTERNAL_ENCODING;
     if ($to) {
         my $from = &xml_decl_encoding($textref);
         if ($from) {
-            my $stat = &encode_from_to( $textref, $from, $to );
-            Carp::croak "Unsupported encoding: $from" unless $stat;
+            my $stat = $self->encode_from_to( $textref, $from, $to );
+            return $self->die( "Unsupported encoding: $from" ) unless $stat;
         }
     }
     if ( exists $self->{force_array} ) {
@@ -403,7 +471,7 @@ sub parse {
         $self->{__force_array} = { map { $_ => 1 } @$force };
     }
     my $flat = $self->xml_to_flat($textref);
-    my $tree = $self->flat_to_tree( $flat, "" );
+    my $tree = $self->flat_to_tree( $flat, '' );
     wantarray ? ( $tree, $$textref ) : $tree;
 }
 
@@ -434,7 +502,7 @@ sub xml_to_flat {
           )
           = ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13 );
         if ( defined $ahead && $ahead =~ /\S/ ) {
-            Carp::carp "Invalid string: [$ahead] before <$match>";
+            $self->warn( "Invalid string: [$ahead] before <$match>" );
         }
 
         if ($typeElem) {                        # Element
@@ -477,7 +545,7 @@ sub xml_to_flat {
         elsif ($typePI) {                       # ProcessingInstruction (ignore)
         }
         else {
-            Carp::carp "Invalid Tag: <$match>";
+            $self->warn( "Invalid Tag: <$match>" );
         }
         if ( $follow =~ /\S/ ) {                # text node
             my $val = &xml_unescape($follow);
@@ -503,7 +571,7 @@ sub flat_to_tree {
         my $name = $node->{tagName};
         if ( $node->{endTag} ) {
             last if ( $parent eq $name );
-            Carp::croak "Invalid tag sequence: <$parent></$name>";
+            return $self->die( "Invalid tag sequence: <$parent></$name>" );
         }
         my $elem = $node->{attributes};
         if ( $node->{startTag} ) {              # recursive call
@@ -517,7 +585,7 @@ sub flat_to_tree {
                 }
                 elsif ( defined $child ) {
                     # some attributes and text node
-                    $elem->{"#text"} = $child;
+                    $elem->{'#text'} = $child;
                 }
             }
             else {
@@ -535,19 +603,19 @@ sub flat_to_tree {
         $tree->{$key} = shift @{ $tree->{$key} };
     }
     if ( scalar @$text ) {
-		if ( scalar @$text == 1 ) {
-	        $text = shift @$text;
+        if ( scalar @$text == 1 ) {
+            $text = shift @$text;
         }
-		elsif ( ! scalar grep {ref $_} @$text ) {
-            $text = join( "", @$text );
-		}
-		else {
-            my $join = join( "", map {ref $_ ? $$_ : $_} @$text );
-			$text = \$join;
-		}
+        elsif ( ! scalar grep {ref $_} @$text ) {
+            $text = join( '', @$text );
+        }
+        else {
+            my $join = join( '', map {ref $_ ? $$_ : $_} @$text );
+            $text = \$join;
+        }
         if ( scalar keys %$tree ) {
             # some child nodes and also text node
-            $tree->{"#text"} = $text;
+            $tree->{'#text'} = $text;
         }
         else {
             # only text node without child nodes
@@ -578,11 +646,11 @@ sub hash_to_xml {
             if ( !defined $val ) {
                 push( @$out, "<$key />" );
             }
-            elsif ( UNIVERSAL::isa( $val, "ARRAY" ) ) {
+            elsif ( UNIVERSAL::isa( $val, 'ARRAY' ) ) {
                 my $child = $self->array_to_xml( $key, $val );
                 push( @$out, $child );
             }
-            elsif ( UNIVERSAL::isa( $val, "SCALAR" ) ) {
+            elsif ( UNIVERSAL::isa( $val, 'SCALAR' ) ) {
                 my $child = $self->scalaref_to_cdata( $key, $val );
                 push( @$out, $child );
             }
@@ -598,13 +666,13 @@ sub hash_to_xml {
         foreach my $key ( grep { /^$prefix/ } @$loopkey ) {
             my $name = ( $key =~ /^$prefix(.*)$/s )[0];
             my $val = &xml_escape( $hash->{$key} );
-            push( @$attr, " " . $name . '="' . $val . '"' );
+            push( @$attr, ' ' . $name . '="' . $val . '"' );
         }
     }
-    my $jattr = join( "", @$attr );
+    my $jattr = join( '', @$attr );
 
     # s/^(\s*<)/  $1/mg foreach @$out;              # indent
-    my $text = join( "", @$out );
+    my $text = join( '', @$out );
     if ( defined $name ) {
         if ( scalar @$out ) {
             $text = "<$name$jattr>$text</$name>\n";
@@ -625,11 +693,11 @@ sub array_to_xml {
         if ( !defined $val ) {
             push( @$out, "<$name />\n" );
         }
-        elsif ( UNIVERSAL::isa( $val, "ARRAY" ) ) {
+        elsif ( UNIVERSAL::isa( $val, 'ARRAY' ) ) {
             my $child = $self->array_to_xml( $name, $val );
             push( @$out, $child );
         }
-        elsif ( UNIVERSAL::isa( $val, "SCALAR" ) ) {
+        elsif ( UNIVERSAL::isa( $val, 'SCALAR' ) ) {
             my $child = $self->scalaref_to_cdata( $name, $val );
             push( @$out, $child );
         }
@@ -644,7 +712,7 @@ sub array_to_xml {
     }
 
     # s/^(\s*<)/  $1/mg foreach @$out;              # indent
-    my $text = join( "", @$out );
+    my $text = join( '', @$out );
     $text;
 }
 
@@ -653,7 +721,7 @@ sub scalaref_to_cdata {
     my $name = shift;
     my $ref  = shift;
     my $text = '<![CDATA[' . $$ref . ']]>';
-    $text = "<$name>$text</$name>\n" if ( $name ne "#text" );
+    $text = "<$name>$text</$name>\n" if ( $name ne '#text' );
     $text;
 }
 
@@ -663,22 +731,24 @@ sub scalar_to_xml {
     my $scalar = shift;
     my $copy   = $scalar;
     my $text   = &xml_escape($copy);
-    $text = "<$name>$text</$name>\n" if ( $name ne "#text" );
+    $text = "<$name>$text</$name>\n" if ( $name ne '#text' );
     $text;
 }
 
 sub write_raw_xml {
+    my $self = shift;
     my $file = shift;
     my $fh   = Symbol::gensym();
-    open( $fh, ">$file" ) or Carp::croak "$! - $file";
+    open( $fh, ">$file" ) or return $self->die( "$! - $file" );
     print $fh @_;
     close($fh);
 }
 
 sub read_raw_xml {
+    my $self = shift;
     my $file = shift;
     my $fh   = Symbol::gensym();
-    open( $fh, $file ) or Carp::croak "$! - $file";
+    open( $fh, $file ) or return $self->die( "$! - $file" );
     local $/ = undef;
     my $text = <$fh>;
     close($fh);
@@ -687,12 +757,14 @@ sub read_raw_xml {
 
 sub xml_decl_encoding {
     my $textref = shift;
+    return unless defined $$textref;
     my $args    = ( $$textref =~ /^\s*<\?xml(\s+\S.*)\?>/s )[0] or return;
     my $getcode = ( $args =~ /\s+encoding="(.*?)"/ )[0] or return;
     $getcode;
 }
 
 sub encode_from_to {
+    my $self   = shift;
     my $txtref = shift or return;
     my $from   = shift or return;
     my $to     = shift or return;
@@ -700,17 +772,17 @@ sub encode_from_to {
     &load_encode() if ( $] > 5.008 );
 
     unless ( defined $Encode::EUCJPMS::VERSION ) {
-        $from = "EUC-JP" if ( $from =~ /\beuc-?jp-?(win|ms)$/i );
-        $to   = "EUC-JP" if ( $to   =~ /\beuc-?jp-?(win|ms)$/i );
+        $from = 'EUC-JP' if ( $from =~ /\beuc-?jp-?(win|ms)$/i );
+        $to   = 'EUC-JP' if ( $to   =~ /\beuc-?jp-?(win|ms)$/i );
     }
 
     if ( defined $Encode::VERSION ) {
         my $check = ( $Encode::VERSION < 2.13 ) ? 0x400 : Encode::FB_XMLCREF();
         Encode::from_to( $$txtref, $from, $to, $check );
     }
-    elsif ( (  uc($from) eq "ISO-8859-1"
-            || uc($from) eq "US-ASCII"
-            || uc($from) eq "LATIN-1" ) && uc($to) eq "UTF-8" ) {
+    elsif ( (  uc($from) eq 'ISO-8859-1'
+            || uc($from) eq 'US-ASCII'
+            || uc($from) eq 'LATIN-1' ) && uc($to) eq 'UTF-8' ) {
         &latin1_to_utf8($txtref);
     }
     else {
@@ -723,11 +795,11 @@ sub encode_from_to {
                 Jcode::convert( $txtref, $jto, $jfrom );
             }
             else {
-                Carp::croak "Jcode.pm is required: $from to $to";
+                return $self->die( "Jcode.pm is required: $from to $to" );
             }
         }
         else {
-            Carp::croak "Encode.pm is required: $from to $to";
+            return $self->die( "Encode.pm is required: $from to $to" );
         }
     }
     $to;
@@ -750,7 +822,7 @@ sub latin1_to_utf8 {
     $$strref =~ s{
         ([\x80-\xFF])
     }{
-        pack( "C2" => 0xC0|(ord($1)>>6),0x80|(ord($1)&0x3F) )
+        pack( 'C2' => 0xC0|(ord($1)>>6),0x80|(ord($1)&0x3F) )
     }exg;
 }
 
@@ -758,16 +830,16 @@ sub get_jcode_name {
     my $src = shift;
     my $dst;
     if ( $src =~ /^utf-?8$/i ) {
-        $dst = "utf8";
+        $dst = 'utf8';
     }
     elsif ( $src =~ /^euc.*jp(-?(win|ms))?$/i ) {
-        $dst = "euc";
+        $dst = 'euc';
     }
     elsif ( $src =~ /^(shift.*jis|cp932|windows-31j)$/i ) {
-        $dst = "sjis";
+        $dst = 'sjis';
     }
     elsif ( $src =~ /^iso-2022-jp/ ) {
-        $dst = "jis";
+        $dst = 'jis';
     }
     $dst;
 }

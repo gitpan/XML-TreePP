@@ -19,6 +19,8 @@ SKIP: {
 # ----------------------------------------------------------------
 sub parsehttp_get {
     my $tpp = XML::TreePP->new();
+    my $name = ( $0 =~ m#([^/:\\]+)$# )[0];
+    $tpp->set( user_agent => "$name " );
     my $url = "http://use.perl.org/index.rss";
     my $tree = $tpp->parsehttp( GET => $url );
     ok( ref $tree, $url );
@@ -27,6 +29,8 @@ sub parsehttp_get {
 # ----------------------------------------------------------------
 sub parsehttp_post {
     my $tpp = XML::TreePP->new( force_array => [qw( item )] );
+    my $name = ( $0 =~ m#([^/:\\]+)$# )[0];
+    $tpp->set( user_agent => "$name " );
     my $url = "http://search.hatena.ne.jp/keyword";
     my $query = "ajax";
     my $body = "mode=rss2&word=".$query;

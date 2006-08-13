@@ -39,3 +39,8 @@ t/16_encoding_ko.t
 t/17_output_encoding.t
 t/18_escape_amp.t
 t/19_multi_text.t
+t/20_http-lite-cached.t
+t/21_http-lwp-cached.t
+t/22_http-lite-headers.t
+t/23_http-lwp-headers.t
+t/24_ignore_error.t
