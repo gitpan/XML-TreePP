@@ -176,6 +176,11 @@ CONSTRUCTOR AND OPTIONS
     This option allows you to specify a prefix character(s) which is
     inserted before each attribute names. The default character is '-'. Or
     set '@' to access attribute values like E4X, ECMAScript for XML.
+    Zero-length prefix '' is also available now.
+
+  $tpp->set( text_node_key => '#text' );
+    This option allows you to specify a hash key for text nodes. The default
+    key is '#text'.
 
   $tpp->set( ignore_error => 1 );
     This module calls Carp::croak function on an error per default. This

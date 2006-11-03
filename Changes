@@ -1,5 +1,9 @@
 # XML::TreePP Changes
 
+2006/11/03 (0.19)
+    * new option: text_node_key (thanks to Niek)
+    * attr_prefix now supports zero-length prefix.
+
 2006/08/13 (0.18)
     * parsehttp()'s 4th argument: an HTTP request header as a hash ref.
     * new option: ignore_error  (thanks to Riyousha)

@@ -44,3 +44,5 @@ t/21_http-lwp-cached.t
 t/22_http-lite-headers.t
 t/23_http-lwp-headers.t
 t/24_ignore_error.t
+t/25_text_node_key.t
+t/26_attr_prefix_null.t

@@ -113,7 +113,7 @@ The array is used because the family has two boys.
 
 If a element has both of a text node and attributes
 or both of a text node and other child nodes,
-value of a text node is moved to '#text' like child nodes.
+value of a text node is moved to C<'#text'> like child nodes.
 
     use XML::TreePP;
     use Data::Dumper;
@@ -132,7 +132,7 @@ The result dumped is following:
         }
     };
 
-The special node name of '#text' is used because this elements
+The special node name of C<'#text'> is used because this elements
 has attribute(s) in addition to the text node.
 
 =head1 CONSTRUCTOR AND OPTIONS
@@ -188,15 +188,21 @@ default, cdata section is converted into a scalar.
 
 This option allows you to specify a HTTP_USER_AGENT string which
 is used by parsehttp() method.
-The default string is "XML-TreePP/#.##", where "#.##" is
+The default string is C<"XML-TreePP/#.##">, where C<"#.##"> is
 substituted with the version number of this library.
 
 =head2 $tpp->set( attr_prefix => '@' );
 
 This option allows you to specify a prefix character(s) which
 is inserted before each attribute names.
-The default character is '-'.
-Or set '@' to access attribute values like E4X, ECMAScript for XML.
+The default character is C<'-'>.
+Or set C<'@'> to access attribute values like E4X, ECMAScript for XML.
+Zero-length prefix C<''> is also available now.
+
+=head2 $tpp->set( text_node_key => '#text' );
+
+This option allows you to specify a hash key for text nodes.
+The default key is C<'#text'>.
 
 =head2 $tpp->set( ignore_error => 1 );
 
@@ -263,12 +269,13 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.18';
+$VERSION = '0.19';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
 my $USER_AGENT        = 'XML-TreePP/'.$VERSION.' ';
 my $ATTR_PREFIX       = '-';
+my $TEXT_NODE_KEY     = '#text';
 
 sub new {
     my $package = shift;
@@ -326,16 +333,30 @@ sub write {
     my $to   = shift || $self->{output_encoding} || $XML_ENCODING;
     my $decl = $self->{xml_decl};
     $decl = '<?xml version="1.0" encoding="' . $to . '" ?>' unless defined $decl;
+
+    local $self->{__first_out};
     if ( exists $self->{first_out} ) {
         my $keys = $self->{first_out};
         $keys = [$keys] unless ref $keys;
         $self->{__first_out} = { map { $_ => 1 } @$keys };
     }
+
+    local $self->{__last_out};
     if ( exists $self->{last_out} ) {
         my $keys = $self->{last_out};
         $keys = [$keys] unless ref $keys;
         $self->{__last_out} = { map { $_ => 1 } @$keys };
     }
+
+    my $tnk = $self->{text_node_key};
+    local $self->{text_node_key} = $TEXT_NODE_KEY;
+    $self->{text_node_key} = $tnk if defined  $tnk;
+
+    my $apre = $self->{attr_prefix};
+    $apre = $ATTR_PREFIX unless defined  $apre;
+    local $self->{__attr_prefix_len} = length($apre);
+    local $self->{__attr_prefix_rex} = defined $apre ? qr/^\Q$apre\E/s : undef;
+
     my $text = $self->hash_to_xml( undef, $tree );
     if ( $from && $to ) {
         my $stat = $self->encode_from_to( \$text, $from, $to );
@@ -348,6 +369,7 @@ sub write {
 sub parsehttp {
     my $self = shift;
 
+    local $self->{__user_agent};
     if ( exists $self->{user_agent} ) {
         my $agent = $self->{user_agent};
         $agent .= $USER_AGENT if ( $agent =~ /\s$/s );
@@ -361,7 +383,6 @@ sub parsehttp {
         $http = &find_http_module();
         $self->{__http_module} = $http;
     }
-
     if ( $http eq 'LWP::UserAgent' ) {
         return $self->parsehttp_lwp(@_);
     }
@@ -465,11 +486,22 @@ sub parse {
             return $self->die( "Unsupported encoding: $from" ) unless $stat;
         }
     }
+
+    local $self->{__force_array};
     if ( exists $self->{force_array} ) {
         my $force = $self->{force_array};
         $force = [$force] unless ref $force;
         $self->{__force_array} = { map { $_ => 1 } @$force };
     }
+
+    my $tnk = $self->{text_node_key};
+    local $self->{text_node_key} = $TEXT_NODE_KEY;
+    $self->{text_node_key} = $tnk if defined  $tnk;
+
+    my $apre = $self->{attr_prefix};
+    local $self->{attr_prefix} = $ATTR_PREFIX;
+    $self->{attr_prefix} = $apre if defined  $apre;
+
     my $flat = $self->xml_to_flat($textref);
     my $tree = $self->flat_to_tree( $flat, '' );
     wantarray ? ( $tree, $$textref ) : $tree;
@@ -479,7 +511,7 @@ sub xml_to_flat {
     my $self    = shift;
     my $textref = shift;    # reference
     my $flat    = [];
-    my $prefix = $self->{attr_prefix} || $ATTR_PREFIX;
+    my $prefix = $self->{attr_prefix};
     while ( $$textref =~ m{
         ([^<]*) <
         ((
@@ -585,7 +617,7 @@ sub flat_to_tree {
                 }
                 elsif ( defined $child ) {
                     # some attributes and text node
-                    $elem->{'#text'} = $child;
+                    $elem->{$self->{text_node_key}} = $child;
                 }
             }
             else {
@@ -615,7 +647,7 @@ sub flat_to_tree {
         }
         if ( scalar keys %$tree ) {
             # some child nodes and also text node
-            $tree->{'#text'} = $text;
+            $tree->{$self->{text_node_key}} = $text;
         }
         else {
             # only text node without child nodes
@@ -636,12 +668,12 @@ sub hash_to_xml {
     my $lastkeys = [ grep { $self->{__last_out}->{$_} } @$allkeys ] if ref $self->{__last_out};
     $allkeys = [ grep { !$self->{__first_out}->{$_} } @$allkeys ] if ref $self->{__first_out};
     $allkeys = [ grep { !$self->{__last_out}->{$_} } @$allkeys ] if ref $self->{__last_out};
-    my $prefix = $self->{attr_prefix} || $ATTR_PREFIX;
-    $prefix = "\Q$prefix\E";
+    my $prelen = $self->{__attr_prefix_len};
+    my $pregex = $self->{__attr_prefix_rex};
 
     foreach my $loopkey ( $firstkeys, $allkeys, $lastkeys ) {
         next unless ref $loopkey;
-        foreach my $key ( grep { !/^$prefix/ } @$loopkey ) {
+        foreach my $key ( grep { ! $prelen || $_ !~ $pregex } @$loopkey ) {
             my $val = $hash->{$key};
             if ( !defined $val ) {
                 push( @$out, "<$key />" );
@@ -663,8 +695,9 @@ sub hash_to_xml {
                 push( @$out, $child );
             }
         }
-        foreach my $key ( grep { /^$prefix/ } @$loopkey ) {
-            my $name = ( $key =~ /^$prefix(.*)$/s )[0];
+    
+        foreach my $key ( grep { $prelen && $_ =~ $pregex } @$loopkey ) {
+            my $name = substr( $key, $prelen );
             my $val = &xml_escape( $hash->{$key} );
             push( @$attr, ' ' . $name . '="' . $val . '"' );
         }
@@ -721,7 +754,7 @@ sub scalaref_to_cdata {
     my $name = shift;
     my $ref  = shift;
     my $text = '<![CDATA[' . $$ref . ']]>';
-    $text = "<$name>$text</$name>\n" if ( $name ne '#text' );
+    $text = "<$name>$text</$name>\n" if ( $name ne $self->{text_node_key} );
     $text;
 }
 
@@ -731,7 +764,7 @@ sub scalar_to_xml {
     my $scalar = shift;
     my $copy   = $scalar;
     my $text   = &xml_escape($copy);
-    $text = "<$name>$text</$name>\n" if ( $name ne '#text' );
+    $text = "<$name>$text</$name>\n" if ( $name ne $self->{text_node_key} );
     $text;
 }
 

@@ -1,6 +1,6 @@
 # ----------------------------------------------------------------
     use strict;
-    use Test::More tests => 11;
+    use Test::More tests => 15;
     BEGIN { use_ok('XML::TreePP') };
 # ----------------------------------------------------------------
     my $source = '<root><foo bar="hoge" /></root>';
@@ -13,15 +13,16 @@
     my $test = $source;
     $test =~ s/\s+//sg;
 
-    foreach my $prefix ( '-', '@', '__', '?}{][)(' ) {
+    foreach my $prefix ( '-', '@', '__', '?}{][)(', '$*@^%+&', '0' ) {
+        my $vprefix = defined $prefix ? ( length($prefix) ? $prefix : '""' ) : 'undef';
         $tpp->set( attr_prefix => $prefix );
         my $tree = $tpp->parse( $source );
-        is( $tree->{root}->{foo}->{$prefix.'bar'}, 'hoge', "parse: $prefix" );
+        is( $tree->{root}->{foo}->{$prefix.'bar'}, 'hoge', "parse: $vprefix" );
 
         my $back = $tpp->write( $tree );
         $back =~ s/\s+//sg;
         $back =~ s/<\?.*?\?>//s;
-        is( $test, $back, "write: $prefix" );
+        is( $test, $back, "write: $vprefix" );
     }
 
     $tpp->set( "attr_prefix" );               # remove attr_prefix
