@@ -214,6 +214,21 @@ This option makes all errors ignored and just return.
 This module generates an XML declaration on writing an XML code per default.
 This option forces to change or leave it.
 
+=head2 $tpp->set( http_lite => $http );
+
+This option forces pasrsehttp() method to use L<HTTP::Lite> module 
+with its instance created like: C<$http = HTTP::Lite-E<gt>new();>
+
+=head2 $tpp->set( lwp_useragent => $ua );
+
+This option forces pasrsehttp() method to use L<LWP::UserAgent> module 
+with its instance created like: C<$ua = LWP::UserAgent-E<gt>new();>
+
+=head2 $tpp->set( use_ixhash => 1 );
+
+This option keeps the order for every elements appeared in XML.
+L<Tie::IxHash> module is required.
+
 =head2 $tpp->get( "option_name" );
 
 This method returns a current option value for "option_name".
@@ -238,7 +253,7 @@ $method is a method of HTTP connection: GET/POST/PUT/DELETE
 $url is an URI of a XML file.
 $body is a request body when you use POST method.
 $head is a request headers as a hash ref.
-LWP::UserAgent module or HTTP::Lite module is required to fetch a file.
+L<LWP::UserAgent> module or L<HTTP::Lite> module is required to fetch a file.
 
 =head2 $source = $tpp->write( $tree, $encode );
 
@@ -257,9 +272,9 @@ Yusuke Kawasaki, http://www.kawa.net/
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2006 Yusuke Kawasaki.  All rights reserved.  This program
-is free software; you can redistribute it and/or modify it under the same
-terms as Perl itself.
+Copyright (c) 2006-2007 Yusuke Kawasaki. All rights reserved.
+This program is free software; you can redistribute it and/or 
+modify it under the same terms as Perl itself.
 
 =cut
 
@@ -269,7 +284,7 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.19';
+$VERSION = '0.20';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
@@ -338,14 +353,14 @@ sub write {
     if ( exists $self->{first_out} ) {
         my $keys = $self->{first_out};
         $keys = [$keys] unless ref $keys;
-        $self->{__first_out} = { map { $_ => 1 } @$keys };
+        $self->{__first_out} = { map { $keys->[$_] => $_ } 0 .. $#$keys };
     }
 
     local $self->{__last_out};
     if ( exists $self->{last_out} ) {
         my $keys = $self->{last_out};
         $keys = [$keys] unless ref $keys;
-        $self->{__last_out} = { map { $_ => 1 } @$keys };
+        $self->{__last_out} = { map { $keys->[$_] => $_ } 0 .. $#$keys };
     }
 
     my $tnk = $self->{text_node_key};
@@ -380,7 +395,7 @@ sub parsehttp {
 
     my $http = $self->{__http_module};
     unless ( $http ) {
-        $http = &find_http_module();
+        $http = $self->find_http_module(@_);
         $self->{__http_module} = $http;
     }
     if ( $http eq 'LWP::UserAgent' ) {
@@ -395,16 +410,46 @@ sub parsehttp {
 }
 
 sub find_http_module {
+    my $self = shift || {};
+
+    if ( exists $self->{lwp_useragent} && ref $self->{lwp_useragent} ) {
+        return 'LWP::UserAgent' if defined $LWP::UserAgent::VERSION;
+        return 'LWP::UserAgent' if &load_lwp_useragent();
+        return $self->die( "LWP::UserAgent is required: $_[1]" );
+    }
+
+    if ( exists $self->{http_lite} && ref $self->{http_lite} ) {
+        return 'HTTP::Lite' if defined $HTTP::Lite::VERSION;
+        return 'HTTP::Lite' if &load_http_lite();
+        return $self->die( "HTTP::Lite is required: $_[1]" );
+    }
+
     return 'LWP::UserAgent' if defined $LWP::UserAgent::VERSION;
     return 'HTTP::Lite'     if defined $HTTP::Lite::VERSION;
+    return 'LWP::UserAgent' if &load_lwp_useragent();
+    return 'HTTP::Lite'     if &load_http_lite();
+    return $self->die( "LWP::UserAgent or HTTP::Lite is required: $_[1]" );
+}
 
+sub load_lwp_useragent {
+    return $LWP::UserAgent::VERSION if defined $LWP::UserAgent::VERSION;
     local $@;
     eval { require LWP::UserAgent; };
-    return 'LWP::UserAgent' if defined $LWP::UserAgent::VERSION;
+    $LWP::UserAgent::VERSION;
+}
 
+sub load_http_lite {
+    return $HTTP::Lite::VERSION if defined $HTTP::Lite::VERSION;
+    local $@;
     eval { require HTTP::Lite; };
-    return 'HTTP::Lite'     if defined $HTTP::Lite::VERSION;
-    return;
+    $HTTP::Lite::VERSION;
+}
+
+sub load_tie_ixhash {
+    return $Tie::IxHash::VERSION if defined $Tie::IxHash::VERSION;
+    local $@;
+    eval { require Tie::IxHash; };
+    $Tie::IxHash::VERSION;
 }
 
 sub parsehttp_lwp {
@@ -414,11 +459,16 @@ sub parsehttp_lwp {
     my $body   = shift;
     my $header = shift;
 
-    my $ua = LWP::UserAgent->new();
-    $ua->timeout(10);
-    $ua->env_proxy();
+    my $ua = $self->{lwp_useragent} if exists $self->{lwp_useragent};
+    if ( ! ref $ua ) {
+        $ua = LWP::UserAgent->new();
+        $ua->timeout(10);
+        $ua->env_proxy();
+        $ua->agent( $self->{__user_agent} ) if defined $self->{__user_agent};
+    } else {
+        $ua->agent( $self->{__user_agent} ) if exists $self->{user_agent};
+    }
 
-    $ua->agent( $self->{__user_agent} ) if defined $self->{__user_agent};
     my $req = HTTP::Request->new( $method, $url );
     my $ct = 0;
     if ( ref $header ) {
@@ -501,6 +551,10 @@ sub parse {
     my $apre = $self->{attr_prefix};
     local $self->{attr_prefix} = $ATTR_PREFIX;
     $self->{attr_prefix} = $apre if defined  $apre;
+
+    if ( exists $self->{use_ixhash} && $self->{use_ixhash} ) {
+        return $self->die( "Tie::IxHash is required." ) unless &load_tie_ixhash();
+    }
 
     my $flat = $self->xml_to_flat($textref);
     my $tree = $self->flat_to_tree( $flat, '' );
@@ -594,6 +648,10 @@ sub flat_to_tree {
     my $tree   = {};
     my $text   = [];
 
+    if ( exists $self->{use_ixhash} && $self->{use_ixhash} ) {
+        tie( %$tree, 'Tie::IxHash' );
+    }
+
     while ( scalar @$source ) {
         my $node = shift @$source;
         if ( !ref $node || UNIVERSAL::isa( $node, "SCALAR" ) ) {
@@ -663,11 +721,14 @@ sub hash_to_xml {
     my $hash      = shift;
     my $out       = [];
     my $attr      = [];
-    my $allkeys   = [ sort keys %$hash ];
-    my $firstkeys = [ grep { $self->{__first_out}->{$_} } @$allkeys ] if ref $self->{__first_out};
-    my $lastkeys = [ grep { $self->{__last_out}->{$_} } @$allkeys ] if ref $self->{__last_out};
-    $allkeys = [ grep { !$self->{__first_out}->{$_} } @$allkeys ] if ref $self->{__first_out};
-    $allkeys = [ grep { !$self->{__last_out}->{$_} } @$allkeys ] if ref $self->{__last_out};
+    my $allkeys   = [ keys %$hash ];
+    my $fo = $self->{__first_out} if ref $self->{__first_out};
+    my $lo = $self->{__last_out}  if ref $self->{__last_out};
+    my $firstkeys = [ sort { $fo->{$a} <=> $fo->{$b} } grep { exists $fo->{$_} } @$allkeys ] if ref $fo;
+    my $lastkeys  = [ sort { $lo->{$a} <=> $lo->{$b} } grep { exists $lo->{$_} } @$allkeys ] if ref $lo;
+    $allkeys = [ grep { ! exists $fo->{$_} } @$allkeys ] if ref $fo;
+    $allkeys = [ grep { ! exists $lo->{$_} } @$allkeys ] if ref $lo;
+    $allkeys = [ sort @$allkeys ] unless $self->{use_ixhash};
     my $prelen = $self->{__attr_prefix_len};
     my $pregex = $self->{__attr_prefix_rex};
 

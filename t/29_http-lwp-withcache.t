@@ -4,23 +4,25 @@
 # ----------------------------------------------------------------
 SKIP: {
     local $@;
-    eval { require LWP::UserAgent; } unless defined $LWP::UserAgent::VERSION;
-    if ( ! defined $LWP::UserAgent::VERSION ) {
-        plan skip_all => 'LWP::UserAgent is not loaded.';
+    eval { require LWP::UserAgent::WithCache; } unless defined $LWP::UserAgent::WithCache::VERSION;
+    if ( ! defined $LWP::UserAgent::WithCache::VERSION ) {
+        plan skip_all => 'LWP::UserAgent::WithCache is not loaded.';
     }
     if ( ! defined $ENV{MORE_TESTS} ) {
         plan skip_all => 'define $MORE_TESTS to test this.';
     }
-    plan tests => 7;
+    plan tests => 6;
     use_ok('XML::TreePP');
 
-    my $tpp = XML::TreePP->new();
+    my $http = LWP::UserAgent::WithCache->new();
+    ok( ref $http, 'LWP::UserAgent::WithCache' );
     my $name = ( $0 =~ m#([^/:\\]+)$# )[0];
-    $tpp->set( user_agent => "$name " );
+    $http->agent( "$name " );
 
-    &test_http_post( $tpp, $name );     # use LWP::UserAgent
-    eval { require HTTP::Lite; };
-    &test_http_post( $tpp, $name );     # use LWP::UserAgent again not HTTP::Lite
+    my $tpp = XML::TreePP->new();
+    $tpp->set( lwp_useragent => $http );
+
+    &test_http_post( $tpp, $name );     # use LWP::UserAgent::WithCache
 }
 # ----------------------------------------------------------------
 sub test_http_post {
@@ -30,8 +32,9 @@ sub test_http_post {
     my( $tree, $xml ) = $tpp->parsehttp( POST => $url, '' );
     ok( ref $tree, $url );
     my $agent = $tree->{env}->{HTTP_USER_AGENT};
-    like( $agent, qr/libwww-perl/, "$agent" );
-    like( $agent, qr/^\Q$name\E/, "User-Agent has '$name'" );
+    ok( $agent, "User-Agent: $agent" );
+    like( $agent, qr/libwww-perl/, "Test: libwww-perl" );
+    like( $agent, qr/\Q$name\E/, "Test: $name" );
 }
 # ----------------------------------------------------------------
 ;1;

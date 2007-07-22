@@ -46,3 +46,8 @@ t/23_http-lwp-headers.t
 t/24_ignore_error.t
 t/25_text_node_key.t
 t/26_attr_prefix_null.t
+t/27_http-lite-force.t
+t/28_http-lwp-force.t
+t/29_http-lwp-withcache.t
+t/30_first_out.t
+t/31_tie_ixhash.t

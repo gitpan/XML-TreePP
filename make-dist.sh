@@ -9,6 +9,10 @@ doit () {
     $* || die "[ERROR:$?]"
 }
 
+doit cd t/example
+doit wget -O index.rdf http://www.kawa.net/rss/index-e.rdf
+doit cd ../..
+
 egrep -v '^t/.*\.t$' MANIFEST > MANIFEST~
 ls t/*.t >> MANIFEST~
 diff MANIFEST MANIFEST~ > /dev/null || doit /bin/mv -f MANIFEST~ MANIFEST

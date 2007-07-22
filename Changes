@@ -1,5 +1,16 @@
 # XML::TreePP Changes
 
+2007/07/22 (0.20)
+    * new option: http_lite => HTTP::Lite->new()
+    * new option: lwp_useragent => LWP::UserAgent->new() (thanks to NEELY)
+      http://rt.cpan.org/Ticket/Display.html?id=28167
+    * new option: use_ixhash => 1 (thanks to RENEEB)
+      http://rt.cpan.org/Ticket/Display.html?id=23522
+    * first_out and last_out options keep its order (thanks to BASHI and sajohn52)
+      http://tech.groups.yahoo.com/group/xml-treepp/message/13
+    * new tests: 27_http-lite-force.t 28_http-lwp-force.t
+      29_http-lwp-withcache.t 30_first_out.t 31_tie_ixhash.t
+
 2006/11/03 (0.19)
     * new option: text_node_key (thanks to Niek)
     * attr_prefix now supports zero-length prefix.
