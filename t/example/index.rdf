@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rdf:RDF xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><channel rdf:about="http://www.kawa.net/xp/index-e.html"><dc:date>2007-04-06T19:57:00+09:00</dc:date>
+<rdf:RDF xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><channel rdf:about="http://www.kawa.net/xp/index-e.html"><dc:date>2007-07-22T19:42:00+09:00</dc:date>
 <dc:language>en</dc:language>
 <dc:rights>Copyright 1995-2006 Yusuke Kawasaki. All rights reserved.</dc:rights>
 <image rdf:resource="http://www.kawa.net/xp/images/xp-title-128x32.gif" />
 <link>http://www.kawa.net/xp/index-e.html</link>
 <title>Kawa.net xp - ajax/JavaScript/Perl/CGI by Yusuke Kawasaki</title>
 <description>Yusuke Kawasaki&apos;s homepage from Japan. Ajax/JavaScript/Perl/CGI/etc. technical articles and photos.</description>
-<items><rdf:Seq><rdf:li rdf:resource="http://kawanet.blogspot.com/2007/04/yapcasia-2007-tokyo-party-hackathon.html" />
+<items><rdf:Seq><rdf:li rdf:resource="http://www.kawa.net/works/perl/treepp/treepp-e.html" />
+<rdf:li rdf:resource="http://kawanet.blogspot.com/2007/04/yapcasia-2007-tokyo-party-hackathon.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/html/tagparser-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/feedpp/feedpp-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/js/animation/cube-e.html" />
@@ -19,7 +20,6 @@
 <rdf:li rdf:resource="http://www.kawa.net/works/cantonese/canton.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/romanize/romanize-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/romanize/roman-demo-e.html" />
-<rdf:li rdf:resource="http://www.kawa.net/works/perl/treepp/treepp-e.html" />
 <rdf:li rdf:resource="http://kawanet.blogspot.com/2006/09/kurukuru-blog-and-recipe-for-mashing.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/ajax/ajaxtb/ajaxtb-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/ajax/ajaxcom/ajaxcom-e.html" />
@@ -52,8 +52,8 @@
 <rdf:li rdf:resource="http://www.kawa.net/works/cantonese/ccdict.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/js/data-scheme/base64-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/greasemonkey/myscripts-e.html" />
-<rdf:li rdf:resource="http://www.kawa.net/works/ajax/rss/rss-box-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/rss/rss-box-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/js/passwd/gen-passwds-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/catch/KCatch.pm.html" />
 </rdf:Seq>
@@ -66,6 +66,21 @@
 <openSearch:itemsPerPage>25</openSearch:itemsPerPage>
 <openSearch:startIndex>1</openSearch:startIndex>
 <openSearch:totalResults>15</openSearch:totalResults>
+<item rdf:about="http://www.kawa.net/works/perl/treepp/treepp-e.html"><dc:date>2007-07-22T19:42:00+09:00</dc:date>
+<dc:subject>Perl</dc:subject>
+<link>http://www.kawa.net/works/perl/treepp/treepp-e.html</link>
+<title>[Perl] XML::TreePP - A pure Perl implementation for parsing/writing xml file</title>
+<description>XML::TreePP module parses XML file and expand it for a hash tree.
+And also this generates XML file from a hash tree.
+This module is a pure Perl implementation.
+You can also fetch an XML file from remote web server
+like an XMLHttpRequest object in JavaScript language.
+I think that XML::TreePP is enough fast and easy to use!
+XML::TreePP Group
+mailing list is available on Yahoo! Groups.
+XML.ObjTree
+class is a JavaScript port of this module.</description>
+</item>
 <item rdf:about="http://kawanet.blogspot.com/2007/04/yapcasia-2007-tokyo-party-hackathon.html"><creator>Yusuke Kawasaki</creator>
 <dc:date>2007-04-06T22:00:43.736+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2007/04/yapcasia-2007-tokyo-party-hackathon.html</link>
@@ -221,21 +236,6 @@ Japanese and
 Korean
 characters are available.
 This is not a translation system but to get phonemic notation by roman letters.</description>
-</item>
-<item rdf:about="http://www.kawa.net/works/perl/treepp/treepp-e.html"><dc:date>2006-11-03T13:30:00+09:00</dc:date>
-<dc:subject>Perl</dc:subject>
-<link>http://www.kawa.net/works/perl/treepp/treepp-e.html</link>
-<title>[Perl] XML::TreePP - A pure Perl implementation for parsing/writing xml file</title>
-<description>XML::TreePP module parses XML file and expand it for a hash tree.
-And also this generates XML file from a hash tree.
-This module is a pure Perl implementation.
-You can also download XML from remote web server
-like XMLHttpRequest object of JavaScript language.
-I think that XML::TreePP is enough fast and easy to use!
-XML::TreePP Group
-mailing list is available on Yahoo! Groups.
-XML.ObjTree
-class is a JavaScript version of this module.</description>
 </item>
 <item rdf:about="http://kawanet.blogspot.com/2006/09/kurukuru-blog-and-recipe-for-mashing.html"><creator>Yusuke Kawasaki</creator>
 <dc:date>2006-09-22T03:22:27.446+09:00</dc:date>
@@ -540,17 +540,17 @@ Firefox and Opera supports the data: scheme, but IE doesn&apos;t yet.</descripti
 <description>Here are my User Scripts
 for Greasemonkey.</description>
 </item>
+<item rdf:about="http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html"><dc:date>2006-02-09T01:05:00+09:00</dc:date>
+<dc:subject>ajax</dc:subject>
+<link>http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html</link>
+<title>[ajax] Content-Type: availablity on XMLHttpRequest</title>
+<description>Some of content-types are only available on many browsers&apos; XMLHttpRequest.</description>
+</item>
 <item rdf:about="http://www.kawa.net/works/ajax/rss/rss-box-e.html"><dc:date>2006-02-09T01:04:00+09:00</dc:date>
 <dc:subject>ajax</dc:subject>
 <link>http://www.kawa.net/works/ajax/rss/rss-box-e.html</link>
 <title>[ajax] RSS BOX in your website</title>
 <description>How to put a RSS BOX in your website.</description>
-</item>
-<item rdf:about="http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html"><dc:date>2006-02-09T01:04:00+09:00</dc:date>
-<dc:subject>ajax</dc:subject>
-<link>http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html</link>
-<title>[ajax] Content-Type: availablity on XMLHttpRequest</title>
-<description>Some of content-types are only available on many browsers&apos; XMLHttpRequest.</description>
 </item>
 <item rdf:about="http://www.kawa.net/works/js/passwd/gen-passwds-e.html"><dc:date>2005-10-27T01:10:00+09:00</dc:date>
 <link>http://www.kawa.net/works/js/passwd/gen-passwds-e.html</link>

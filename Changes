@@ -1,5 +1,8 @@
 # XML::TreePP Changes
 
+2007/07/25 (0.21)
+    * bug fix: use_ixhash missing order on elements with attribute(s)
+
 2007/07/22 (0.20)
     * new option: http_lite => HTTP::Lite->new()
     * new option: lwp_useragent => LWP::UserAgent->new() (thanks to NEELY)

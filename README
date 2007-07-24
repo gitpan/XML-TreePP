@@ -200,7 +200,8 @@ CONSTRUCTOR AND OPTIONS
 
   $tpp->set( use_ixhash => 1 );
     This option keeps the order for every elements appeared in XML.
-    Tie::IxHash module is required.
+    Tie::IxHash module is required. This makes parsing performance slow.
+    (100% slower than default)
 
   $tpp->get( "option_name" );
     This method returns a current option value for "option_name".

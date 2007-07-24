@@ -228,6 +228,7 @@ with its instance created like: C<$ua = LWP::UserAgent-E<gt>new();>
 
 This option keeps the order for every elements appeared in XML.
 L<Tie::IxHash> module is required.
+This makes parsing performance slow. (100% slower than default)
 
 =head2 $tpp->get( "option_name" );
 
@@ -284,7 +285,7 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.20';
+$VERSION = '0.21';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
@@ -566,6 +567,8 @@ sub xml_to_flat {
     my $textref = shift;    # reference
     my $flat    = [];
     my $prefix = $self->{attr_prefix};
+    my $ixhash = ( exists $self->{use_ixhash} && $self->{use_ixhash} );
+
     while ( $$textref =~ m{
         ([^<]*) <
         ((
@@ -604,15 +607,19 @@ sub xml_to_flat {
             }
             $node->{tagName} = $1 if ( $contElem =~ s#^(\S+)\s*## );
             unless ( $node->{endTag} ) {
-                my $attr = {};
-                while (
-                    $contElem =~ m/([^\s\=\"\']+)=(?:(")(.*?)"|'(.*?)')/sg )
-                {
+                my $attr;
+                while ( $contElem =~ m{
+                    ([^\s\=\"\']+)=(?:(")(.*?)"|'(.*?)')
+                }sxg ) {
                     my $key = $1;
                     my $val = &xml_unescape( $2 ? $3 : $4 );
+                    if ( ! ref $attr ) {
+                        $attr = {};
+                        tie( %$attr, 'Tie::IxHash' ) if $ixhash;
+                    }
                     $attr->{$prefix.$key} = $val;
                 }
-                $node->{attributes} = $attr if scalar keys %$attr;
+                $node->{attributes} = $attr if ref $attr;
             }
             push( @$flat, $node );
         }
@@ -728,7 +735,9 @@ sub hash_to_xml {
     my $lastkeys  = [ sort { $lo->{$a} <=> $lo->{$b} } grep { exists $lo->{$_} } @$allkeys ] if ref $lo;
     $allkeys = [ grep { ! exists $fo->{$_} } @$allkeys ] if ref $fo;
     $allkeys = [ grep { ! exists $lo->{$_} } @$allkeys ] if ref $lo;
-    $allkeys = [ sort @$allkeys ] unless $self->{use_ixhash};
+    unless ( exists $self->{use_ixhash} && $self->{use_ixhash} ) {
+        $allkeys = [ sort @$allkeys ];
+    }
     my $prelen = $self->{__attr_prefix_len};
     my $pregex = $self->{__attr_prefix_rex};
 
