@@ -100,7 +100,7 @@ Details:
 
     print $tree->{family}->{father};        # the father's given name.
 
-The prefix '-' is added on every attributes' name.
+The prefix '-' is added on every attribute's name.
 
     print $tree->{family}->{"-name"};       # the family name of the family
 
@@ -135,22 +135,54 @@ The result dumped is following:
 The special node name of C<'#text'> is used because this elements
 has attribute(s) in addition to the text node.
 
-=head1 CONSTRUCTOR AND OPTIONS
-
-=head2 $tpp = XML::TreePP->new();
-
-This constructor method returns a new XML::TreePP object.
+=head1 METHODS
 
 =head2 $tpp = XML::TreePP->new( %options );
 
-Its first argument is a hash variable to set one or more options
-like following:
+This constructor method returns a new XML::TreePP object.
 
 =head2 $tpp->set( option_name => $option_value );
 
-This method sets a option value for "option_name".
+This method sets a option value for 'option_name'.
 If $option_value is not defined, its option is deleted.
 Options below are available:
+
+=head2 $tpp->get( 'option_name' );
+
+This method returns a current option value for 'option_name'.
+
+=head2 $tree = $tpp->parse( $source );
+
+This method reads XML source and returns a hash tree converted.
+The first argument is a scalar or a reference to a scalar.
+
+=head2 $tree = $tpp->parsefile( $file );
+
+This method reads a XML file and returns a hash tree converted.
+The first argument is a filename.
+
+=head2 $tree = $tpp->parsehttp( $method, $url, $body, $head );
+
+This method receives a XML file from a remote server via HTTP and
+returns a hash tree converted.
+$method is a method of HTTP connection: GET/POST/PUT/DELETE
+$url is an URI of a XML file.
+$body is a request body when you use POST method.
+$head is a request headers as a hash ref.
+L<LWP::UserAgent> module or L<HTTP::Lite> module is required to fetch a file.
+
+=head2 $source = $tpp->write( $tree, $encode );
+
+This method parses a hash tree and returns a XML source generated.
+$tree is a referecen to a hash tree.
+
+=head2 $tpp->writefile( $file, $tree, $encode );
+
+This method parses a hash tree and writes a XML source into a file.
+$file is a filename to create.
+$tree is a referecen to a hash tree.
+
+=head1 OPTIONS
 
 =head2 $tpp->set( output_encoding => 'UTF-8' );
 
@@ -217,55 +249,33 @@ This option forces to change or leave it.
 =head2 $tpp->set( http_lite => $http );
 
 This option forces pasrsehttp() method to use L<HTTP::Lite> module 
-with its instance created like: C<$http = HTTP::Lite-E<gt>new();>
+with its instance created like: C<$http = HTTP::Lite->new();>
 
 =head2 $tpp->set( lwp_useragent => $ua );
 
 This option forces pasrsehttp() method to use L<LWP::UserAgent> module 
-with its instance created like: C<$ua = LWP::UserAgent-E<gt>new();>
+with its instance created like: C<$ua = LWP::UserAgent->new();>
 
 =head2 $tpp->set( use_ixhash => 1 );
 
-This option keeps the order for every elements appeared in XML.
+This option keeps the order for each element appeared in XML.
 L<Tie::IxHash> module is required.
 This makes parsing performance slow. (100% slower than default)
 
-=head2 $tpp->get( "option_name" );
+=head2 $tpp->set( indent => 2 );
 
-This method returns a current option value for "option_name".
+This makes the output more human readable by indenting appropriately.
+This doesn't strictly follow the XML Document Spec but does looks nice.
 
-=head1 METHODS
+=head2 $tpp->set( utf8_flag => 1 );
 
-=head2 $tree = $tpp->parse( $source );
+This makes utf8 flag on for every element's value parsed
+and makes it on for an XML code generated as well.
 
-This method reads XML source and returns a hash tree converted.
-The first argument is a scalar or a reference to a scalar.
+=head2 $tpp->set( base_class => 'class' );
 
-=head2 $tree = $tpp->parsefile( $file );
-
-This method reads a XML file and returns a hash tree converted.
-The first argument is a filename.
-
-=head2 $tree = $tpp->parsehttp( $method, $url, $body, $head );
-
-This method receives a XML file from a remote server via HTTP and
-returns a hash tree converted.
-$method is a method of HTTP connection: GET/POST/PUT/DELETE
-$url is an URI of a XML file.
-$body is a request body when you use POST method.
-$head is a request headers as a hash ref.
-L<LWP::UserAgent> module or L<HTTP::Lite> module is required to fetch a file.
-
-=head2 $source = $tpp->write( $tree, $encode );
-
-This method parses a hash tree and returns a XML source generated.
-$tree is a referecen to a hash tree.
-
-=head2 $tpp->writefile( $file, $tree, $encode );
-
-This method parses a hash tree and writes a XML source into a file.
-$file is a filename to create.
-$tree is a referecen to a hash tree.
+This declares (blesses) class name and its subclass names for each element.
+You may use this with L<Class::Accessor>.
 
 =head1 AUTHOR
 
@@ -285,7 +295,7 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.21';
+$VERSION = '0.22';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
@@ -339,6 +349,14 @@ sub writefile {
     my $encode = shift;
     return $self->die( 'Invalid filename' ) unless defined $file;
     my $text = $self->write( $tree, $encode );
+
+    if ( $] >= 5.008 ) {
+        my $to = $encode || $self->{output_encoding} || $XML_ENCODING;
+        if ( $to =~ /^utf-?8$/i ) {
+            utf8::encode( $text );
+        }
+    }
+
     $self->write_raw_xml( $file, $text );
 }
 
@@ -364,20 +382,35 @@ sub write {
         $self->{__last_out} = { map { $keys->[$_] => $_ } 0 .. $#$keys };
     }
 
-    my $tnk = $self->{text_node_key};
-    local $self->{text_node_key} = $TEXT_NODE_KEY;
-    $self->{text_node_key} = $tnk if defined  $tnk;
+    my $tnk = $self->{text_node_key} if exists $self->{text_node_key};
+    $tnk = $TEXT_NODE_KEY unless defined $tnk;
+    local $self->{text_node_key} = $tnk;
 
-    my $apre = $self->{attr_prefix};
-    $apre = $ATTR_PREFIX unless defined  $apre;
+    my $apre = $self->{attr_prefix} if exists $self->{attr_prefix};
+    $apre = $ATTR_PREFIX unless defined $apre;
     local $self->{__attr_prefix_len} = length($apre);
     local $self->{__attr_prefix_rex} = defined $apre ? qr/^\Q$apre\E/s : undef;
+
+    local $self->{__indent};
+    if ( exists $self->{indent} && $self->{indent} ) {
+        $self->{__indent} = ' ' x $self->{indent};
+    }
 
     my $text = $self->hash_to_xml( undef, $tree );
     if ( $from && $to ) {
         my $stat = $self->encode_from_to( \$text, $from, $to );
         return $self->die( "Unsupported encoding: $to" ) unless $stat;
     }
+
+    if ( exists $self->{utf8_flag} && $self->{utf8_flag} ) {
+        if ( $] < 5.008 ) {
+            return $self->die( "Perl 5.8.x is required for utf8_flag: $]" );
+        }
+        if ( $to =~ /^utf-?8$/i ) {
+            utf8::decode( $text );
+        }
+    }
+
     return $text if ( $decl eq '' );
     join( "\n", $decl, $text );
 }
@@ -536,6 +569,17 @@ sub parse {
             my $stat = $self->encode_from_to( $textref, $from, $to );
             return $self->die( "Unsupported encoding: $from" ) unless $stat;
         }
+
+        if ( exists $self->{utf8_flag} && $self->{utf8_flag} ) {
+            if ( $] < 5.008 ) {
+                return $self->die( "Perl 5.8.x is required for utf8_flag: $]" );
+            }
+            if ( $to =~ /^utf-?8$/i ) {
+                my $copy = $$textref;
+                utf8::decode( $copy );
+                $textref = \$copy;
+            }
+        }
     }
 
     local $self->{__force_array};
@@ -545,20 +589,21 @@ sub parse {
         $self->{__force_array} = { map { $_ => 1 } @$force };
     }
 
-    my $tnk = $self->{text_node_key};
-    local $self->{text_node_key} = $TEXT_NODE_KEY;
-    $self->{text_node_key} = $tnk if defined  $tnk;
+    my $tnk = $self->{text_node_key} if exists $self->{text_node_key};
+    $tnk = $TEXT_NODE_KEY unless defined $tnk;
+    local $self->{text_node_key} = $tnk;
 
-    my $apre = $self->{attr_prefix};
-    local $self->{attr_prefix} = $ATTR_PREFIX;
-    $self->{attr_prefix} = $apre if defined  $apre;
+    my $apre = $self->{attr_prefix} if exists $self->{attr_prefix};
+    $apre = $ATTR_PREFIX unless defined $apre;
+    local $self->{attr_prefix} = $apre;
 
     if ( exists $self->{use_ixhash} && $self->{use_ixhash} ) {
         return $self->die( "Tie::IxHash is required." ) unless &load_tie_ixhash();
     }
 
     my $flat = $self->xml_to_flat($textref);
-    my $tree = $self->flat_to_tree( $flat, '' );
+    my $base = $self->{base_class} if exists $self->{base_class};
+    my $tree = $self->flat_to_tree( $flat, '', $base );
     wantarray ? ( $tree, $$textref ) : $tree;
 }
 
@@ -652,6 +697,7 @@ sub flat_to_tree {
     my $self   = shift;
     my $source = shift;
     my $parent = shift;
+    my $class  = shift;
     my $tree   = {};
     my $text   = [];
 
@@ -672,7 +718,13 @@ sub flat_to_tree {
         }
         my $elem = $node->{attributes};
         if ( $node->{startTag} ) {              # recursive call
-            my $child = $self->flat_to_tree( $source, $name );
+            my $subclass;
+            if ( defined $class ) {
+                $subclass = $name;
+                $subclass =~ s/\W/_/sg;
+                $subclass = $class.'::'.$subclass;
+            }
+            my $child = $self->flat_to_tree( $source, $name, $subclass );
             if ( ref $elem && scalar keys %$elem ) {
                 if ( UNIVERSAL::isa( $child, "HASH" ) ) {
                     # some attributes and some child nodes
@@ -688,6 +740,9 @@ sub flat_to_tree {
             else {
                 # no attributes and text node or nothing
                 $elem = $child;
+            }
+            if ( $subclass && UNIVERSAL::isa( $elem, "HASH" ) ) {
+                bless( $elem, $subclass );
             }
         }
         # next unless defined $elem;
@@ -741,9 +796,12 @@ sub hash_to_xml {
     my $prelen = $self->{__attr_prefix_len};
     my $pregex = $self->{__attr_prefix_rex};
 
-    foreach my $loopkey ( $firstkeys, $allkeys, $lastkeys ) {
-        next unless ref $loopkey;
-        foreach my $key ( grep { ! $prelen || $_ !~ $pregex } @$loopkey ) {
+    foreach my $keys ( $firstkeys, $allkeys, $lastkeys ) {
+        next unless ref $keys;
+        my $elemkey = $prelen ? [ grep { $_ !~ $pregex } @$keys ] : $keys;
+        my $attrkey = $prelen ? [ grep { $_ =~ $pregex } @$keys ] : [];
+
+        foreach my $key ( @$elemkey ) {
             my $val = $hash->{$key};
             if ( !defined $val ) {
                 push( @$out, "<$key />" );
@@ -766,7 +824,7 @@ sub hash_to_xml {
             }
         }
     
-        foreach my $key ( grep { $prelen && $_ =~ $pregex } @$loopkey ) {
+        foreach my $key ( @$attrkey ) {
             my $name = substr( $key, $prelen );
             my $val = &xml_escape( $hash->{$key} );
             push( @$attr, ' ' . $name . '="' . $val . '"' );
@@ -774,7 +832,14 @@ sub hash_to_xml {
     }
     my $jattr = join( '', @$attr );
 
-    # s/^(\s*<)/  $1/mg foreach @$out;              # indent
+    if ( defined $name && scalar @$out && ! grep { ! /^</s } @$out ) {
+        # Use human-friendly white spacing
+        if ( defined $self->{__indent} ) {
+            s/^(\s*<)/$self->{__indent}$1/mg foreach @$out;
+        }
+        unshift( @$out, "\n" );
+    }
+
     my $text = join( '', @$out );
     if ( defined $name ) {
         if ( scalar @$out ) {
@@ -814,7 +879,6 @@ sub array_to_xml {
         }
     }
 
-    # s/^(\s*<)/  $1/mg foreach @$out;              # indent
     my $text = join( '', @$out );
     $text;
 }

@@ -22,7 +22,7 @@ sub test_parse {
     <one>1</one>
     <two>2</two>
     <three>3</three>
-    <hour>4</hour>
+    <four>4</four>
     <five>5</five>
     <six>6</six>
     <seven>7</seven>

@@ -1,5 +1,12 @@
 # XML::TreePP Changes
 
+2007/07/28 (0.22)
+    * new option: ident => 2 (thanks to Aaron)
+    * new option: utf8_flag => 1
+    * new option: base_class => 'class'
+    * new tests: t/32_base_class.t t/33_indent.t t/34_utf8_flag.t
+    * LICENSE field added in META.yml
+
 2007/07/25 (0.21)
     * bug fix: use_ixhash missing order on elements with attribute(s)
 

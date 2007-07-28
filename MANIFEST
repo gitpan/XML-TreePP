@@ -51,3 +51,6 @@ t/28_http-lwp-force.t
 t/29_http-lwp-withcache.t
 t/30_first_out.t
 t/31_tie_ixhash.t
+t/32_base_class.t
+t/33_indent.t
+t/34_utf8_flag.t
