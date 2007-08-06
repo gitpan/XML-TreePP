@@ -1,7 +1,7 @@
 # XML::TreePP Changes
 
-2007/08/06 (0.24)
-    * new option: force_array => '*' means every elements
+2007/08/06 (0.25)
+    * new option: force_array => '*' means every elements (thanks to Niek)
     * new option: force_hash => [], and also '*'means every elements
     * new option: elem_class => 'class'
     * new tests: t/35_force_hash.t t/36_elem_class.t

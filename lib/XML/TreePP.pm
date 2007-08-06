@@ -295,7 +295,7 @@ Each class is named straight as a child class of it parent class.
     <root><parent><child>text</child></parent></root>
 
 E.g., <child> element above is blessed to C<MyElement::root::parent::child> 
-class. You may use this with L<MyElement::Accessor>.
+class. You may use this with L<Class::Accessor>.
 
 =head2 $tpp->set( elem_class => 'MyElement' );
 
@@ -324,7 +324,7 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.24';
+$VERSION = '0.25';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';

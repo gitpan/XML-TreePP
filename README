@@ -254,7 +254,7 @@ OPTIONS
 
     E.g., <child> element above is blessed to
     "MyElement::root::parent::child" class. You may use this with
-    MyElement::Accessor.
+    Class::Accessor.
 
   $tpp->set( elem_class => 'MyElement' );
     This declares (blesses) class name for each element's hashref. Each
