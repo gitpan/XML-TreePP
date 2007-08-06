@@ -292,7 +292,7 @@ and makes it on for an XML code generated as well.
 This declares (blesses) class name for each element's hashref.
 Each class is named straight as a child class of it parent class.
 
-    <root><parent><child>text</child></parent></root>
+    <root><parent><child key="val">text</child></parent></root>
 
 E.g., <child> element above is blessed to C<MyElement::root::parent::child> 
 class. You may use this with L<Class::Accessor>.
@@ -302,7 +302,7 @@ class. You may use this with L<Class::Accessor>.
 This declares (blesses) class name for each element's hashref.
 Each class is named horizontally under the direct child of C<MyElement>.
 
-    <root><parent><child>text</child></parent></root>
+    <root><parent><child key="val">text</child></parent></root>
 
 E.g., <child> element above is blessed to C<MyElement::child> class.
 
@@ -324,7 +324,7 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.25';
+$VERSION = '0.26';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
@@ -767,13 +767,13 @@ sub flat_to_tree {
         }
         my $elem = $node->{attributes};
         my $forcehash = $self->{__force_hash_all} || $self->{__force_hash}->{$name};
+        my $subclass;
+        if ( defined $class ) {
+            my $escname = $name;
+            $escname =~ s/\W/_/sg;
+            $subclass = $class.'::'.$escname;
+        }
         if ( $node->{startTag} ) {              # recursive call
-            my $subclass;
-            if ( defined $class ) {
-                my $escname = $name;
-                $escname =~ s/\W/_/sg;
-                $subclass = $class.'::'.$escname;
-            }
             my $child = $self->flat_to_tree( $source, $name, $subclass );
             my $hasattr = scalar keys %$elem if ref $elem;
             if ( UNIVERSAL::isa( $child, "HASH" ) ) {
@@ -800,19 +800,20 @@ sub flat_to_tree {
                     $elem = $child;
                 }
             }
-            if ( UNIVERSAL::isa( $elem, "HASH" ) ) {
-                if ( defined $subclass ) {
-                    bless( $elem, $subclass );
-                } elsif ( exists $self->{elem_class} && $self->{elem_class} ) {
-                    my $escname = $name;
-                    $escname =~ s/\W/_/sg;
-                    my $elmclass = $self->{elem_class}.'::'.$escname;
-                    bless( $elem, $elmclass );
-                } 
-            }
         }
         elsif ( $forcehash && ! ref $elem ) {
             $elem = {};
+        }
+        # bless to a class by base_class or elem_class
+        if ( UNIVERSAL::isa( $elem, "HASH" ) ) {
+            if ( defined $subclass ) {
+                bless( $elem, $subclass );
+            } elsif ( exists $self->{elem_class} && $self->{elem_class} ) {
+                my $escname = $name;
+                $escname =~ s/\W/_/sg;
+                my $elmclass = $self->{elem_class}.'::'.$escname;
+                bless( $elem, $elmclass );
+            } 
         }
         # next unless defined $elem;
         $tree->{$name} ||= [];

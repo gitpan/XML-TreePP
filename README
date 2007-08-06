@@ -250,7 +250,7 @@ OPTIONS
     This declares (blesses) class name for each element's hashref. Each
     class is named straight as a child class of it parent class.
 
-        <root><parent><child>text</child></parent></root>
+        <root><parent><child key="val">text</child></parent></root>
 
     E.g., <child> element above is blessed to
     "MyElement::root::parent::child" class. You may use this with
@@ -260,7 +260,7 @@ OPTIONS
     This declares (blesses) class name for each element's hashref. Each
     class is named horizontally under the direct child of "MyElement".
 
-        <root><parent><child>text</child></parent></root>
+        <root><parent><child key="val">text</child></parent></root>
 
     E.g., <child> element above is blessed to "MyElement::child" class.
 

@@ -3,7 +3,7 @@
     use Test::More;
 # ----------------------------------------------------------------
 {
-    plan tests => 11;
+    plan tests => 14;
     use_ok('XML::TreePP');
     &test_base_class( force_array => [qw( six )], base_class => 'Element' );
 }
@@ -26,6 +26,10 @@ sub test_base_class {
     <six><seven attr="-7">7</seven></six>
     <eight>8</eight>
     <eight><nine>9</nine></eight>
+    <foo>
+        <bar hoge="1"/>
+        <bar pomu="2"/>
+    </foo>
 </root>
 EOT
 
@@ -40,6 +44,11 @@ EOT
     is( ref $tree->{root}->{six}->[0]->{seven},                     'Element::root::six::seven', '/root/six/seven' );
     is( ref $tree->{root}->{eight},         'ARRAY',                '/root/eight (ARRAY)' );
     is( ref $tree->{root}->{eight}->[1],    'Element::root::eight', '/root/eight' );
+
+	# 2007/08/07 added
+    is( ref $tree->{root}->{foo}, 'Element::root::foo', '/root/foo' );
+    is( ref $tree->{root}->{foo}->{bar}, 'ARRAY', '/root/foo/bar (ARRAY)' );
+    is( ref $tree->{root}->{foo}->{bar}->[0], 'Element::root::foo::bar', '/root/foo/bar' );
 }
 # ----------------------------------------------------------------
 ;1;

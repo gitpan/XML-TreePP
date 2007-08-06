@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rdf:RDF xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><channel rdf:about="http://www.kawa.net/xp/index-e.html"><dc:date>2007-08-06T22:45:00+09:00</dc:date>
+<rdf:RDF xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><channel rdf:about="http://www.kawa.net/xp/index-e.html"><dc:date>2007-08-06T23:19:00+09:00</dc:date>
 <dc:language>en</dc:language>
 <dc:rights>Copyright 1995-2006 Yusuke Kawasaki. All rights reserved.</dc:rights>
 <image rdf:resource="http://www.kawa.net/xp/images/xp-title-128x32.gif" />
 <link>http://www.kawa.net/xp/index-e.html</link>
 <title>Kawa.net xp - ajax/JavaScript/Perl/CGI by Yusuke Kawasaki</title>
 <description>Yusuke Kawasaki&apos;s homepage from Japan. Ajax/JavaScript/Perl/CGI/etc. technical articles and photos.</description>
-<items><rdf:Seq><rdf:li rdf:resource="http://www.kawa.net/works/perl/treepp/treepp-e.html" />
+<items><rdf:Seq><rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/19" />
+<rdf:li rdf:resource="http://www.kawa.net/works/perl/treepp/treepp-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/romanize/romanize-e.html" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/18" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-feedpp/message/15" />
@@ -53,7 +54,6 @@
 <rdf:li rdf:resource="http://kawanet.blogspot.com/2006/08/kurukuru-blog-started.html" />
 <rdf:li rdf:resource="http://kawanet.blogspot.com/2006/08/website-thumbnail-image-generating.html" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-feedpp/message/4" />
-<rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/4" />
 <rdf:li rdf:resource="http://kawanet.blogspot.com/2006/08/mailing-lists-opened-on-yahoo-groups.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/js/xml/objtree-e.html" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-objtree/message/1" />
@@ -92,7 +92,12 @@
 <openSearch:itemsPerPage>25</openSearch:itemsPerPage>
 <openSearch:startIndex>1</openSearch:startIndex>
 <openSearch:totalResults>15</openSearch:totalResults>
-<item rdf:about="http://www.kawa.net/works/perl/treepp/treepp-e.html"><dc:date>2007-08-06T22:45:00+09:00</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/19"><dc:date>2007-08-06T14:28:52Z</dc:date>
+<link>http://tech.groups.yahoo.com/group/xml-treepp/message/19</link>
+<title>XML::TreePP 0.25 Released!</title>
+<description>I announce that XML::TreePP version 0.25 is now released with new features below: ======================================================================== #</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/perl/treepp/treepp-e.html"><dc:date>2007-08-06T23:19:00+09:00</dc:date>
 <dc:subject>Perl</dc:subject>
 <link>http://www.kawa.net/works/perl/treepp/treepp-e.html</link>
 <title>[Perl] XML::TreePP - A pure Perl implementation for parsing/writing xml file</title>
@@ -481,11 +486,6 @@ This is an yet another nebuta-matsuri in Tokyo.
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/4</link>
 <title>Re: Welcome to XML::FeedPP Group</title>
 <description>In fact, the current version of XML::FeedPP module doesn&apos;t support all feature of Atom feed&apos;s various formats, content&apos;s type, escaping method and so on. I</description>
-</item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/4"><dc:date>2006-08-18T02:47:04Z</dc:date>
-<link>http://tech.groups.yahoo.com/group/xml-treepp/message/4</link>
-<title>Re: XML::TreePP Patch</title>
-<description>Hi Aaron, Thank you for your patch and test code. ... pretty - XML::Generator http://search.cpan.org/perldoc?XML::Generator#pretty pretty is an integer for</description>
 </item>
 <item rdf:about="http://kawanet.blogspot.com/2006/08/mailing-lists-opened-on-yahoo-groups.html"><creator>Yusuke Kawasaki</creator>
 <dc:date>2006-08-18T03:25:21.516+09:00</dc:date>
