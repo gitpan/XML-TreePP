@@ -9,9 +9,7 @@ doit () {
     $* || die "[ERROR:$?]"
 }
 
-doit cd t/example
-doit wget -O index.rdf http://www.kawa.net/rss/index-e.rdf
-doit cd ../..
+doit wget -O t/example/index.rdf http://www.kawa.net/rss/index-e.rdf
 
 egrep -v '^t/.*\.t$' MANIFEST > MANIFEST~
 ls t/*.t >> MANIFEST~
@@ -23,8 +21,8 @@ doit perl Makefile.PL
 doit make
 doit make disttest
 
-main=`grep version_from META.yml | cut -f 2 -d :`
-[ "$main" == "" ] && die "version_from is not found in META.yml"
+main=`grep 'lib/.*pm$' < MANIFEST | head -1`
+[ "$main" == "" ] && die "main module is not found in MANIFEST"
 doit pod2text $main > README
 
 doit make dist

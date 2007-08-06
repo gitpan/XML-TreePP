@@ -15,26 +15,50 @@ SKIP: {
     if ( ! defined $ENV{MORE_TESTS} ) {
         plan skip_all => 'define $MORE_TESTS to test this.';
     }
-    plan tests => 5;
+    plan tests => 14;
     use_ok('XML::TreePP');
 
-    my $tpp = XML::TreePP->new();
+    my $name = 'HTTP::Lite';
+    my $url = "http://www.kawa.net/works/perl/treepp/example/envxml.cgi";
+    my $query = time();
 
-    my $http = HTTP::Lite->new();
-    ok( ref $http, 'HTTP::Lite->new()' );
-    $tpp->set( http_lite => $http );
-    $tpp->set( user_agent => '' );
-    &test_http_post( $tpp );     # use HTTP::Lite
+    {
+        my $tpp = XML::TreePP->new();
+        my $http = HTTP::Lite->new();
+        ok( ref $http, 'HTTP::Lite->new()' );
+        $tpp->set( http_lite => $http );
+        $tpp->set( user_agent => '' );
+        &test_http_req( $tpp, $name, POST => $url, $query );   # use HTTP::Lite
+    }
+
+    {
+        my $tpp = XML::TreePP->new();
+        my $http = HTTP::Lite->new();
+        ok( ref $http, 'HTTP::Lite->new()' );
+        $tpp->set( http_lite => $http );
+        $tpp->set( user_agent => '' );
+        my $ret = &test_http_req( $tpp, $name, GET => "$url?$query" );
+        is( $ret, $query, "QUERY_STRING: $query" );
+    }
 }
 # ----------------------------------------------------------------
-sub test_http_post {
+sub test_http_req {
     my $tpp = shift;
-    my $url = "http://www.kawa.net/works/perl/treepp/example/envxml.cgi";
-    my( $tree, $xml ) = $tpp->parsehttp( POST => $url, '' );
-    ok( ref $tree, $url );
+    my $name = shift;
+
+    my( $tree, $xml, $code ) = $tpp->parsehttp( @_ );
+    ok( ref $tree, "parsehttp: $_[1]" );
+
+    my $decl = ( $xml =~ /(<\?xml[^>]+>)/ )[0];
+    like( $xml, qr/(<\?xml[^>]+>)/, "XML Decl: $decl" );
+
+    is( $code, 200, "HTTP Status: $code" );
+
     my $agent = $tree->{env}->{HTTP_USER_AGENT};
     ok( $agent, "User-Agent: $agent" );
-    like( $agent, qr/HTTP::Lite/, "Test: HTTP::Lite" );
+    like( $agent, qr/\Q$name\E/, "Match: $name" );
+
+    $tree->{env}->{QUERY_STRING};
 }
 # ----------------------------------------------------------------
 ;1;

@@ -3,9 +3,9 @@
     use Test::More;
 # ----------------------------------------------------------------
 {
-    plan tests => 10;
+    plan tests => 11;
     use_ok('XML::TreePP');
-    &test_base_class( force_array => [qw( six )], base_class => 'Data' );
+    &test_base_class( force_array => [qw( six )], base_class => 'Element' );
 }
 # ----------------------------------------------------------------
 sub test_base_class {
@@ -30,15 +30,16 @@ sub test_base_class {
 EOT
 
     my $tree = $tpp->parse( $xml );
-    is( ref $tree->{root},                  'Data::root',       '/root' );
-    is( ref $tree->{root}->{two},           'Data::root::two',  '/root/two' );
-    is( ref $tree->{root}->{three},         'Data::root::three', '/root/three' );
-    is( ref $tree->{root}->{three}->{five}, 'Data::root::three::five', '/root/three/five' );
-    is( ref $tree->{root}->{six},           'ARRAY',            '/root/six (ARRAY)' );
-    is( ref $tree->{root}->{six}->[0],      'Data::root::six',  '/root/six' );
-    is( ref $tree->{root}->{six}->[0]->{seven},                 'Data::root::six::seven', '/root/six/seven' );
-    is( ref $tree->{root}->{eight},         'ARRAY',            '/root/eight (ARRAY)' );
-    is( ref $tree->{root}->{eight}->[1],   'Data::root::eight', '/root/eight' );
+    is( ref $tree,                          'Element',              '/root' );
+    is( ref $tree->{root},                  'Element::root',        '/root' );
+    is( ref $tree->{root}->{two},           'Element::root::two',   '/root/two' );
+    is( ref $tree->{root}->{three},         'Element::root::three', '/root/three' );
+    is( ref $tree->{root}->{three}->{five}, 'Element::root::three::five', '/root/three/five' );
+    is( ref $tree->{root}->{six},           'ARRAY',                '/root/six (ARRAY)' );
+    is( ref $tree->{root}->{six}->[0],      'Element::root::six',   '/root/six' );
+    is( ref $tree->{root}->{six}->[0]->{seven},                     'Element::root::six::seven', '/root/six/seven' );
+    is( ref $tree->{root}->{eight},         'ARRAY',                '/root/eight (ARRAY)' );
+    is( ref $tree->{root}->{eight}->[1],    'Element::root::eight', '/root/eight' );
 }
 # ----------------------------------------------------------------
 ;1;

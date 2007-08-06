@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                XML-TreePP
-version:             0.22
+version:             0.24
 abstract:            ~
 license:             perl
 generated_by:        ExtUtils::MakeMaker version 6.36
