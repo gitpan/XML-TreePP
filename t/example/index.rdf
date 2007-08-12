@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rdf:RDF xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><channel rdf:about="http://www.kawa.net/xp/index-e.html"><dc:date>2007-08-06T23:19:00+09:00</dc:date>
+<rdf:RDF xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<channel rdf:about="http://www.kawa.net/xp/index-e.html">
+<dc:date>2007-08-07T03:04:00+09:00</dc:date>
 <dc:language>en</dc:language>
 <dc:rights>Copyright 1995-2006 Yusuke Kawasaki. All rights reserved.</dc:rights>
 <image rdf:resource="http://www.kawa.net/xp/images/xp-title-128x32.gif" />
 <link>http://www.kawa.net/xp/index-e.html</link>
 <title>Kawa.net xp - ajax/JavaScript/Perl/CGI by Yusuke Kawasaki</title>
 <description>Yusuke Kawasaki&apos;s homepage from Japan. Ajax/JavaScript/Perl/CGI/etc. technical articles and photos.</description>
-<items><rdf:Seq><rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/19" />
+<items>
+<rdf:Seq>
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/treepp/treepp-e.html" />
+<rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/19" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/romanize/romanize-e.html" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/18" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-feedpp/message/15" />
@@ -85,19 +89,16 @@
 </rdf:Seq>
 </items>
 </channel>
-<image rdf:about="http://www.kawa.net/xp/images/xp-title-128x32.gif"><link>http://www.kawa.net/xp/index-e.html</link>
+<image rdf:about="http://www.kawa.net/xp/images/xp-title-128x32.gif">
+<link>http://www.kawa.net/xp/index-e.html</link>
 <title>Kawa.net xp - ajax/JavaScript/Perl/CGI by Yusuke Kawasaki</title>
 <url>http://www.kawa.net/xp/images/xp-title-128x32.gif</url>
 </image>
 <openSearch:itemsPerPage>25</openSearch:itemsPerPage>
 <openSearch:startIndex>1</openSearch:startIndex>
 <openSearch:totalResults>15</openSearch:totalResults>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/19"><dc:date>2007-08-06T14:28:52Z</dc:date>
-<link>http://tech.groups.yahoo.com/group/xml-treepp/message/19</link>
-<title>XML::TreePP 0.25 Released!</title>
-<description>I announce that XML::TreePP version 0.25 is now released with new features below: ======================================================================== #</description>
-</item>
-<item rdf:about="http://www.kawa.net/works/perl/treepp/treepp-e.html"><dc:date>2007-08-06T23:19:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/perl/treepp/treepp-e.html">
+<dc:date>2007-08-07T03:04:00+09:00</dc:date>
 <dc:subject>Perl</dc:subject>
 <link>http://www.kawa.net/works/perl/treepp/treepp-e.html</link>
 <title>[Perl] XML::TreePP - A pure Perl implementation for parsing/writing xml file</title>
@@ -112,7 +113,14 @@ mailing list is available on Yahoo! Groups.
 XML.ObjTree
 class is a JavaScript port of this module.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/perl/romanize/romanize-e.html"><dc:date>2007-07-29T11:11:00+09:00</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/19">
+<dc:date>2007-08-06T14:28:52Z</dc:date>
+<link>http://tech.groups.yahoo.com/group/xml-treepp/message/19</link>
+<title>XML::TreePP 0.25 Released!</title>
+<description>I announce that XML::TreePP version 0.25 is now released with new features below: ======================================================================== #</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/perl/romanize/romanize-e.html">
+<dc:date>2007-07-29T11:11:00+09:00</dc:date>
 <dc:subject>Perl</dc:subject>
 <link>http://www.kawa.net/works/perl/romanize/romanize-e.html</link>
 <title>[Perl] Lingua::*::Romanize::* - Romanization of CJK characters</title>
@@ -127,22 +135,26 @@ Lingua::KO::Romanize::Hangul module parses
 Korean
 characters, Hangul.</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/18"><dc:date>2007-07-28T15:30:55Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/18">
+<dc:date>2007-07-28T15:30:55Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-treepp/message/18</link>
 <title>XML::TreePP 0.22 Released!</title>
 <description>I announce that XML::TreePP version 0.22 is released with new features below: ======================================================================== #</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/15"><dc:date>2007-07-26T21:22:22Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/15">
+<dc:date>2007-07-26T21:22:22Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/15</link>
 <title>XML::FeedPP 0.22 Released!</title>
 <description>Good morning again from Hakata, Japan. I&apos;m re-announcing that XML::FeedPP version 0.22 is released. version 0.21 and before have a problem with summer time</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/14"><dc:date>2007-07-26T21:13:00Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/14">
+<dc:date>2007-07-26T21:13:00Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/14</link>
 <title>Re: XML::TreePP 0.20 Released!</title>
 <description>Good morning from Hakata, Japan. I announce that XML::FeedPP version 0.22 is released. version 0.21 and before have a problem with summer time zone. </description>
 </item>
-<item rdf:about="http://www.kawa.net/works/perl/feedpp/feedpp-e.html"><dc:date>2007-07-27T06:04:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/perl/feedpp/feedpp-e.html">
+<dc:date>2007-07-27T06:04:00+09:00</dc:date>
 <dc:subject>Perl</dc:subject>
 <link>http://www.kawa.net/works/perl/feedpp/feedpp-e.html</link>
 <title>[Perl] XML::FeedPP - Parse/write/merge/edit RSS/RDF/Atom syndication feeds</title>
@@ -153,28 +165,33 @@ Join the XML::FeedPP Group
 on Yahoo! Groups to discuss about the module.
 A compiling problem in summer time zone is fixed! (version 0.22)</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/16"><dc:date>2007-07-24T17:40:55Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/16">
+<dc:date>2007-07-24T17:40:55Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-treepp/message/16</link>
 <title>XML::TreePP 0.21 Released!</title>
 <description>I&apos;m today announcing that XML::TreePP 0.21 is released for a bug fix. http://www.kawa.net/works/perl/treepp/treepp-e.html </description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/15"><dc:date>2007-07-22T11:06:19Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/15">
+<dc:date>2007-07-22T11:06:19Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-treepp/message/15</link>
 <title>Re: Unable to stop TreePP from sorting hash in order.</title>
 <description>... Before version 0.20, first_order option have sorted every elements on generating XML. After version 0.20, it now keeps the order given in a array for the</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/14"><dc:date>2007-07-22T10:59:23Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/14">
+<dc:date>2007-07-22T10:59:23Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-treepp/message/14</link>
 <title>XML::TreePP 0.20 Released!</title>
 <description>I announce the release of XML::TreePP module&apos;s new version 0.20 after a long interval. You can get the source from: </description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2007/04/yapcasia-2007-tokyo-party-hackathon.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2007/04/yapcasia-2007-tokyo-party-hackathon.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2007-04-06T22:00:43.736+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2007/04/yapcasia-2007-tokyo-party-hackathon.html</link>
 <title>YAPC::Asia 2007 Tokyo + Party + Hackathon</title>
 <description>I&apos;m now in the hackathon at &lt;a href=&quot;http://blog.livedoor.jp/dankogai/&quot;&gt;Hotel Dan&lt;/a&gt;, Tokyo.&lt;br /&gt;This week, We enjoyed YAPC::Asia 2007 Tokyo, the most attractive event for Perl hackers in Asia and the world.&lt;br /&gt;&lt;br /&gt;Tsuda Hall, Tokyo. I&apos;ve take only sessions at first day morning.&lt;img src=&quot;http://www.kawa.net/xp/images/blog/200704/yapc-1.jpg&quot; style=&quot;margin: 0pt 1em 1em 0pt;&quot; height=&quot;240&quot; width=&quot;320&quot;&gt;&lt;br /&gt;The Official Party at Jong Mung-Jiro, Shinano-machi.&lt;img src=&quot;http://www.kawa.net/xp/images/blog/200704/yapc-3.jpg&quot; style=&quot;margin: 0pt 1em 1em 0pt;&quot; height=&quot;240&quot; width=&quot;320&quot;&gt;&lt;br /&gt;Sushi and Sasimi! Thanks for the sponsers!&lt;img src=&quot;http://www.kawa.net/xp/images/blog/200704/yapc-2.jpg&quot; style=&quot;margin: 0pt 1em 1em 0pt;&quot; height=&quot;240&quot; width=&quot;320&quot;&gt;&lt;br /&gt;&lt;a href=&quot;http://ingy.net/&quot;&gt;Ingy döt Net&lt;/a&gt;, &lt;a href=&quot;http://gugod.org/&quot;&gt;Kang-ming &quot;Gugod&quot; Liu&lt;/a&gt; and our assosiates!&lt;img src=&quot;http://www.kawa.net/xp/images/blog/200704/yapc-4.jpg&quot; style=&quot;margin: 0pt 1em 1em 0pt;&quot; height=&quot;240&quot; width=&quot;320&quot;&gt;&lt;br /&gt;I&apos;ve released &lt;a href=&quot;http://www.kawa.net/works/perl/html/tagparser-e.html&quot;&gt;HTML::TagParser&lt;/a&gt; Version 0.16 in the hackathon at first.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/perl/html/tagparser-e.html"><dc:date>2007-04-06T19:57:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/perl/html/tagparser-e.html">
+<dc:date>2007-04-06T19:57:00+09:00</dc:date>
 <dc:subject>Perl</dc:subject>
 <link>http://www.kawa.net/works/perl/html/tagparser-e.html</link>
 <title>[Perl] HTML::TagParser - Yet another HTML tag parser by pure Perl implementation</title>
@@ -185,37 +202,44 @@ because many of HTML pages are not strict.
 You know, many pages use &lt;br&gt; elemtents instead of &lt;br/&gt;
 and have &lt;p&gt; elements which are not closed.</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/13"><dc:date>2007-03-16T04:53:31Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/13">
+<dc:date>2007-03-16T04:53:31Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/13</link>
 <title>&quot;alternate&quot; or &quot;alternative&quot;?</title>
 <description>The current version of XML::FeedPP requires &lt;link rel=&quot;alternate&quot; href=&quot;....&quot; /&gt; and ignores &lt;link rel=&quot;alternative&quot; href=&quot;....&quot; /&gt;. To allow</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-objtree/message/8"><dc:date>2007-03-11T05:05:10Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-objtree/message/8">
+<dc:date>2007-03-11T05:05:10Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-objtree/message/8</link>
 <title>Re: xotree</title>
 <description>Mark, You mean your script retrieves the same content twice or more? Opera could make problems with its strong content caching though. IE and Firefox does not</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/11"><dc:date>2007-03-04T11:36:09Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/11">
+<dc:date>2007-03-04T11:36:09Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-treepp/message/11</link>
 <title>Re: XML TreePP module</title>
 <description>Craig , ... This means every &lt;dict&gt;, &lt;key&gt; and &lt;string&gt; elements in the document are array-ed. ... So, $tree-&gt;{array}-&gt;{dict} is an array which has only one</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/9"><dc:date>2007-03-03T03:37:18Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/9">
+<dc:date>2007-03-03T03:37:18Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-treepp/message/9</link>
 <title>Re: XML TreePP module</title>
 <description>Craig, You mean you have a trouble with some documents which have only one &lt;dict&gt; element? The force_array option would solve the problem in this case. See the</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/8"><dc:date>2007-03-02T07:40:49Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/8">
+<dc:date>2007-03-02T07:40:49Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-treepp/message/8</link>
 <title>Re: XML::RPC</title>
 <description>Niek, It&apos;s great! Thank you! -- Kawasaki Yusuke http://www.kawa.net/</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/11"><dc:date>2007-01-21T16:46:28Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/11">
+<dc:date>2007-01-21T16:46:28Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/11</link>
 <title>XML::FeedPP 0.21 Released!</title>
 <description>Today I&apos;d like to announce XML::FeedPP version 0.21 is released! http://www.kawa.net/works/perl/feedpp/feedpp-e.html #1 - new() constructor method allows</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/js/animation/cube-e.html"><dc:date>2007-01-08T17:19:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/js/animation/cube-e.html">
+<dc:date>2007-01-08T17:19:00+09:00</dc:date>
 <dc:subject>JavaScript</dc:subject>
 <link>http://www.kawa.net/works/js/animation/cube-e.html</link>
 <title>[JavaScript] Animation.Cube - Rotating Cube Animation Effect</title>
@@ -223,13 +247,14 @@ and have &lt;p&gt; elements which are not closed.</description>
 This effect needs CPU speed faster than
 Animation.Raster class.</description>
 </item>
-<item rdf:about="http://youtube.com/?v=TBM_WFDkftM"><creator>rss@youtube.com (YusukeKawasaki)</creator>
+<item rdf:about="http://youtube.com/?v=TBM_WFDkftM">
+<creator>rss@youtube.com (YusukeKawasaki)</creator>
 <dc:date>2007-01-05T17:53:38-08:00</dc:date>
 <link>http://youtube.com/?v=TBM_WFDkftM</link>
 <media:category label="Tags">monkey</media:category>
 <media:credit>YusukeKawasaki</media:credit>
 <media:player url="http://youtube.com/?v=TBM_WFDkftM" />
-<media:thumbnail url="http://img.youtube.com/vi/TBM_WFDkftM/default.jpg" height="90" width="120" />
+<media:thumbnail url="http://img.youtube.com/vi/TBM_WFDkftM/default.jpg" width="120" height="90" />
 <media:title>Yakushima Macaque - Inuyama Monkey Park #3</media:title>
 <title>Yakushima Macaque - Inuyama Monkey Park #3</title>
 <description>
@@ -245,13 +270,14 @@ Animation.Raster class.</description>
 				&lt;/p&gt;
 </description>
 </item>
-<item rdf:about="http://youtube.com/?v=LeF95hWgJOE"><creator>rss@youtube.com (YusukeKawasaki)</creator>
+<item rdf:about="http://youtube.com/?v=LeF95hWgJOE">
+<creator>rss@youtube.com (YusukeKawasaki)</creator>
 <dc:date>2007-01-05T17:44:16-08:00</dc:date>
 <link>http://youtube.com/?v=LeF95hWgJOE</link>
 <media:category label="Tags">monkey</media:category>
 <media:credit>YusukeKawasaki</media:credit>
 <media:player url="http://youtube.com/?v=LeF95hWgJOE" />
-<media:thumbnail url="http://img.youtube.com/vi/LeF95hWgJOE/default.jpg" height="90" width="120" />
+<media:thumbnail url="http://img.youtube.com/vi/LeF95hWgJOE/default.jpg" width="120" height="90" />
 <media:title>Black Capped Squirrel Monkey - Inuyama Monkey Park #2</media:title>
 <title>Black Capped Squirrel Monkey - Inuyama Monkey Park #2</title>
 <description>
@@ -267,32 +293,36 @@ Animation.Raster class.</description>
 				&lt;/p&gt;
 </description>
 </item>
-<item rdf:about="http://www.kawa.net/works/js/jkl/parsexml-e.html"><dc:date>2007-01-05T01:05:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/js/jkl/parsexml-e.html">
+<dc:date>2007-01-05T01:05:00+09:00</dc:date>
 <dc:subject>ajax</dc:subject>
 <link>http://www.kawa.net/works/js/jkl/parsexml-e.html</link>
 <title>[ajax] JKL.ParseXML - XML Parsing Library for JavaScript</title>
 <description>JKL.ParseXML is a JavaScript library that let you convert an XML into a JavaScript object (JSON).
 See also XML.ObjTree class.</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2007/01/adsense-and-analytics-2006.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2007/01/adsense-and-analytics-2006.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2007-01-04T00:20:19.886+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2007/01/adsense-and-analytics-2006.html</link>
 <title>AdSense and Analytics 2006</title>
 <description>Kawa.net website have adopted Google AdSense since April 2004.&lt;br /&gt;I&apos;m now happy that it send me US$100+ check on each month.&lt;br /&gt;&lt;br /&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot; style=&quot;color:#333333; width: 400px; font-family:Arial,Helvetica; border:1px solid #0066CC; background:#F8FCFF;&quot;&gt;&lt;tr style=&quot;background:#DDEEFF;&quot;&gt;&lt;th style=&quot;text-align:center; border-bottom:1px solid #0066CC;&quot;&gt;Month&lt;/th&gt;&lt;th style=&quot;text-align:center; border-bottom:1px solid #0066CC;&quot;&gt;PV&lt;/th&gt;&lt;th style=&quot;text-align:center; border-bottom:1px solid #0066CC;&quot;&gt;Income&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot; nowrap&gt;2006/01/01～2006/01/31&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;19,951&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$30.31&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot;&gt;2006/02/01～2006/02/28&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;24,345&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$15.59&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot;&gt;2006/03/01～2006/03/31&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;29,853&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$21.57&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot;&gt;2006/04/01～2006/04/30&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;74,780&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$82.45&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot;&gt;2006/05/01～2006/05/31&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;56,440&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$37.64&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot;&gt;2006/06/01～2006/06/30&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;57,400&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$36.49&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot;&gt;2006/07/01～2006/07/31&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;52,356&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$33.21&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot;&gt;2006/08/01～2006/08/31&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;51,583&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$49.02&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot;&gt;2006/09/01～2006/09/30&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;65,866&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$69.46&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot;&gt;2006/10/01～2006/10/31&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;79,987&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$100.90&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot;&gt;2006/11/01～2006/11/30&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;113,518&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$132.07&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align:center;&quot;&gt;2006/12/01～2006/12/31&lt;/td&gt;&lt;td style=&quot;text-align:right;&quot;&gt;126,808&lt;/td&gt;&lt;td style=&quot;text-align:right;padding-right:1em;&quot;&gt;$138.70&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;background:#DDEEFF;&quot;&gt;&lt;th style=&quot;text-align:center; border-top:1px solid #0066CC;&quot;&gt;Total&lt;/td&gt;&lt;td style=&quot;text-align:right;border-top:1px solid #0066CC;&quot;&gt;752,887&lt;/td&gt;&lt;td style=&quot;text-align:right;border-top:1px solid #0066CC;padding-right:1em;&quot;&gt;$747.41&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;The analytics shows my websites, &lt;a href=&quot;http://www.kawa.net/&quot;&gt;kawa.net&lt;/a&gt; and some other blog sites, got about 3 clicks per 1,000 PVs.&lt;br /&gt;&lt;br /&gt;At first, only some of pages on Kawa.net had showed ads. &lt;br /&gt;It increased PV that most of pages started to show ads from this April.&lt;br /&gt;And Kurukuru Blog also spread PV this November.&lt;br /&gt;&lt;br /&gt;Here are the result by Google Analytics.&lt;br /&gt;This covers only kawa.net website which does not include my blogs.&lt;br /&gt;&lt;br /&gt;&lt;img src=&quot;http://www.kawa.net/xp/images/blog/returning-566.gif&quot; alt=&quot;New vs Returning&quot; style=&quot;border:0;&quot;&gt;&lt;br /&gt;One-thirds of visitors are repeaters and rests are new.&lt;br /&gt;I&apos;d like them to come back my website again and again.&lt;br /&gt;&lt;br /&gt;&lt;img src=&quot;http://www.kawa.net/xp/images/blog/source-566.gif&quot; alt=&quot;Source Conversion&quot; style=&quot;border:0;&quot;&gt;&lt;br /&gt;Referrer. About half (54%) of visitors are came from Google.&lt;br /&gt;Yahoo (7%) and MSN (2%)&lt;br /&gt;&lt;br /&gt;&lt;img src=&quot;http://www.kawa.net/xp/images/blog/language-566.gif&quot; alt=&quot;Language&quot; style=&quot;border:0;&quot;&gt;&lt;br /&gt;Languages. 83% of users use Japanese and 13% use English.&lt;br /&gt;And Chinese, Germany, French and Korean users account 1% each.&lt;br /&gt;&lt;br /&gt;At last I must say thank you to access my websites and click ads!</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2007/01/new-years-resolution-2007.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2007/01/new-years-resolution-2007.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2007-01-04T00:13:34.350+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2007/01/new-years-resolution-2007.html</link>
 <title>New Year&apos;s Resolution 2007</title>
 <description>A Happy New Year!&lt;br /&gt;&lt;br /&gt;On the new year&apos;s day, I had a theme for this half year.&lt;br /&gt;It&apos;s &quot;Yuru Yuru&quot; literally means &quot;Relax and Leisured.&quot;&lt;br /&gt;I&apos;d like to make me not to rush into my life and work.&lt;br /&gt;&lt;br /&gt;&lt;center&gt;&lt;img src=&quot;http://www.kawa.net/xp/images/yuruyuru-240.gif&quot; alt=&quot;ゆるゆる&quot; /&gt;&lt;/center&gt;&lt;br /&gt;&lt;br /&gt;* The sign &lt;a href=&quot;http://en.wikipedia.org/wiki/Iteration_mark#Repeating_multiple_characters&quot;&gt;&#x3031; &lt;/a&gt; above is a special character which means to repeat leading the two Hiragana characters.</description>
 </item>
-<item rdf:about="http://youtube.com/?v=5R_7-58IOF8"><creator>rss@youtube.com (YusukeKawasaki)</creator>
+<item rdf:about="http://youtube.com/?v=5R_7-58IOF8">
+<creator>rss@youtube.com (YusukeKawasaki)</creator>
 <dc:date>2007-01-01T15:37:59-08:00</dc:date>
 <link>http://youtube.com/?v=5R_7-58IOF8</link>
 <media:category label="Tags">monkey</media:category>
 <media:credit>YusukeKawasaki</media:credit>
 <media:player url="http://youtube.com/?v=5R_7-58IOF8" />
-<media:thumbnail url="http://img.youtube.com/vi/5R_7-58IOF8/default.jpg" height="90" width="120" />
+<media:thumbnail url="http://img.youtube.com/vi/5R_7-58IOF8/default.jpg" width="120" height="90" />
 <media:title>Black Handed Spider Monkey - Inuyama Monkey Park #1</media:title>
 <title>Black Handed Spider Monkey - Inuyama Monkey Park #1</title>
 <description>
@@ -308,47 +338,56 @@ See also XML.ObjTree class.</description>
 				&lt;/p&gt;
 </description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/10"><dc:date>2006-12-29T15:03:11Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/10">
+<dc:date>2006-12-29T15:03:11Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/10</link>
 <title>Re: more on podcasts</title>
 <description>Hi Patrik, All pubDate elements of the feed don&apos;t have second columns like: &lt;pubDate&gt;Fri, 22 Dec 2006 06:47 GMT&lt;/pubDate&gt; http://www.onthemedia.org/index.xml </description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/9"><dc:date>2006-12-29T10:47:00Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/9">
+<dc:date>2006-12-29T10:47:00Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/9</link>
 <title>Re: more on podcasts</title>
 <description>Hi Patrik, The following get() method returns an url for MP3 file. my $mp3 = $item-&gt;get( &apos;media:content@url&apos; ); OR my $mp3 = $item-&gt;get( &apos;enclosure@url&apos; ); </description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/8"><dc:date>2006-12-26T01:46:52Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/8">
+<dc:date>2006-12-26T01:46:52Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/8</link>
 <title>Re: FeedPP and podcasts</title>
 <description>Hi Patrik, See the &quot;Podcast and Videopod&quot; section in the Japanese doc page: http://www.kawa.net/works/perl/feedpp/feedpp.html#podcast This section is not</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/7"><dc:date>2006-12-16T13:14:52Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/7">
+<dc:date>2006-12-16T13:14:52Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/7</link>
 <title>XML::FeedPP 0.19 Released!</title>
 <description>Hello again from Tokyo. I make an announcement that XML::FeedPP 0.19 is released today. http://www.kawa.net/works/perl/feedpp/feedpp-e.html An negative number</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/6"><dc:date>2006-12-15T11:09:56Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/6">
+<dc:date>2006-12-15T11:09:56Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/6</link>
 <title>Re: Bug in XML-FeedPP 0.16 in get function</title>
 <description>javiermm, Thank you for sending your patch. I&apos;d like to announce XML::FeedPP version 0.17 is released and the bug was fixed. </description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/7"><dc:date>2006-12-06T06:26:18Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/7">
+<dc:date>2006-12-06T06:26:18Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-treepp/message/7</link>
 <title>Re: XML::TreePP bug</title>
 <description>Hi Mike, I think it&apos;s not a bug but a specification of the current implementation. However, adding a new option parameter to specify this behavior seems to be</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/6"><dc:date>2006-11-29T06:04:56Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/6">
+<dc:date>2006-11-29T06:04:56Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-treepp/message/6</link>
 <title>Re: XML::RSS::SSE</title>
 <description>Hi Mike, Thank you for your information and annotating pods. ... You mean limit_item() method calls sort_item() method before triming out older items? I need</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-objtree/message/6"><dc:date>2006-11-27T07:41:46Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-objtree/message/6">
+<dc:date>2006-11-27T07:41:46Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-objtree/message/6</link>
 <title>Re: Can I read remote XML files?</title>
 <description>Hi Michael, Talking about Perl modules, I think JSON.pm would be good choice. This is a pure Perl implemented module which doesn&apos;t require compiling to use it.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/cantonese/canton.html"><dc:date>2006-11-10T10:33:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/cantonese/canton.html">
+<dc:date>2006-11-10T10:33:00+09:00</dc:date>
 <link>http://www.kawa.net/works/cantonese/canton.html</link>
 <title>Ruby on Chinese Pinyin</title>
 <description>Ajax-ized
@@ -356,7 +395,8 @@ web service version of this is also available. Try it!
 NEW
 Type (or copy&amp;paste) some chinese characters and push the button.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/perl/romanize/roman-demo-e.html"><dc:date>2006-11-06T00:46:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/perl/romanize/roman-demo-e.html">
+<dc:date>2006-11-06T00:46:00+09:00</dc:date>
 <dc:subject>Perl</dc:subject>
 <link>http://www.kawa.net/works/perl/romanize/roman-demo-e.html</link>
 <title>[Perl] Lingua::*::Romanize::* - Online Demo</title>
@@ -369,18 +409,21 @@ Korean
 characters are available.
 This is not a translation system but to get phonemic notation by roman letters.</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/5"><dc:date>2006-11-03T04:47:25Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/5">
+<dc:date>2006-11-03T04:47:25Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-treepp/message/5</link>
 <title>Re: XML::TreePP</title>
 <description>Hi Niek, Thank you for your mail and suggestions. Today I&apos;ve just released XML::TreePP module version 0.19 which includes: * new option: text_node_key =&gt;</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/09/kurukuru-blog-and-recipe-for-mashing.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/09/kurukuru-blog-and-recipe-for-mashing.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-09-22T03:22:27.446+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/09/kurukuru-blog-and-recipe-for-mashing.html</link>
 <title>Kurukuru Blog and a recipe for mashing up</title>
 <description>&lt;a href=&quot;http://kuru2.st/kuru2blog/&quot; target=&quot;_blank&quot;&gt;Kurukuru Blog&lt;/a&gt; spread its horizons.&lt;br /&gt;Kurukuru Blog is a blog maching service deliveried for twelve languages: Deutsch, Ελληνικά, English, Español, Français, Nederlands, Norsk, Polski, Português, Svenska, Türkçe and Tiếng Việt (Vietnamese).&lt;br /&gt;It&apos;s difficult for me to read blogs written in the most of these languages however.&lt;br /&gt;&lt;div align=&quot;center&quot;&gt;&lt;a href=&quot;http://kuru2.st/kuru2blog/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.kawa.net/text/kuru2/recipe5-menu.jpg&quot; border=&quot;0&quot;&gt;&lt;br&gt;http://kuru2.st/kuru2blog/&lt;/a&gt;&lt;/div&gt;&lt;br /&gt;&lt;hr&gt;&lt;br /&gt;&lt;h2&gt;A Recipe for Mashing Up&lt;/h2&gt;&lt;br /&gt;Kurukuru Blog genarates its contents by itself automatically.&lt;br /&gt;Today I&apos;ll show you the recipe how to cook this site.&lt;br /&gt;&lt;h3&gt;#1 Wikipedia&lt;/h3&gt;&lt;a href=&quot;http://en.wikipedia.org/&quot; target=&quot;_blank&quot;&gt;Wikipedia&lt;/a&gt; is, you know, a online encyclopedia.&lt;br /&gt;And also you would find that it has thesaurus and translations.&lt;br /&gt;&lt;div align=&quot;center&quot;&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Automobile&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.kawa.net/text/kuru2/recipe1-wikipedia1.jpg&quot; border=&quot;0&quot;&gt;&lt;/a&gt;&lt;a style=&quot;margin-left: 1em;&quot; href=&quot;http://en.wikipedia.org/wiki/Automobile#p-lang&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.kawa.net/text/kuru2/recipe1-wikipedia2.jpg&quot; border=&quot;0&quot;&gt;&lt;/a&gt;&lt;/div&gt;&lt;br /&gt;&lt;h3&gt;#2 Technorati&lt;/h3&gt;&lt;a href=&quot;http://www.technorati.com/&quot; target=&quot;_blank&quot;&gt;Technorati&lt;/a&gt; is the most quick blog search engine.&lt;br /&gt;&lt;div align=&quot;center&quot;&gt;&lt;a href=&quot;http://www.technorati.com/search/%E8%87%AA%E5%8B%95%E8%BB%8A?language=ja&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.kawa.net/text/kuru2/recipe2-technorati1.jpg&quot; border=&quot;0&quot;&gt;&lt;/a&gt; Japanese&lt;br&gt;&lt;a href=&quot;http://www.technorati.com/search/automobil?language=de&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.kawa.net/text/kuru2/recipe2-technorati2.jpg&quot; border=&quot;0&quot;&gt;&lt;/a&gt; Germany&lt;/div&gt;&lt;br /&gt;&lt;h3&gt;#3 WebToJpeg&lt;/h3&gt;&lt;a href=&quot;http://x-row.cc/webtojpeg/&quot; target=&quot;_blank&quot;&gt;WebToJpeg&lt;/a&gt; captures any website as thumbnailed jpeg image file.&lt;br /&gt;&lt;div align=&quot;center&quot;&gt;&lt;a href=&quot;http://x-row.cc/webtojpeg/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.kawa.net/text/kuru2/recipe3-webtojpeg.jpg&quot; border=&quot;0&quot;&gt;&lt;/a&gt;&lt;/div&gt;&lt;br /&gt;&lt;h3&gt;#4 + IDEA!&lt;/h3&gt;Mash them up!&lt;br /&gt;&lt;div align=&quot;center&quot;&gt;&lt;a href=&quot;http://www.kawa.net/text/kuru2/recipe6-en-640.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.kawa.net/text/kuru2/recipe6-en-320.jpg&quot; border=&quot;0&quot;&gt;&lt;/a&gt;&lt;/div&gt;&lt;br /&gt;&lt;h3&gt;Bon Appetit!（召し上がれ）&lt;/h3&gt;This is a blog matching service.&lt;br /&gt;&lt;div align=&quot;center&quot;&gt;&lt;a href=&quot;http://kuru2.st/kuru2blog/tr/200609/20060910-tr-car.html&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.kawa.net/text/kuru2/recipe5-kurkuru.jpg&quot; border=&quot;0&quot;&gt;&lt;/a&gt;&lt;/div&gt;&lt;br /&gt;Get to the &lt;a href=&quot;http://kuru2.st/kuru2blog/&quot; target=&quot;_blank&quot;&gt;Kurukuru Blog&lt;/a&gt; website and try it now!&lt;br /&gt;&lt;a href=&quot;http://kawa.at.webry.info/200609/article_9.html&quot;&gt;&lt;img src=&quot;http://www.kawa.net/xp/images/lang-jpn-24x16border.gif&quot; border=&quot;0&quot; alt=&quot;日本語&quot;&gt;&lt;/a&gt; Japanese version of this post is &lt;a href=&quot;http://kawa.at.webry.info/200609/article_9.html&quot;&gt;here&lt;/a&gt;.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/ajax/ajaxtb/ajaxtb-e.html"><dc:date>2006-09-19T00:38:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/ajax/ajaxtb/ajaxtb-e.html">
+<dc:date>2006-09-19T00:38:00+09:00</dc:date>
 <dc:subject>ajax</dc:subject>
 <link>http://www.kawa.net/works/ajax/ajaxtb/ajaxtb-e.html</link>
 <title>[ajax] AjaxTB - a pluggable trackback feature in static HTML page</title>
@@ -391,7 +434,8 @@ CMS is not needed. PHP is not required.
 AjaxTB is really pluggable and easy to use.
 Indexed RSS and JSON files are also generated when a trackback is posted.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/ajax/ajaxcom/ajaxcom-e.html"><dc:date>2006-09-19T00:34:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/ajax/ajaxcom/ajaxcom-e.html">
+<dc:date>2006-09-19T00:34:00+09:00</dc:date>
 <dc:subject>ajax</dc:subject>
 <link>http://www.kawa.net/works/ajax/ajaxcom/ajaxcom-e.html</link>
 <title>[ajax] AjaxCom - one line comment box in static HTML page</title>
@@ -403,19 +447,21 @@ Ajaxcom is pluggable and easy to use.
 Perl/CGI works only when comments are entered.
 A plain text file is loaded when comments are displayed.</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/09/nakanobu-nebuta-matsuri-festival.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/09/nakanobu-nebuta-matsuri-festival.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-09-17T12:00:07.676+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/09/nakanobu-nebuta-matsuri-festival.html</link>
 <title>The Nakanobu Nebuta-Matsuri Festival</title>
 <description>Nine floats paraded at the Nakanobu shopping mall, 16th September.&lt;br /&gt;This is an yet another nebuta-matsuri festival in Tokyo.&lt;br /&gt;&lt;br /&gt;&lt;object width=&quot;425&quot; height=&quot;350&quot;&gt;&lt;param name=&quot;movie&quot; value=&quot;http://www.youtube.com/v/pnks8-4O1_8&quot;&gt;&lt;/param&gt;&lt;embed src=&quot;http://www.youtube.com/v/pnks8-4O1_8&quot; type=&quot;application/x-shockwave-flash&quot; width=&quot;600&quot; height=&quot;350&quot;&gt;&lt;/embed&gt;&lt;/object&gt;&lt;br /&gt;Some of floats are built by students in elementary scools nearby.&lt;br /&gt;&lt;br /&gt;&lt;object width=&quot;425&quot; height=&quot;350&quot;&gt;&lt;param name=&quot;movie&quot; value=&quot;http://www.youtube.com/v/zxZfobdGbA4&quot;&gt;&lt;/param&gt;&lt;embed src=&quot;http://www.youtube.com/v/zxZfobdGbA4&quot; type=&quot;application/x-shockwave-flash&quot; width=&quot;600&quot; height=&quot;350&quot;&gt;&lt;/embed&gt;&lt;/object&gt;</description>
 </item>
-<item rdf:about="http://youtube.com/?v=zxZfobdGbA4"><creator>rss@youtube.com (YusukeKawasaki)</creator>
+<item rdf:about="http://youtube.com/?v=zxZfobdGbA4">
+<creator>rss@youtube.com (YusukeKawasaki)</creator>
 <dc:date>2006-09-16T19:45:10-07:00</dc:date>
 <link>http://youtube.com/?v=zxZfobdGbA4</link>
 <media:category label="Tags">nakanobu nebuta</media:category>
 <media:credit>YusukeKawasaki</media:credit>
 <media:player url="http://youtube.com/?v=zxZfobdGbA4" />
-<media:thumbnail url="http://img.youtube.com/vi/zxZfobdGbA4/default.jpg" height="90" width="120" />
+<media:thumbnail url="http://img.youtube.com/vi/zxZfobdGbA4/default.jpg" width="120" height="90" />
 <media:title>Nakanobu Nebuta Matsuri（中延ねぶた祭り）2/2</media:title>
 <title>Nakanobu Nebuta Matsuri（中延ねぶた祭り）2/2</title>
 <description>
@@ -431,13 +477,14 @@ This is an yet another nebuta-matsuri in Tokyo.
 				&lt;/p&gt;
 </description>
 </item>
-<item rdf:about="http://youtube.com/?v=pnks8-4O1_8"><creator>rss@youtube.com (YusukeKawasaki)</creator>
+<item rdf:about="http://youtube.com/?v=pnks8-4O1_8">
+<creator>rss@youtube.com (YusukeKawasaki)</creator>
 <dc:date>2006-09-16T19:37:25-07:00</dc:date>
 <link>http://youtube.com/?v=pnks8-4O1_8</link>
 <media:category label="Tags">nakanobu nebuta</media:category>
 <media:credit>YusukeKawasaki</media:credit>
 <media:player url="http://youtube.com/?v=pnks8-4O1_8" />
-<media:thumbnail url="http://img.youtube.com/vi/pnks8-4O1_8/default.jpg" height="90" width="120" />
+<media:thumbnail url="http://img.youtube.com/vi/pnks8-4O1_8/default.jpg" width="120" height="90" />
 <media:title>Nakanobu Nebuta Matsuri（中延ねぶた祭り）1/2</media:title>
 <title>Nakanobu Nebuta Matsuri（中延ねぶた祭り）1/2</title>
 <description>
@@ -453,47 +500,55 @@ This is an yet another nebuta-matsuri in Tokyo.
 				&lt;/p&gt;
 </description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/09/wcan-javascript-libraries-and-basic.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/09/wcan-javascript-libraries-and-basic.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-09-04T01:26:38.033+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/09/wcan-javascript-libraries-and-basic.html</link>
 <title>[WCAN] JavaScript Libraries and Basic Ajax</title>
 <description>I made a presentation on the &lt;a href=&quot;http://www.wcan.jp/index.php?ID=67&quot;&gt;WCAN/200609&lt;/a&gt; event at Nagoya last Saturday.&lt;br /&gt;&lt;br /&gt;&lt;A HREF=&apos;http://photos1.blogger.com/blogger/3901/1998/640/wcan-cap0001.jpg&apos;&gt;&lt;IMG SRC=&apos;http://photos1.blogger.com/blogger/3901/1998/320/wcan-cap0001.jpg&apos; border=0 alt=&apos;&apos; style=&apos;display:block;margin 0px auto 10px; cursor:hand; text-align:center&apos;&gt;&lt;/A&gt;&amp;nbsp;&lt;br /&gt;Topics:&lt;br /&gt;* What Is Ajax&lt;br /&gt;* JavaScript Libraries&lt;br /&gt;* JSAN and My Libraries&lt;br /&gt;* Shibuya.js Technical Talks&lt;br /&gt;* Sun+RECRUIT Mash Up Award 2006&lt;br /&gt;&lt;br /&gt;&lt;A HREF=&apos;http://photos1.blogger.com/blogger/3901/1998/640/p1040361.jpg&apos;&gt;&lt;IMG SRC=&apos;http://photos1.blogger.com/blogger/3901/1998/320/p1040361.jpg&apos; border=0 alt=&apos;&apos; style=&apos;display:block;margin 0px auto 10px; cursor:hand; text-align:center&apos;&gt;&lt;/A&gt;&amp;nbsp;&lt;br /&gt;Mr. Watanabe, in the photo, also talked about Photoshop technics.&amp;nbsp;&lt;a href=&apos;http://picasa.google.com/blogger/&apos; target=&apos;ext&apos;&gt;&lt;img src=&apos;http://photos1.blogger.com/pbp.gif&apos; alt=&apos;Posted by Picasa&apos; style=&apos;border: 0px none ; padding: 0px; background: transparent none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;&apos; align=&apos;middle&apos; border=&apos;0&apos; /&gt;&lt;/a&gt; </description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/08/perl-i18n-date-representations-with.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/08/perl-i18n-date-representations-with.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-08-28T05:06:35.496+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/08/perl-i18n-date-representations-with.html</link>
 <title>[Perl] I18N Date Representations with DateTime module</title>
 <description>&lt;a href=&quot;http://search.cpan.org/dist/DateTime/&quot;&gt;DateTime module&lt;/a&gt; makes easy to get an I18N date representaion.&lt;br /&gt;The code below displays date strings in some languages.&lt;br /&gt;&lt;pre&gt;use Encode;&lt;br /&gt;use DateTime;&lt;br /&gt;foreach my $lang (qw( de el en es fr ja nl no pl pt sv tr vi )) {&lt;br /&gt;  my $fmt = DateTime::Locale-&amp;gt;load($lang)-&amp;gt;full_date_format();&lt;br /&gt;  my $date = DateTime-&amp;gt;now(locale =&amp;gt; $lang)-&amp;gt;strftime($fmt);&lt;br /&gt;  my $line = &quot;$lang : $date\n&quot;;&lt;br /&gt;  print encode_utf8($line);&lt;br /&gt;}&lt;/pre&gt;The result of today is following:&lt;br /&gt;&lt;pre&gt;de : &lt;span lang=&quot;de&quot;&gt;Sonntag, 27. August 2006&lt;/span&gt;&lt;br /&gt;el : &lt;span lang=&quot;el&quot;&gt;Κυριακή, 27 Αυγούστου 2006&lt;/span&gt;&lt;br /&gt;en : &lt;span lang=&quot;en&quot;&gt;Sunday, August 27, 2006&lt;/span&gt;&lt;br /&gt;es : &lt;span lang=&quot;es&quot;&gt;domingo 27 de agosto de 2006&lt;/span&gt;&lt;br /&gt;fr : &lt;span lang=&quot;fr&quot;&gt;dimanche 27 août 2006&lt;/span&gt;&lt;br /&gt;ja : &lt;span lang=&quot;ja&quot;&gt;2006年8月27日日曜日&lt;/span&gt;&lt;br /&gt;nl : &lt;span lang=&quot;nl&quot;&gt;zondag 27 augustus 2006&lt;/span&gt;&lt;br /&gt;no : &lt;span lang=&quot;no&quot;&gt;sundag 27. august 2006&lt;/span&gt;&lt;br /&gt;pl : &lt;span lang=&quot;pl&quot;&gt;niedziela, 27 sierpnia 2006&lt;/span&gt;&lt;br /&gt;pt : &lt;span lang=&quot;pt&quot;&gt;domingo, 27 de agosto de 2006&lt;/span&gt;&lt;br /&gt;sv : &lt;span lang=&quot;sv&quot;&gt;den 27 augusti 2006&lt;/span&gt;&lt;br /&gt;tr : &lt;span lang=&quot;tr&quot;&gt;27 Ağustos 2006 Pazar&lt;/span&gt;&lt;br /&gt;vi : &lt;span lang=&quot;vi&quot;&gt;Chủ nhật, ngày 27 tháng tám năm 2006&lt;/span&gt;&lt;/pre&gt;&lt;br /&gt;&lt;span style=&quot;font-size:85%;&quot;&gt;I remember that NTT DoCoMo&apos;s P503i mobile phone have used &lt;a href=&quot;http://www.nttdocomo.co.jp/english/p_s/i/java/caution2.html&quot;&gt;&quot;Apl&quot;&lt;/a&gt; instead of &quot;Apr&quot;.&lt;/span&gt;</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/5"><dc:date>2006-08-26T18:55:14Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/5">
+<dc:date>2006-08-26T18:55:14Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/5</link>
 <title>XML::FeedPP 0.15 Released!</title>
 <description>Hi, I released the XML::FeedPP module version 0.15 today. http://www.kawa.net/works/perl/feedpp/feedpp-e.html This supports parsing some elements of Atom 1.0</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/08/kurukuru-blog-started.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/08/kurukuru-blog-started.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-08-20T15:05:16.203+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/08/kurukuru-blog-started.html</link>
 <title>Kurukuru Blog Started!</title>
 <description>&lt;a href=&quot;http://kuru2.st/kuru2blog/200608/20060820-en-finance.html&quot;&gt;&lt;img style=&quot;float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;&quot; src=&quot;http://photos1.blogger.com/blogger/3901/1998/320/kuru2blog-first-320x240.jpg&quot; border=&quot;0&quot; alt=&quot;Kurukuru Blog&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://kuru2.st/kuru2blog/200608/20060820-en-finance.html&quot;&gt;Kurukuru Blog&lt;/a&gt; is out now!&lt;br /&gt;&lt;br /&gt;This slot machine is a kind of fortune-teller who suggests a blog you would read today. The first day of Kurukuru Blog is featured on &quot;Gold&quot;.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://www.technorati.com/developers/api/search.html&quot;&gt;Technorati API&lt;/a&gt; and &lt;a href=&quot;http://webdesignbook.net/snapshot-service/&quot;&gt;Snapshot Service&lt;/a&gt; are used to create this page.</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/08/website-thumbnail-image-generating.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/08/website-thumbnail-image-generating.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-08-20T02:20:14.270+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/08/website-thumbnail-image-generating.html</link>
 <title>Website Thumbnail Image Generating Services</title>
 <description>&lt;img src=&quot;http://photos1.blogger.com/blogger/3901/1998/1600/thumbnail-simple.jpg&quot; style=&quot;margin: 5px; float: right; border: 1px solid #000066;&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://www.simpleapi.net/&quot; &gt;SimpleAPI&lt;/a&gt; is a free service to generate a screenshot image captured from any website you want. This service is started in this March.&lt;br /&gt;&lt;pre style=&quot;background: #CCCCCC; padding: 10px; clear: both;&quot;&gt;&amp;lt;img src=&quot;http://img.simpleapi.net/small/http://www.kawa.net/&quot;&amp;gt;&lt;/pre&gt;&lt;br /&gt;&lt;img src=&quot;http://photos1.blogger.com/blogger/3901/1998/1600/thumbnail-hatena.jpg&quot; style=&quot;margin: 5px; float: right; border: 1px solid #000066;&quot;&gt;Two months later, Hatena also released &lt;a target=&quot;_blank&quot; href=&quot;http://screenshot.hatena.ne.jp/&quot; &gt;Hatena::Screenshot&lt;/a&gt; service for thier blog service&apos;s users. Registered users can post a blog which includes screenshots by writing the special wiki markup following:&lt;br /&gt;&lt;pre style=&quot;background: #CCCCCC; padding: 10px; clear: both;&quot;&gt;[http://www.kawa.net:image] ( size: midium )&lt;br /&gt;[http://www.kawa.net:image:large] ( size: large )&lt;br /&gt;[http://www.kawa.net:image:small] ( size: small )&lt;/pre&gt;&lt;br /&gt;&lt;img src=&quot;http://photos1.blogger.com/blogger/3901/1998/1600/thumbnail-snap.jpg&quot; style=&quot;margin: 5px; float: right; border: 1px solid #000066;&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://webdesignbook.net/snapshot-service/&quot;&gt;Snapshot service&lt;/a&gt; is an yet another service which has no Japanese manuals ;)&lt;br /&gt;You can specify height and width of the thumbnail image generated by this service.&lt;br /&gt;&lt;pre style=&quot;background: #CCCCCC; padding: 10px; clear: both;&quot;&gt;&amp;lt;img src=&quot;http://webdesignbook.net/snapper.php?w=160&amp;h=120&amp;url=kawa.net/&quot;&amp;gt;&lt;/pre&gt;</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/4"><dc:date>2006-08-18T03:00:53Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/4">
+<dc:date>2006-08-18T03:00:53Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/4</link>
 <title>Re: Welcome to XML::FeedPP Group</title>
 <description>In fact, the current version of XML::FeedPP module doesn&apos;t support all feature of Atom feed&apos;s various formats, content&apos;s type, escaping method and so on. I</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/08/mailing-lists-opened-on-yahoo-groups.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/08/mailing-lists-opened-on-yahoo-groups.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-08-18T03:25:21.516+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/08/mailing-lists-opened-on-yahoo-groups.html</link>
 <title>Mailing lists opened on Yahoo! Groups</title>
 <description>I&apos;ve opened three mailing lists today.&lt;br /&gt;We&apos;re waiting for you to join us!&lt;br /&gt;&lt;br /&gt;XML::TreePP Group (Perl module)&lt;br /&gt;&lt;a href=&quot;http://groups.yahoo.com/group/xml-treepp/&quot;&gt;http://groups.yahoo.com/group/xml-treepp/&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;XML::FeedPP Group (Perl module)&lt;br /&gt;&lt;a href=&quot;http://groups.yahoo.com/group/xml-feedpp/&quot;&gt;http://groups.yahoo.com/group/xml-feedpp/&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;XML.ObjTree Group (JavaScript library)&lt;br /&gt;&lt;a href=&quot;http://groups.yahoo.com/group/xml-objtree/&quot;&gt;http://groups.yahoo.com/group/xml-objtree/&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;Thank you.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/js/xml/objtree-e.html"><dc:date>2006-08-18T03:14:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/js/xml/objtree-e.html">
+<dc:date>2006-08-18T03:14:00+09:00</dc:date>
 <dc:subject>JavaScript</dc:subject>
 <link>http://www.kawa.net/works/js/xml/objtree-e.html</link>
 <title>[JavaScript] XML.ObjTree - XML source code from/to JavaScript object like E4X</title>
@@ -513,36 +568,41 @@ Safari for Intel Mac is supported.
 XML.ObjTree Group
 is now opened on Yahoo! Groups.</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-objtree/message/1"><dc:date>2006-08-17T18:11:06Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-objtree/message/1">
+<dc:date>2006-08-17T18:11:06Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-objtree/message/1</link>
 <title>Welcome to XML.ObjTree Group</title>
 <description>This group is a community for XML.ObjTree users and developers. If you have a question about the library, let us share it. Of course, your patches and</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/1"><dc:date>2006-08-17T17:05:13Z</dc:date>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/1">
+<dc:date>2006-08-17T17:05:13Z</dc:date>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/1</link>
 <title>Welcome to XML::FeedPP Group</title>
 <description>This group is a community for XML::FeedPP users and developers. If you have a question about the module, let us share it. Of course, your patches and</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/07/journey-to-egypt-and-turkey.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/07/journey-to-egypt-and-turkey.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-07-30T01:36:13.236+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/07/journey-to-egypt-and-turkey.html</link>
 <title>A Journey to Egypt and Turkey</title>
 <description>&lt;img src=&quot;http://www.kawa.net/photo/200607-trapics/egypt-and-turkey/thumbnails/p1020796.jpg&quot; style=&quot;float: right;&quot; /&gt;My wife and I went to Egypt and Turkey this month.&lt;br /&gt;This was our first time to visit these countries and land on Africa.&lt;br /&gt;In this journey, I was most impressed by the ruins in Ephesos, Turkey.&lt;br /&gt;&lt;br /&gt;&lt;h3&gt;Digest&lt;/h3&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/egypt-and-turkey/&quot;&gt;Egypt and Turkey Photos Pick Up&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;&lt;h3&gt;Foods&lt;/h3&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/egypt-food/&quot;&gt;Foods in Egypt&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/turkey-food/&quot;&gt;Foods in Turkey&lt;/a&gt; - I loved it.&lt;br /&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/egyptair-food/&quot;&gt;Airline meal on EgyptAir&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;&lt;h3&gt;Rides&lt;/h3&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/egypt-railways/&quot;&gt;Egyptian National Railways&lt;/a&gt; - Cairo to Alexandria&lt;br /&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/turkey-railways/&quot;&gt;Ankara Express, Turkey&lt;/a&gt; - Ankara to Istanbul&lt;br /&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/turkey-ride/&quot;&gt;Other rides in Turkey&lt;/a&gt; - Trams, Tunel and Ferries&lt;br /&gt;&lt;br /&gt;&lt;h3&gt;Hotels&lt;/h3&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/egypt-hotel1-oasis/&quot;&gt;The OASIS Hotel, Cairo (Giza)&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/turkey-hotel1-istanbul/&quot;&gt;Euro Plaza Hotel, Istanbul&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/turkey-hotel2-ayvalik/&quot;&gt;Grand Temizel Hotel, Ayvalik&lt;/a&gt; - The Aegean Sea was so clean.&lt;br /&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/turkey-hotel3-pamukkale/&quot;&gt;Polat Thermal Hotel, Pamukkale (Denizli)&lt;/a&gt; - I enjoyed a hot spring in this hotel.&lt;br /&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/turkey-hotel4-konya/&quot;&gt;Ozkaymak Park Hotel, Konya&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/turkey-hotel5-urgup/&quot;&gt;Perissia Hotel, Cappadocia (Urgup)&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;http://www.kawa.net/photo/200607-trapics/egypt-hotel2-sheraton/&quot;&gt;Sheraton Royal Gardens, Cairo (Giza)&lt;/a&gt;</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/07/miraremakuccha-sh902is-bug-ntt-docomo.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/07/miraremakuccha-sh902is-bug-ntt-docomo.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-07-08T12:12:12.536+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/07/miraremakuccha-sh902is-bug-ntt-docomo.html</link>
 <title>Miraremakuccha - SH902i&apos;s bug
 NTT DoCoMo announced...</title>
 <description>&lt;b&gt;Miraremakuccha - SH902i&apos;s bug&lt;/b&gt;&lt;br /&gt;&lt;object width=&quot;425&quot; height=&quot;350&quot;&gt;&lt;param name=&quot;movie&quot; value=&quot;http://youtube.com/v/eE4fCbCZsU4&quot;&gt;&lt;/param&gt;&lt;embed src=&quot;http://youtube.com/v/eE4fCbCZsU4&quot; type=&quot;application/x-shockwave-flash&quot; width=&quot;425&quot; height=&quot;350&quot;&gt;&lt;/embed&gt;&lt;/object&gt;&lt;br&gt;NTT DoCoMo announced that SH902i mobile phone has a bug which makes it crashed when you enter a typical phrase &quot;miraremakuccha&quot;, literally means &quot;be watched too match.&quot;&lt;br /&gt;&lt;br /&gt;http://headlines.yahoo.co.jp/videonews/fnn/20060707/20060707-00000064-fnn-soci.html</description>
 </item>
-<item rdf:about="http://youtube.com/?v=eE4fCbCZsU4"><creator>rss@youtube.com (YusukeKawasaki)</creator>
+<item rdf:about="http://youtube.com/?v=eE4fCbCZsU4">
+<creator>rss@youtube.com (YusukeKawasaki)</creator>
 <dc:date>2006-07-07T19:42:44-07:00</dc:date>
 <link>http://youtube.com/?v=eE4fCbCZsU4</link>
 <media:category label="Tags">SH902i Bug みられまくっちゃ</media:category>
 <media:credit>YusukeKawasaki</media:credit>
 <media:player url="http://youtube.com/?v=eE4fCbCZsU4" />
-<media:thumbnail url="http://img.youtube.com/vi/eE4fCbCZsU4/default.jpg" height="90" width="120" />
+<media:thumbnail url="http://img.youtube.com/vi/eE4fCbCZsU4/default.jpg" width="120" height="90" />
 <media:title>Miraremakuccha - SH902i&apos;s bug</media:title>
 <title>Miraremakuccha - SH902i&apos;s bug</title>
 <description>
@@ -557,7 +617,8 @@ NTT DoCoMo announced...</title>
 				&lt;/p&gt;
 </description>
 </item>
-<item rdf:about="http://www.kawa.net/works/js/tips/yui-tooltips-e.html"><dc:date>2006-06-27T00:06:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/js/tips/yui-tooltips-e.html">
+<dc:date>2006-06-27T00:06:00+09:00</dc:date>
 <dc:subject>YUI</dc:subject>
 <link>http://www.kawa.net/works/js/tips/yui-tooltips-e.html</link>
 <title>[YUI] Link tooltip with website&apos;s thumbnail screenshot</title>
@@ -567,25 +628,29 @@ Simple API&apos;s
 thumbnail generating service.
 Try to move your mouse cursor onto the links below:</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/06/google-mountain-view-dec2005.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/06/google-mountain-view-dec2005.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-06-26T17:28:36.066+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/06/google-mountain-view-dec2005.html</link>
 <title>Google, Mountain View - Dec.2005</title>
 <description>&lt;a href=&quot;http://www.kawa.net/photo/200512-google/&quot;&gt;&lt;img style=&quot;margin: 0px 10px 10px 0px; float: right;&quot; alt=&quot;Googleplex&quot; src=&quot;http://photos1.blogger.com/blogger/3901/1998/160/P1000329.jpg&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;The Googleplex on the Christmas holidays last year. Just few people are there.&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot;font-size:85%;&quot;&gt;* This is a test post from Picasa.&lt;/span&gt; &lt;a href=&quot;http://picasa.google.com/blogger/&quot; target=&quot;ext&quot;&gt;&lt;img src=&quot;http://photos1.blogger.com/pbp.gif&quot; alt=&quot;Posted by Picasa&quot; style=&quot;border: 0px none ; padding: 0px; background: transparent none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;&quot; align=&quot;middle&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/06/visited-countries.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/06/visited-countries.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-06-26T17:05:29.916+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/06/visited-countries.html</link>
 <title>Visited Countries</title>
 <description>&lt;div style=&quot;float: right; margin-left: 10px; margin-bottom: 10px;&quot;&gt; &lt;a href=&quot;http://www.flickr.com/photos/u-suke/164225745/&quot; title=&quot;photo sharing&quot;&gt;&lt;img src=&quot;http://static.flickr.com/51/164225745_e977c788c4_m.jpg&quot; alt=&quot;&quot; style=&quot;border: 2px solid rgb(0, 0, 0);&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;span style=&quot;margin-top: 0px;font-size:0;&quot; &gt;  &lt;a href=&quot;http://www.flickr.com/photos/u-suke/164225745/&quot;&gt;Visited Countries&lt;/a&gt;&lt;br /&gt;Originally uploaded by &lt;a href=&quot;http://www.flickr.com/people/u-suke/&quot;&gt;Yusuke,SF&lt;/a&gt;. &lt;/span&gt;&lt;/div&gt;I love to visit places in the world: South Korea, Thailand, United States, Mongolia, Australia, Spain, France, China, Mexico and the next is...?&lt;br /&gt;&lt;br /&gt;Create your own visited countries map at &lt;a href=&quot;http://douweosinga.com/projects/visitedcountries/&quot;&gt;douweosinga.com&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot;font-size:85%;&quot;&gt;* This is a test post from flickr.&lt;/span&gt;</description>
 </item>
-<item rdf:about="http://kawanet.blogspot.com/2006/06/link-tooltips-20.html"><creator>Yusuke Kawasaki</creator>
+<item rdf:about="http://kawanet.blogspot.com/2006/06/link-tooltips-20.html">
+<creator>Yusuke Kawasaki</creator>
 <dc:date>2006-06-26T16:43:31.126+09:00</dc:date>
 <link>http://kawanet.blogspot.com/2006/06/link-tooltips-20.html</link>
 <title>Link Tooltips 2.0</title>
 <description>Link Tooltips 2.0 -  This mashes-up &lt;a href=&quot;http://developer.yahoo.com/yui/&quot;&gt;Yahoo! UI Library&lt;/a&gt;&apos;s Tooltip control with &lt;a href=&quot;http://www.simpleapi.net/&quot;&gt;Simple API&lt;/a&gt;&apos;s thumbnail generating service. Thanks, YUI and SimpleAPI.&lt;br /&gt;&lt;br /&gt;&lt;a onblur=&quot;try {parent.deselectBloggerImageGracefully();} catch(e) {}&quot; href=&quot;http://photos1.blogger.com/blogger/3901/1998/1600/tooltip-400.gif&quot;&gt;&lt;img style=&quot;margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;&quot; src=&quot;http://photos1.blogger.com/blogger/3901/1998/320/tooltip-400.gif&quot; alt=&quot;&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;&lt;a onblur=&quot;try {parent.deselectBloggerImageGracefully();} catch(e) {}&quot; href=&quot;http://www.kawa.net/works/js/tips/yui-tooltips-e.html&quot;&gt;&lt;br /&gt;&lt;/a&gt;</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/ajax/romanize/chinese-e.html"><dc:date>2006-06-13T20:13:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/ajax/romanize/chinese-e.html">
+<dc:date>2006-06-13T20:13:00+09:00</dc:date>
 <dc:subject>Ajax</dc:subject>
 <link>http://www.kawa.net/works/ajax/romanize/chinese-e.html</link>
 <title>[Ajax] Romanization of Chinese language (Pinyin)</title>
@@ -596,7 +661,8 @@ This page is implemented by ajax and POX over HTTP.
 See also
 Lingua::ZH::Romanize::Pinyin module page.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/ajax/tips/crash-safari/intelmac-e.html"><dc:date>2006-05-14T00:40:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/ajax/tips/crash-safari/intelmac-e.html">
+<dc:date>2006-05-14T00:40:00+09:00</dc:date>
 <dc:subject>Mac</dc:subject>
 <link>http://www.kawa.net/works/ajax/tips/crash-safari/intelmac-e.html</link>
 <title>[Mac] One click to crash Safari for Intel Mac</title>
@@ -604,7 +670,8 @@ Lingua::ZH::Romanize::Pinyin module page.</description>
 Just two lines of JavaScript code below crashes Safari for Intel Mac.
 But Safari for PowerPC and other browsers are never crased.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/ajax/romanize/japanese-e.html"><dc:date>2006-05-08T04:07:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/ajax/romanize/japanese-e.html">
+<dc:date>2006-05-08T04:07:00+09:00</dc:date>
 <dc:subject>Ajax</dc:subject>
 <link>http://www.kawa.net/works/ajax/romanize/japanese-e.html</link>
 <title>[Ajax] Romanization of Japanese language (Kanji and Kana)</title>
@@ -619,12 +686,14 @@ Kana characters are general terms for the syllabic Japanese scripts.
 Enter some Japanese phrases and push the button below.
 This page is implemented by ajax and POX over HTTP.</description>
 </item>
-<item rdf:about="http://www.kawa.net/service/jsan/search/index.html"><dc:date>2006-05-03T20:53:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/service/jsan/search/index.html">
+<dc:date>2006-05-03T20:53:00+09:00</dc:date>
 <link>http://www.kawa.net/service/jsan/search/index.html</link>
 <title>JSAN Search - JavaScript Libraries Database</title>
 <description>A yet another search engine for JavaScript libraries registered on JSAN.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/js/animation/raster-e.html"><dc:date>2006-04-30T08:25:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/js/animation/raster-e.html">
+<dc:date>2006-04-30T08:25:00+09:00</dc:date>
 <dc:subject>JavaScript</dc:subject>
 <link>http://www.kawa.net/works/js/animation/raster-e.html</link>
 <title>[JavaScript] Animation.Raster - Virtual Raster Scrolling Effect</title>
@@ -634,7 +703,8 @@ effect for images and block elements.
 Tested on
 Internet Explorer 7.0, Firefox 1.5, Opera 8.5, Safari 2.0.3 and OmniWeb 5.1.3.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/ajax/romanize/hangul-e.html"><dc:date>2006-04-25T13:20:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/ajax/romanize/hangul-e.html">
+<dc:date>2006-04-25T13:20:00+09:00</dc:date>
 <dc:subject>Ajax</dc:subject>
 <link>http://www.kawa.net/works/ajax/romanize/hangul-e.html</link>
 <title>[Ajax] Romanization of Korean language (Hangul)</title>
@@ -643,14 +713,16 @@ Enter some Korean phrases and push the button below.
 E.g. you can now sing songs which lyrics are written in Korean!
 This page is implemented by ajax and POX over HTTP.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/js/game/ncross-e.html"><dc:date>2006-04-18T21:54:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/js/game/ncross-e.html">
+<dc:date>2006-04-18T21:54:00+09:00</dc:date>
 <dc:subject>Sudoku</dc:subject>
 <link>http://www.kawa.net/works/js/game/ncross-e.html</link>
 <title>[Sudoku] Quick Sudoku Solving by JavaScript</title>
 <description>I think the most important thing of Sudoku is not getting its answer but is solving it.
 However, ...</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/js/date/w3cdtf-e.html"><dc:date>2006-04-05T22:49:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/js/date/w3cdtf-e.html">
+<dc:date>2006-04-05T22:49:00+09:00</dc:date>
 <dc:subject>JSAN</dc:subject>
 <link>http://www.kawa.net/works/js/date/w3cdtf-e.html</link>
 <title>[JSAN] Date.W3CDTF - JavaScript Date object&apos;s W3CDTF extension</title>
@@ -663,13 +735,15 @@ Date.W3CDTF class supports two types of formats below:
 2005-04-23T17:20:00+09:00 (with timezone)
 2005-04-23T17:20:00Z (without timezone)</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/ajax/tips/dump/dom-tree.html"><dc:date>2006-03-21T02:41:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/ajax/tips/dump/dom-tree.html">
+<dc:date>2006-03-21T02:41:00+09:00</dc:date>
 <dc:subject>ajax</dc:subject>
 <link>http://www.kawa.net/works/ajax/tips/dump/dom-tree.html</link>
 <title>[ajax] Expanding DOM tree (cross browser DOM inspector)</title>
 <description>XML URL:</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/ajax/tips/dump/icab-omniweb-bug.html"><dc:date>2006-03-21T02:40:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/ajax/tips/dump/icab-omniweb-bug.html">
+<dc:date>2006-03-21T02:40:00+09:00</dc:date>
 <dc:subject>ajax</dc:subject>
 <link>http://www.kawa.net/works/ajax/tips/dump/icab-omniweb-bug.html</link>
 <title>[ajax] XML parser bug on iCab and OmniWeb</title>
@@ -678,42 +752,49 @@ Flickr&apos;s RSS 2.0 file (as example)
 Demonstration:
 Expanding DOM tree (cross browser DOM inspector)</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/cantonese/ccdict.html"><dc:date>2006-03-08T16:20:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/cantonese/ccdict.html">
+<dc:date>2006-03-08T16:20:00+09:00</dc:date>
 <link>http://www.kawa.net/works/cantonese/ccdict.html</link>
 <title>CCDICT - Chinese Dictionary Search</title>
 <description>Enter (or copy&amp;paste) some chinese characters and push the button.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/js/data-scheme/base64-e.html"><dc:date>2006-03-05T08:56:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/js/data-scheme/base64-e.html">
+<dc:date>2006-03-05T08:56:00+09:00</dc:date>
 <dc:subject>JavaScript</dc:subject>
 <link>http://www.kawa.net/works/js/data-scheme/base64-e.html</link>
 <title>[JavaScript] data: scheme URI generator / base64-encoded image file</title>
 <description>The data: scheme can contain binary data such as image.
 Firefox and Opera supports the data: scheme, but IE doesn&apos;t yet.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/greasemonkey/myscripts-e.html"><dc:date>2006-02-13T21:14:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/greasemonkey/myscripts-e.html">
+<dc:date>2006-02-13T21:14:00+09:00</dc:date>
 <dc:subject>Greasemonkey</dc:subject>
 <link>http://www.kawa.net/works/greasemonkey/myscripts-e.html</link>
 <title>[Greasemonkey] User Scripts by kawa.net</title>
 <description>Here are my User Scripts
 for Greasemonkey.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html"><dc:date>2006-02-09T01:05:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html">
+<dc:date>2006-02-09T01:05:00+09:00</dc:date>
 <dc:subject>ajax</dc:subject>
 <link>http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html</link>
 <title>[ajax] Content-Type: availablity on XMLHttpRequest</title>
 <description>Some of content-types are only available on many browsers&apos; XMLHttpRequest.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/ajax/rss/rss-box-e.html"><dc:date>2006-02-09T01:04:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/ajax/rss/rss-box-e.html">
+<dc:date>2006-02-09T01:04:00+09:00</dc:date>
 <dc:subject>ajax</dc:subject>
 <link>http://www.kawa.net/works/ajax/rss/rss-box-e.html</link>
 <title>[ajax] RSS BOX in your website</title>
 <description>How to put a RSS BOX in your website.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/js/passwd/gen-passwds-e.html"><dc:date>2005-10-27T01:10:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/js/passwd/gen-passwds-e.html">
+<dc:date>2005-10-27T01:10:00+09:00</dc:date>
 <link>http://www.kawa.net/works/js/passwd/gen-passwds-e.html</link>
 <title>JavaScript: Generating Random Passwords</title>
 </item>
-<item rdf:about="http://www.kawa.net/works/perl/catch/KCatch.pm.html"><dc:date>2004-11-24T00:47:00+09:00</dc:date>
+<item rdf:about="http://www.kawa.net/works/perl/catch/KCatch.pm.html">
+<dc:date>2004-11-24T00:47:00+09:00</dc:date>
 <link>http://www.kawa.net/works/perl/catch/KCatch.pm.html</link>
 <title>KCatch.pm - Catch warn and die to avoid &quot;Internal Server Error&quot;</title>
 <description>NAME</description>

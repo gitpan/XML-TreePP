@@ -1,5 +1,11 @@
 # XML::TreePP Changes
 
+2007/08/13 (0.27)
+    * bug fix: autoload Encode.pm on particular environment, $] == 5.008
+      http://www.nntp.perl.org/group/perl.cpan.testers/2007/08/msg557739.html
+      http://www.nntp.perl.org/group/perl.cpan.testers/2007/08/msg557741.html
+    * pod revised. OPTIONS FOR PARSING/WRITING sections are separated.
+
 2007/08/07 (0.26)
     * new option: force_array => '*' means every elements (thanks to Niek)
     * new option: force_hash => [], and also '*' means every elements
