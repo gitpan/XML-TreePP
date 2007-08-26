@@ -151,7 +151,7 @@ If C<$option_value> is not defined, its option is deleted.
 
     $tpp->set( option_name => $option_value );
 
-See L</OPTIONS> section for details.
+See OPTIONS section below for details.
 
 =head2 get
 
@@ -208,13 +208,11 @@ This method parses a hash tree and writes a XML source into a file.
 C<$file> is a filename to create.
 C<$tree> is a reference to a hash tree.
 
-=head1 OPTIONS
+=head1 OPTIONS FOR PARSING XML
 
 This module accepts option parameters following:
 
-=head2 OPTIONS FOR PARSING XML
-
-=head3 force_array
+=head2 force_array
 
 This option allows you to specify a list of element names which
 should always be forced into an array representation.
@@ -225,7 +223,7 @@ The default value is null, it means that context of the elements
 will determine to make array or to keep it scalar or hash.
 Note that the special wildcard name C<'*'> means all elements.
 
-=head3 force_hash
+=head2 force_hash
 
 This option allows you to specify a list of element names which
 should always be forced into an hash representation.
@@ -237,7 +235,7 @@ will determine to make hash or to keep it scalar as a text node.
 See also L</text_node_key> option below.
 Note that the special wildcard name C<'*'> means all elements.
 
-=head3 cdata_scalar_ref
+=head2 cdata_scalar_ref
 
 This option allows you to convert a cdata section into a reference
 for scalar on parsing XML source.
@@ -246,7 +244,7 @@ for scalar on parsing XML source.
 
 The default value is false, it means that each cdata section is converted into a scalar.
 
-=head3 user_agent
+=head2 user_agent
 
 This option allows you to specify a HTTP_USER_AGENT string which
 is used by parsehttp() method.
@@ -256,14 +254,14 @@ is used by parsehttp() method.
 The default string is C<'XML-TreePP/#.##'>, where C<'#.##'> is
 substituted with the version number of this library.
 
-=head3 http_lite
+=head2 http_lite
 
 This option forces pasrsehttp() method to use a L<HTTP::Lite> instance.
 
     my $http = HTTP::Lite->new();
     $tpp->set( http_lite => $http );
 
-=head3 lwp_useragent
+=head2 lwp_useragent
 
 This option forces pasrsehttp() method to use a L<LWP::UserAgent> instance.
 
@@ -274,7 +272,7 @@ This option forces pasrsehttp() method to use a L<LWP::UserAgent> instance.
 
 You may use this with L<LWP::UserAgent::WithCache>.
 
-=head3 base_class
+=head2 base_class
 
 This blesses class name for each element's hashref.
 Each class is named straight as a child class of it parent class.
@@ -287,7 +285,7 @@ Each class is named straight as a child class of it parent class.
 A hash for <child> element above is blessed to C<MyElement::root::parent::child>
 class. You may use this with L<Class::Accessor>.
 
-=head3 elem_class
+=head2 elem_class
 
 This blesses class name for each element's hashref.
 Each class is named horizontally under the direct child of C<MyElement>.
@@ -299,9 +297,9 @@ Each class is named horizontally under the direct child of C<MyElement>.
 
 A hash for <child> element above is blessed to C<MyElement::child> class.
 
-=head2 OPTIONS FOR WRITING XML
+=head1 OPTIONS FOR WRITING XML
 
-=head3 first_out
+=head2 first_out
 
 This option allows you to specify a list of element/attribute
 names which should always appears at first on output XML code.
@@ -310,14 +308,14 @@ names which should always appears at first on output XML code.
 
 The default value is null, it means alphabetical order is used.
 
-=head3 last_out
+=head2 last_out
 
 This option allows you to specify a list of element/attribute
 names which should always appears at last on output XML code.
 
     $tpp->set( last_out => [ 'items', 'item', 'entry' ] );
 
-=head3 indent
+=head2 indent
 
 This makes the output more human readable by indenting appropriately.
 
@@ -325,37 +323,37 @@ This makes the output more human readable by indenting appropriately.
 
 This doesn't strictly follow the XML Document Spec but does looks nice.
 
-=head3 xml_decl
+=head2 xml_decl
 
 This module generates an XML declaration on writing an XML code per default.
 This option forces to change or leave it.
 
     $tpp->set( xml_decl => '' );
 
-=head3 output_encoding
+=head2 output_encoding
 
 This option allows you to specify a encoding of xml file generated
 by write/writefile methods.
 
     $tpp->set( output_encoding => 'UTF-8' );
 
-On Perl 5.8.x and later, you can select it from every
+On Perl 5.8.0 and later, you can select it from every
 encodings supported by Encode.pm. On Perl 5.6.x and before with
 Jcode.pm, you can use C<Shift_JIS>, C<EUC-JP>, C<ISO-2022-JP> and
 C<UTF-8>. The default value is C<UTF-8> which is recommended encoding.
 
-=head2 OPTIONS FOR BOTH
+=head1 OPTIONS FOR BOTH
 
-=head3 utf8_flag
+=head2 utf8_flag
 
 This makes utf8 flag on for every element's value parsed
 and makes it on for an XML code generated as well.
 
     $tpp->set( utf8_flag => 1 );
 
-Perl 5.8.x or later is required to use this.
+Perl 5.8.0 or later is required to use this.
 
-=head3 attr_prefix
+=head2 attr_prefix
 
 This option allows you to specify a prefix character(s) which
 is inserted before each attribute names.
@@ -366,7 +364,7 @@ The default character is C<'-'>.
 Or set C<'@'> to access attribute values like E4X, ECMAScript for XML.
 Zero-length prefix C<''> is available as well, it means no prefix is added.
 
-=head3 text_node_key
+=head2 text_node_key
 
 This option allows you to specify a hash key for text nodes.
 
@@ -374,21 +372,22 @@ This option allows you to specify a hash key for text nodes.
 
 The default key is C<#text>.
 
-=head3 ignore_error
+=head2 ignore_error
 
 This module calls Carp::croak function on an error per default.
 This option makes all errors ignored and just return.
 
     $tpp->set( ignore_error => 1 );
 
-=head3 use_ixhash
+=head2 use_ixhash
 
 This option keeps the order for each element appeared in XML.
 L<Tie::IxHash> module is required.
 
     $tpp->set( use_ixhash => 1 );
 
-This makes parsing performance slow. (100% slower than default)
+This makes parsing performance slow.
+(about 100% slower than default)
 
 =head1 AUTHOR
 
@@ -408,7 +407,7 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.27';
+$VERSION = '0.29';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
@@ -517,7 +516,7 @@ sub write {
 
     if ( exists $self->{utf8_flag} && $self->{utf8_flag} ) {
         if ( $] < 5.008 ) {
-            return $self->die( "Perl 5.8.x is required for utf8_flag: $]" );
+            return $self->die( "Perl 5.8.0 is required for utf8_flag: $]" );
         }
         if ( $to =~ /^utf-?8$/i ) {
             utf8::decode( $text );
@@ -687,7 +686,7 @@ sub parse {
 
         if ( exists $self->{utf8_flag} && $self->{utf8_flag} ) {
             if ( $] < 5.008 ) {
-                return $self->die( "Perl 5.8.x is required for utf8_flag: $]" );
+                return $self->die( "Perl 5.8.0 is required for utf8_flag: $]" );
             }
             if ( $to =~ /^utf-?8$/i ) {
                 my $copy = $$textref;
@@ -859,6 +858,7 @@ sub flat_to_tree {
         }
         if ( $node->{startTag} ) {              # recursive call
             my $child = $self->flat_to_tree( $source, $name, $subclass );
+            next unless defined $child;
             my $hasattr = scalar keys %$elem if ref $elem;
             if ( UNIVERSAL::isa( $child, "HASH" ) ) {
                 if ( $hasattr ) {
@@ -870,7 +870,7 @@ sub flat_to_tree {
                     $elem = $child;
                 }
             }
-            elsif ( defined $child ) {
+            else {
                 if ( $hasattr ) {
                     # some attributes and text node
                     $elem->{$self->{text_node_key}} = $child;
@@ -889,7 +889,7 @@ sub flat_to_tree {
             $elem = {};
         }
         # bless to a class by base_class or elem_class
-        if ( UNIVERSAL::isa( $elem, "HASH" ) ) {
+        if ( ref $elem && UNIVERSAL::isa( $elem, "HASH" ) ) {
             if ( defined $subclass ) {
                 bless( $elem, $subclass );
             } elsif ( exists $self->{elem_class} && $self->{elem_class} ) {
@@ -1051,7 +1051,7 @@ sub scalaref_to_cdata {
     my $self = shift;
     my $name = shift;
     my $ref  = shift;
-    my $text = '<![CDATA[' . $$ref . ']]>';
+    my $text = '<![CDATA[' . ( defined $$ref ? $$ref : '' ) . ']]>';
     $text = "<$name>$text</$name>\n" if ( $name ne $self->{text_node_key} );
     $text;
 }
@@ -1177,6 +1177,7 @@ sub get_jcode_name {
 
 sub xml_escape {
     my $str = shift;
+    return '' unless defined $str;
     # except for TAB(\x09),CR(\x0D),LF(\x0A)
     $str =~ s{
         ([\x00-\x08\x0B\x0C\x0E-\x1F\x7F])

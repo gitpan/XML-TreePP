@@ -5,10 +5,13 @@
     use Test::More;
 # ----------------------------------------------------------------
 {
-    if ( $] < 5.008 ) {
-        plan skip_all => 'Perl 5.8.x is required.';
-    }
-    plan tests => 42;
+    local $@;
+    eval { require 5.008001; };
+    plan skip_all => 'Perl 5.8.1 is required.' if $@;
+}
+# ----------------------------------------------------------------
+{
+    plan tests => 66;
     use_ok('XML::TreePP');
     &test_utf8();
 }
@@ -52,10 +55,24 @@ EOT
     &check_same( 'B-D', $treeB, $treeB );
     &check_diff( 'A-C', $treeA, $treeC );
 
-    my $xmlE = $strtpp->write( $treeA );
-    my $xmlF = $strtpp->write( $treeC );
-    my $xmlG = $octtpp->write( $treeA );
+    foreach my $hash ( $treeA, $treeB, $treeD ) {
+        my $root = $hash->{root};
+        foreach my $key ( sort keys %$root ) {
+            ok( utf8::is_utf8($root->{$key}), 'XML: string '.$key );
+        }
+    }
+
+    foreach my $hash ( $treeC ) {
+        my $root = $hash->{root};
+        foreach my $key ( sort keys %$root ) {
+            ok( ! utf8::is_utf8($root->{$key}), 'XML: octets '.$key );
+        }
+    }
+
     my $xmlH = $octtpp->write( $treeC );
+    my $xmlE = $strtpp->write( $treeA );
+    my $xmlF = $strtpp->write( $treeB );
+    my $xmlG = $octtpp->write( $treeD );
 
     ok(   utf8::is_utf8($xmlE), '[E] XML: string' );
     ok(   utf8::is_utf8($xmlF), '[F] XML: string' );
@@ -81,12 +98,12 @@ sub check_string {
     my $six = $tree->{root}->{six};
     ok( utf8::is_utf8($six), "[$name] 6: string" );
 
-    my $one = $tree->{root}->{one};
+    my $one = "".$tree->{root}->{one};
     isnt( $one, $oct1, "[$name] 1: string != octets" );
     utf8::encode( $one );
     is( $one, $oct1, "[$name] 2: octets == octets" );
 
-    my $two = $tree->{root}->{two};
+    my $two = "".$tree->{root}->{two};
     isnt( $two, $oct2, "[$name] 3: string != octets" );
     is( $two, $str2, "[$name] 4: string == string" );
 }
@@ -112,7 +129,7 @@ sub check_octest {
     my $one = $tree->{root}->{one};
     is( $one, $oct1, "[$name] 1: octets == octets" );
 
-    my $two = $tree->{root}->{two};
+    my $two = "".$tree->{root}->{two};
     isnt( $two, $str2, "[$name] 2: octets != string" );
     utf8::decode( $two );
     is( $two, $str2, "[$name] 2: string == string" );

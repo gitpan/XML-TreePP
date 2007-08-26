@@ -1,5 +1,13 @@
 # XML::TreePP Changes
 
+2007/08/27 (0.29)
+    * 34_utf8_flag.t skips all tests on Perl 5.8.0
+      utf8::is_utf8() wasn't there in 5.8.0.
+      http://www.nntp.perl.org/group/perl.perl5.changes/2003/08/msg8628.html
+    * 34_utf8_flag.t passes all tests on Perl 5.8.1-2
+      http://rt.perl.org/rt3/Public/Bug/Display.html?id=24846
+    * avoid "Use of uninitialized value in substitution" in xml_escape
+
 2007/08/13 (0.27)
     * bug fix: autoload Encode.pm on particular environment, $] == 5.008
       http://www.nntp.perl.org/group/perl.cpan.testers/2007/08/msg557739.html

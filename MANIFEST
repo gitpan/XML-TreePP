@@ -56,3 +56,4 @@ t/33_indent.t
 t/34_utf8_flag.t
 t/35_force_hash.t
 t/36_elem_class.t
+t/37_undef.t
