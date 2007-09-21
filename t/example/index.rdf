@@ -3,17 +3,17 @@
 <channel rdf:about="http://www.kawa.net/xp/index-e.html">
 <title>Kawa.net xp - ajax/JavaScript/Perl/CGI by Yusuke Kawasaki</title>
 <link>http://www.kawa.net/xp/index-e.html</link>
-<dc:date>2007-08-20T03:32:00+09:00</dc:date>
+<dc:date>2007-08-26T23:36:00+09:00</dc:date>
 <dc:language>en</dc:language>
 <dc:rights>Copyright 1995-2006 Yusuke Kawasaki. All rights reserved.</dc:rights>
 <description>Yusuke Kawasaki&apos;s homepage from Japan. Ajax/JavaScript/Perl/CGI/etc. technical articles and photos.</description>
 <image rdf:resource="http://www.kawa.net/xp/images/xp-title-128x32.gif" />
 <items>
 <rdf:Seq>
+<rdf:li rdf:resource="http://www.kawa.net/works/perl/treepp/treepp-e.html" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-feedpp/message/16" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/feedpp/feedpp-e.html" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/20" />
-<rdf:li rdf:resource="http://www.kawa.net/works/perl/treepp/treepp-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/overhttp/overhttp-e.html" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/19" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/romanize/romanize-e.html" />
@@ -98,6 +98,33 @@
 <title>Kawa.net xp - ajax/JavaScript/Perl/CGI by Yusuke Kawasaki</title>
 <link>http://www.kawa.net/xp/index-e.html</link>
 </image>
+<item rdf:about="http://www.kawa.net/works/perl/treepp/treepp-e.html">
+<title>[Perl] XML::TreePP - A pure Perl implementation for parsing/writing xml file</title>
+<link>http://www.kawa.net/works/perl/treepp/treepp-e.html</link>
+<dc:date>2007-08-26T23:36:00+09:00</dc:date>
+<dc:subject>Perl</dc:subject>
+<description>XML::TreePP module parses XML file and expand it for a hash tree.
+And also this generates XML file from a hash tree.
+This module is a pure Perl implementation.
+You can also fetch an XML file from remote web server
+like an XMLHttpRequest object in JavaScript language.
+I think that XML::TreePP is enough fast and easy to use!
+Current version:
+XML-TreePP-0.29.tar.gz
+TARGZ
+.pm source file only:
+XML/TreePP.pm
+PM
+Documents:
+README
+README
+Changes
+Changes
+XML::TreePP Group
+mailing list is available on Yahoo! Groups.
+XML.ObjTree
+class is a JavaScript port of this module.</description>
+</item>
 <item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/16">
 <title>XML::FeedPP 0.30 Released!</title>
 <link>http://tech.groups.yahoo.com/group/xml-feedpp/message/16</link>
@@ -139,22 +166,6 @@ more...</description>
 <creator>Kawasaki Yusuke</creator>
 <dc:date>2007-08-13T10:25:12Z</dc:date>
 <description>I announce that XML::TreePP version 0.27 is released WITHOUT new features. You don&apos;t need to update to this if you&apos;re already using 0.25 or above. </description>
-</item>
-<item rdf:about="http://www.kawa.net/works/perl/treepp/treepp-e.html">
-<title>[Perl] XML::TreePP - A pure Perl implementation for parsing/writing xml file</title>
-<link>http://www.kawa.net/works/perl/treepp/treepp-e.html</link>
-<dc:date>2007-08-13T02:04:00+09:00</dc:date>
-<dc:subject>Perl</dc:subject>
-<description>XML::TreePP module parses XML file and expand it for a hash tree.
-And also this generates XML file from a hash tree.
-This module is a pure Perl implementation.
-You can also fetch an XML file from remote web server
-like an XMLHttpRequest object in JavaScript language.
-I think that XML::TreePP is enough fast and easy to use!
-XML::TreePP Group
-mailing list is available on Yahoo! Groups.
-XML.ObjTree
-class is a JavaScript port of this module.</description>
 </item>
 <item rdf:about="http://www.kawa.net/works/perl/overhttp/overhttp-e.html">
 <title>[Perl] XML::OverHTTP - A base class for XML over HTTP-styled web service interface</title>

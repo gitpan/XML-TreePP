@@ -1,5 +1,11 @@
 # XML::TreePP Changes
 
+2007/09/22 (0.31)
+    * "]]>" in CDATA must be separated into "<![CDATA[]]]]><![CDATA[>]]>"
+      http://www.w3.org/TR/REC-xml/#sec-cdata-sect
+    * utf8_flag option requires Perl 5.8.1
+    * avoid "Wide character in print at" in writefile()
+
 2007/08/27 (0.29)
     * 34_utf8_flag.t skips all tests on Perl 5.8.0
       utf8::is_utf8() wasn't there in 5.8.0.

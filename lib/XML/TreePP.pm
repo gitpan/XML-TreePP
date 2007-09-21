@@ -351,7 +351,7 @@ and makes it on for an XML code generated as well.
 
     $tpp->set( utf8_flag => 1 );
 
-Perl 5.8.0 or later is required to use this.
+Perl 5.8.1 or later is required to use this.
 
 =head2 attr_prefix
 
@@ -407,7 +407,7 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.29';
+$VERSION = '0.31';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
@@ -461,14 +461,9 @@ sub writefile {
     my $encode = shift;
     return $self->die( 'Invalid filename' ) unless defined $file;
     my $text = $self->write( $tree, $encode );
-
-    if ( $] >= 5.008 ) {
-        my $to = $encode || $self->{output_encoding} || $XML_ENCODING;
-        if ( $to =~ /^utf-?8$/i ) {
-            utf8::encode( $text );
-        }
+    if ( $] >= 5.008001 && utf8::is_utf8( $text ) ) {
+        utf8::encode( $text );
     }
-
     $self->write_raw_xml( $file, $text );
 }
 
@@ -512,15 +507,6 @@ sub write {
     if ( $from && $to ) {
         my $stat = $self->encode_from_to( \$text, $from, $to );
         return $self->die( "Unsupported encoding: $to" ) unless $stat;
-    }
-
-    if ( exists $self->{utf8_flag} && $self->{utf8_flag} ) {
-        if ( $] < 5.008 ) {
-            return $self->die( "Perl 5.8.0 is required for utf8_flag: $]" );
-        }
-        if ( $to =~ /^utf-?8$/i ) {
-            utf8::decode( $text );
-        }
     }
 
     return $text if ( $decl eq '' );
@@ -672,28 +658,14 @@ sub parsefile {
 
 sub parse {
     my $self = shift;
-    my $textref = ref $_[0] ? $_[0] : \$_[0];
-    return $self->die( 'Invalid XML source' ) if ( ref($textref) ne 'SCALAR' );
-    return $self->die( 'Null XML source' ) unless defined $$textref;
+    my $text = ref $_[0] ? ${$_[0]} : $_[0];
+    return $self->die( 'Null XML source' ) unless defined $text;
 
-    my $to = $self->{internal_encoding} || $INTERNAL_ENCODING;
-    if ($to) {
-        my $from = &xml_decl_encoding($textref);
-        if ($from) {
-            my $stat = $self->encode_from_to( $textref, $from, $to );
-            return $self->die( "Unsupported encoding: $from" ) unless $stat;
-        }
-
-        if ( exists $self->{utf8_flag} && $self->{utf8_flag} ) {
-            if ( $] < 5.008 ) {
-                return $self->die( "Perl 5.8.0 is required for utf8_flag: $]" );
-            }
-            if ( $to =~ /^utf-?8$/i ) {
-                my $copy = $$textref;
-                utf8::decode( $copy );
-                $textref = \$copy;
-            }
-        }
+    my $from = &xml_decl_encoding(\$text) || $XML_ENCODING;
+    my $to   = $self->{internal_encoding} || $INTERNAL_ENCODING;
+    if ( $from && $to ) {
+        my $stat = $self->encode_from_to( \$text, $from, $to );
+        return $self->die( "Unsupported encoding: $from" ) unless $stat;
     }
 
     local $self->{__force_array};
@@ -726,17 +698,18 @@ sub parse {
         return $self->die( "Tie::IxHash is required." ) unless &load_tie_ixhash();
     }
 
-    my $flat  = $self->xml_to_flat($textref);
+    my $flat  = $self->xml_to_flat(\$text);
     my $class = $self->{base_class} if exists $self->{base_class};
     my $tree  = $self->flat_to_tree( $flat, '', $class );
-    if ( defined $class ) {
-        bless( $tree, $class );
+    if ( ref $tree ) {
+        if ( defined $class ) {
+            bless( $tree, $class );
+        }
+        elsif ( exists $self->{elem_class} && $self->{elem_class} ) {
+            bless( $tree, $self->{elem_class} );
+        }
     }
-    elsif ( exists $self->{elem_class} && $self->{elem_class} ) {
-        bless( $tree, $self->{elem_class} );
-    }
-
-    wantarray ? ( $tree, $$textref ) : $tree;
+    wantarray ? ( $tree, $text ) : $tree;
 }
 
 sub xml_to_flat {
@@ -1051,7 +1024,9 @@ sub scalaref_to_cdata {
     my $self = shift;
     my $name = shift;
     my $ref  = shift;
-    my $text = '<![CDATA[' . ( defined $$ref ? $$ref : '' ) . ']]>';
+    my $data = defined $$ref ? $$ref : '';
+    $data =~ s#(]])(>)#$1]]><![CDATA[$2#g;
+    my $text = '<![CDATA[' . $data . ']]>';
     $text = "<$name>$text</$name>\n" if ( $name ne $self->{text_node_key} );
     $text;
 }
@@ -1099,17 +1074,34 @@ sub encode_from_to {
     my $txtref = shift or return;
     my $from   = shift or return;
     my $to     = shift or return;
-    return $to if ( uc($from) eq uc($to) );
-    &load_encode() if ( $] >= 5.008 );
 
     unless ( defined $Encode::EUCJPMS::VERSION ) {
         $from = 'EUC-JP' if ( $from =~ /\beuc-?jp-?(win|ms)$/i );
         $to   = 'EUC-JP' if ( $to   =~ /\beuc-?jp-?(win|ms)$/i );
     }
 
-    if ( defined $Encode::VERSION ) {
+    my $setflag = $self->{utf8_flag} if exists $self->{utf8_flag};
+    if ( $] < 5.008001 && $setflag ) {
+        return $self->die( "Perl 5.8.1 is required for utf8_flag: $]" );
+	}
+
+    if ( $] >= 5.008 ) {
+        &load_encode();
         my $check = ( $Encode::VERSION < 2.13 ) ? 0x400 : Encode::FB_XMLCREF();
-        Encode::from_to( $$txtref, $from, $to, $check );
+        if ( $] >= 5.008001 && utf8::is_utf8( $$txtref ) ) {
+            if ( $to =~ /^utf-?8$/i ) {
+                # skip
+            } else {
+                $$txtref = Encode::encode( $to, $$txtref, $check );
+            }
+        } else {
+            $$txtref = Encode::decode( $from, $$txtref );
+            if ( $to =~ /^utf-?8$/i && $setflag ) {
+                # skip
+            } else {
+                $$txtref = Encode::encode( $to, $$txtref, $check );
+            }
+        }
     }
     elsif ( (  uc($from) eq 'ISO-8859-1'
             || uc($from) eq 'US-ASCII'

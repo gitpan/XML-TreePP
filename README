@@ -318,7 +318,7 @@ OPTIONS FOR BOTH
 
         $tpp->set( utf8_flag => 1 );
 
-    Perl 5.8.0 or later is required to use this.
+    Perl 5.8.1 or later is required to use this.
 
   attr_prefix
     This option allows you to specify a prefix character(s) which is

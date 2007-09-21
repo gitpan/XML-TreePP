@@ -57,3 +57,4 @@ t/34_utf8_flag.t
 t/35_force_hash.t
 t/36_elem_class.t
 t/37_undef.t
+t/38_cdata_cdsect.t
