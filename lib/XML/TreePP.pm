@@ -407,7 +407,7 @@ use Carp;
 use Symbol;
 
 use vars qw( $VERSION );
-$VERSION = '0.31';
+$VERSION = '0.32';
 
 my $XML_ENCODING      = 'UTF-8';
 my $INTERNAL_ENCODING = 'UTF-8';
@@ -1065,7 +1065,9 @@ sub xml_decl_encoding {
     my $textref = shift;
     return unless defined $$textref;
     my $args    = ( $$textref =~ /^\s*<\?xml(\s+\S.*)\?>/s )[0] or return;
-    my $getcode = ( $args =~ /\s+encoding="(.*?)"/ )[0] or return;
+    my $getcode = ( $args =~ /\s+encoding=(".*?"|'.*?')/ )[0] or return;
+    $getcode =~ s/^['"]//;
+    $getcode =~ s/['"]$//;
     $getcode;
 }
 
@@ -1083,7 +1085,7 @@ sub encode_from_to {
     my $setflag = $self->{utf8_flag} if exists $self->{utf8_flag};
     if ( $] < 5.008001 && $setflag ) {
         return $self->die( "Perl 5.8.1 is required for utf8_flag: $]" );
-	}
+    }
 
     if ( $] >= 5.008 ) {
         &load_encode();

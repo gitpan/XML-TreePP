@@ -58,3 +58,8 @@ t/35_force_hash.t
 t/36_elem_class.t
 t/37_undef.t
 t/38_cdata_cdsect.t
+t/39_writefile.t
+t/40_writefile_jcode.t
+t/41_writefile_encode.t
+t/42_cdata_comment.t
+t/43_encoding_quote.t

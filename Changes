@@ -1,5 +1,10 @@
 # XML::TreePP Changes
 
+2007/11/11 (0.32)
+    * supports invalid xml decl quoted with single quote (thanks to xatrix)
+      ex. <?xml version='1.0' encoding='windows-1250'?>
+      http://rt.cpan.org/Public/Bug/Display.html?id=30187
+
 2007/09/22 (0.31)
     * "]]>" in CDATA must be separated into "<![CDATA[]]]]><![CDATA[>]]>"
       http://www.w3.org/TR/REC-xml/#sec-cdata-sect
