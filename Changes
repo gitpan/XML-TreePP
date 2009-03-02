@@ -1,5 +1,13 @@
 # XML::TreePP Changes
 
+2009/03/01 (0.38)
+    * dies by "Invalid tree" when write() is called without a hash argument.
+    * warns by "Unsupported reference type" when write() is called with 
+      a tree which contains unsupported references, ex. BLOBREF.
+      It avoids  "Not a HASH reference" and "Can't use string as a HASH ref."
+    * dies by "Unknown encoding" when unknown encoding is used.
+    * No new features are added at this version except for the messages above.
+
 2009/01/17 (0.37)
     * new option: xml_deref dereferences the numeric character references, 
       like &#xEB;, &#28450; etc. 

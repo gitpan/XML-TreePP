@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/">
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:georss="http://www.georss.org/georss" xmlns:media="http://search.yahoo.com/mrss/" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/">
 <channel rdf:about="http://www.kawa.net/xp/index-e.html">
 <title>Kawa.net xp - ajax/JavaScript/Perl/CGI by Yusuke Kawasaki</title>
 <link>http://www.kawa.net/xp/index-e.html</link>
-<dc:date>2009-01-17T23:54:00+09:00</dc:date>
+<dc:date>2009-01-18T01:55:00+09:00</dc:date>
 <dc:language>en</dc:language>
 <dc:rights>Copyright 1995-2009 Yusuke Kawasaki. All rights reserved.</dc:rights>
 <description>Yusuke Kawasaki&apos;s homepage from Japan. Ajax/JavaScript/Perl/CGI/etc. technical articles and photos.</description>
 <image rdf:resource="http://www.kawa.net/xp/images/xp-title-128x32.gif" />
 <items>
 <rdf:Seq>
+<rdf:li rdf:resource="http://kawanet.blogspot.com/2009/02/tweet-this-bookmarklet-to-post-url-to.html" />
+<rdf:li rdf:resource="http://kawanet.blogspot.com/2009/02/incredible-javascriptcanvas-3d-demos.html" />
+<rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/29" />
+<rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-feedpp/message/31" />
+<rdf:li rdf:resource="http://www.kawa.net/works/perl/feedpp/feedpp-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/treepp/treepp-e.html" />
 <rdf:li rdf:resource="http://youtube.com/?v=Pcn1Unf34zE" />
 <rdf:li rdf:resource="http://youtube.com/?v=axskKB9surs" />
@@ -20,8 +25,6 @@
 <rdf:li rdf:resource="http://kawanet.blogspot.com/2007/09/google-japans-developer-round-table-1.html" />
 <rdf:li rdf:resource="http://kawanet.blogspot.com/2007/09/tsukurubu-flash-and-ajax-best-websites.html" />
 <rdf:li rdf:resource="http://kawanet.blogspot.com/2007/09/event-web-service-business-and-mashing.html" />
-<rdf:li rdf:resource="http://kawanet.blogspot.com/2007/11/cd-voices-of-beauty-wagram-music.html" />
-<rdf:li rdf:resource="http://kawanet.blogspot.com/2007/11/cd-voices-of-beauty-wagram-music_4654.html" />
 <rdf:li rdf:resource="http://kawanet.blogspot.com/2007/11/event-john-resig-and-future-of.html" />
 <rdf:li rdf:resource="http://kawanet.blogspot.com/2007/11/event-panel-discussion-about-web20s.html" />
 <rdf:li rdf:resource="http://kawanet.blogspot.com/2007/10/travel-germany-switzerland-and-czech.html" />
@@ -42,7 +45,6 @@
 <rdf:li rdf:resource="http://kawanet.blogspot.com/2008/06/jui-2008-tokyo-was-over.html" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-feedpp/message/30" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/28" />
-<rdf:li rdf:resource="http://www.kawa.net/works/perl/feedpp/feedpp-e.html" />
 <rdf:li rdf:resource="http://youtube.com/?v=FUFOWlhnS1Y" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-feedpp/message/23" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-feedpp/message/21" />
@@ -54,14 +56,12 @@
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/25" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/24" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/21" />
-<rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-feedpp/message/16" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/20" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/overhttp/overhttp-e.html" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/19" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/18" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/16" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/15" />
-<rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-treepp/message/14" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/html/tagparser-e.html" />
 <rdf:li rdf:resource="http://tech.groups.yahoo.com/group/xml-objtree/message/8" />
 <rdf:li rdf:resource="http://www.kawa.net/works/js/animation/cube-e.html" />
@@ -92,8 +92,8 @@
 <rdf:li rdf:resource="http://www.kawa.net/works/cantonese/ccdict.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/js/data-scheme/base64-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/greasemonkey/myscripts-e.html" />
-<rdf:li rdf:resource="http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/ajax/rss/rss-box-e.html" />
+<rdf:li rdf:resource="http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/js/passwd/gen-passwds-e.html" />
 <rdf:li rdf:resource="http://www.kawa.net/works/perl/catch/KCatch.pm.html" />
 </rdf:Seq>
@@ -101,16 +101,77 @@
 </channel>
 <openSearch:itemsPerPage>25</openSearch:itemsPerPage>
 <openSearch:startIndex>1</openSearch:startIndex>
-<openSearch:totalResults>41</openSearch:totalResults>
+<openSearch:totalResults>43</openSearch:totalResults>
 <image rdf:about="http://www.kawa.net/xp/images/xp-title-128x32.gif">
 <url>http://www.kawa.net/xp/images/xp-title-128x32.gif</url>
 <title>Kawa.net xp - ajax/JavaScript/Perl/CGI by Yusuke Kawasaki</title>
 <link>http://www.kawa.net/xp/index-e.html</link>
 </image>
+<item rdf:about="http://kawanet.blogspot.com/2009/02/tweet-this-bookmarklet-to-post-url-to.html">
+<title>Tweet this - a bookmarklet to post URL to Twitter</title>
+<link>http://kawanet.blogspot.com/2009/02/tweet-this-bookmarklet-to-post-url-to.html</link>
+<app:edited xmlns:app="http://purl.org/atom/app#">2009-02-26T18:31:04.926+09:00</app:edited>
+<dc:creator>Yusuke Kawasaki</dc:creator>
+<dc:date>2009-02-26T18:31:04.926+09:00</dc:date>
+<dc:subject>bookmarklet</dc:subject>
+<dc:subject>twitter</dc:subject>
+<media:thumbnail url="http://3.bp.blogspot.com/_cgZUdkW7lzE/SaZgdJLCMYI/AAAAAAAAAgQ/oThjquiwKNg/s72-c/twitter_logo_125x29%5B1%5D.png" xmlns:media="http://search.yahoo.com/mrss/" width="72" height="72" />
+<thr:total xmlns:thr="http://purl.org/syndication/thread/1.0">0</thr:total>
+<description>&lt;a href=&quot;http://twitter.com/kawa0117&quot;&gt;&lt;img style=&quot;cursor:pointer; cursor:hand; float:right; width: 125px; height: 29px;&quot; src=&quot;http://3.bp.blogspot.com/_cgZUdkW7lzE/SaZgdJLCMYI/AAAAAAAAAgQ/oThjquiwKNg/s400/twitter_logo_125x29%5B1%5D.png&quot; border=&quot;0&quot; alt=&quot;&quot; id=&quot;BLOGGER_PHOTO_ID_5307035264697381250&quot; /&gt;&lt;/a&gt;This is my first bookmarklet.&lt;br /&gt;The bookmarklet posts the current page&apos;s title and URL to &lt;a href=&quot;http://twitter.com/kawa0117&quot;&gt;Twitter&lt;/a&gt;. I guess many of similar bookmarklets would be found somewhere though.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;&lt;a href=&quot;javascript:(function(){f=&apos;http://twitter.com/home?status=&apos;+encodeURIComponent(document.title+&apos; &apos;+window.location.href+&apos; &apos;);a=function(){if(!window.open(f,&apos;_blank&apos;))location.href=f};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()&quot;&gt;Tweet this&lt;/a&gt;&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;Drag &amp;amp; drop the link above to your browser&apos;s bookmark toolbar.&lt;br /&gt;Its code is referred to &lt;a href=&quot;http://delicious.com/help/bookmarklets&quot;&gt;delicous&apos;s bookmarklet&lt;/a&gt;.&lt;br /&gt;&lt;blockquote style=&quot;word-break: break-all; font-size: 120%; font-family: monospace;&quot;&gt;javascript:(function(){f=&apos;http://twitter.com/home?status=&apos;+encodeURIComponent(document.title+&apos; &apos;+window.location.href+&apos; &apos;);a=function(){if(!window.open(f,&apos;_blank&apos;))location.href=f};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()&lt;/blockquote&gt;&lt;br /&gt;Thanks, &lt;a href=&quot;http://delicious.com/kawa.net&quot;&gt;delicious&lt;/a&gt;!&lt;br /&gt;I don&apos;t know the license type of the code snippet, however. ;-)&lt;br /&gt; </description>
+</item>
+<item rdf:about="http://kawanet.blogspot.com/2009/02/incredible-javascriptcanvas-3d-demos.html">
+<title>Incredible JavaScript+Canvas 3D demos from Japan!</title>
+<link>http://kawanet.blogspot.com/2009/02/incredible-javascriptcanvas-3d-demos.html</link>
+<app:edited xmlns:app="http://purl.org/atom/app#">2009-02-24T02:59:31.389+09:00</app:edited>
+<dc:creator>Yusuke Kawasaki</dc:creator>
+<dc:date>2009-02-24T02:59:31.389+09:00</dc:date>
+<dc:subject>javascript</dc:subject>
+<dc:subject>3d</dc:subject>
+<dc:subject>canvas</dc:subject>
+<media:thumbnail url="http://2.bp.blogspot.com/_cgZUdkW7lzE/SaLd07KOc7I/AAAAAAAAAfo/fXiU7AZn66I/s72-c/jscloth.jpg" xmlns:media="http://search.yahoo.com/mrss/" width="72" height="72" />
+<thr:total xmlns:thr="http://purl.org/syndication/thread/1.0">5</thr:total>
+<description>&lt;a href=&quot;http://d.hatena.ne.jp/gyuque/20090211#1234364019&quot;&gt;Mr. Satoshi Ueyama hacked out&lt;/a&gt; the new era of JavaScript 3D tech by unveiling the real of Google Chrome&apos;s power. Satoshi is one of the great JavaScript hackers in Japan, and also known as &lt;a href=&quot;http://d.hatena.ne.jp/gyuque/&quot;&gt;gyuque&lt;/a&gt; listed on the article of &lt;a href=&quot;http://hemiolia.com/blog/200902/000150&quot;&gt;30 Japanese geeks you should follow on Twitter&lt;/a&gt;. (&lt;a href=&quot;http://www.google.com/search?q=cache:hemiolia.com/blog/200902/000150&quot;&gt;cached&lt;/a&gt;) &lt;br /&gt;&lt;br /&gt;He has introduced the brand new JavaScript technique using Canvas for 3D on &lt;a href=&quot;http://d.hatena.ne.jp/gyuque/20090211#1234364019&quot;&gt;his post&lt;/a&gt;. Browsing with &lt;strong&gt;&lt;a href=&quot;http://www.google.com/chrome&quot;&gt;Google Chrome&lt;/a&gt; is strongly recommended&lt;/strong&gt; for all demos below.&lt;br /&gt;&lt;br /&gt;I&apos;m sure this could be one giant leap for JavaScript user interface technologies.&lt;br /&gt;&lt;br /&gt;&lt;h3&gt;Demo #1: 3D texture mapped with physical computing&lt;/h3&gt;This is his first demo which shows 3D textured by Canvas. You can click on the cloth to make it waved.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://gyu.que.jp/jscloth/&quot; style=&quot;display:block; margin: 0 auto; text-decoration: none; text-align: center;&quot;&gt;&lt;img style=&quot;border: none;&quot; src=&quot;http://2.bp.blogspot.com/_cgZUdkW7lzE/SaLd07KOc7I/AAAAAAAAAfo/fXiU7AZn66I/s400/jscloth.jpg&quot; border=&quot;0&quot; alt=&quot;&quot;id=&quot;BLOGGER_PHOTO_ID_5306047212299383730&quot; /&gt;&lt;br /&gt;http://gyu.que.jp/jscloth/&lt;/a&gt;&lt;br /&gt;&lt;h3&gt;Demo #2: Hatsune Miku 3D with OOP&lt;/h3&gt;The 3D Miku is OO-style implemented as an object which has swing() method. This means she swings green onion in her hand when swing() method is called. Click on her.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://gyu.que.jp/jscloth/miku.html&quot; style=&quot;display:block; margin: 0 auto; text-decoration: none; text-align: center;&quot;&gt;&lt;img style=&quot;border: none;&quot; src=&quot;http://3.bp.blogspot.com/_cgZUdkW7lzE/SaLd7ec5OHI/AAAAAAAAAfw/Qdb-9siruqs/s400/miku.jpg&quot; border=&quot;0&quot; alt=&quot;&quot;id=&quot;BLOGGER_PHOTO_ID_5306047324852140146&quot; /&gt;&lt;br /&gt;http://gyu.que.jp/jscloth/miku.html&lt;/a&gt;&lt;br /&gt;She wears hundreds of polygons. The demo was created for &lt;a href=&quot;http://paulbakaus.com/&quot;&gt;Paul Bakaus&lt;/a&gt;, jQuery UI lib&apos;s lead, visiting Japan.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://www.flickr.com/photos/u-suke/3255465226/in/datetaken/&quot; style=&quot;display:block; margin: 0 auto; text-decoration: none; text-align: center;&quot;&gt;&lt;img style=&quot;border: none;&quot; src=&quot;http://2.bp.blogspot.com/_cgZUdkW7lzE/SaLdl3meLjI/AAAAAAAAAfg/DCHp3NXiDP0/s400/paul-bakaus-3d.jpg&quot; border=&quot;0&quot; alt=&quot;&quot;id=&quot;BLOGGER_PHOTO_ID_5306046953646075442&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;h3&gt;Demo #3: 3D iPod touch with environment mapping&lt;/h3&gt;You may find the all demos above have the same width as 480px. Yes, it is definitely same as the horizontal viewport size which iPhone and iPod touch have. Now you can see iPod touch displayed on your iPod touch by the demo #3!&lt;br /&gt;&lt;br /&gt;It could be slightly slow on ITSELF, however, it&apos;s still cool. These demos show us that we rarely need Flash anymore on the mobile platform, right? ;)&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://gyu.que.jp/jscloth/touch.html&quot; style=&quot;display:block; margin: 0 auto; text-decoration: none; text-align: center;&quot;&gt;&lt;img style=&quot;border: none;&quot; src=&quot;http://4.bp.blogspot.com/_cgZUdkW7lzE/SaLd_b2-m2I/AAAAAAAAAf4/eacqsGnUydY/s400/touch-front.jpg&quot; border=&quot;0&quot; alt=&quot;&quot;id=&quot;BLOGGER_PHOTO_ID_5306047392875715426&quot; /&gt;&lt;br /&gt;http://gyu.que.jp/jscloth/touch.html&lt;/a&gt;&lt;br /&gt;But the most important point of the demo is not its width. You need to see behind of it. He also implemented the reflection mapping feature on his lib.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://gyu.que.jp/jscloth/touch.html&quot; style=&quot;display:block; margin: 0 auto; text-decoration: none; text-align: center;&quot;&gt;&lt;img style=&quot;border: none;&quot; src=&quot;http://4.bp.blogspot.com/_cgZUdkW7lzE/SaLeDb1mWpI/AAAAAAAAAgA/1vr2AXn02qA/s400/touch-back.jpg&quot; border=&quot;0&quot; alt=&quot;&quot;id=&quot;BLOGGER_PHOTO_ID_5306047461589408402&quot; /&gt;&lt;br /&gt;http://gyu.que.jp/jscloth/touch.html&lt;/a&gt;&lt;br /&gt;The all demos above are coded only by pure JavaScript using Canvas. Here are no Java, Flash, ActionScript etc. but just the Web standards.&lt;br /&gt;&lt;br /&gt;You can see Google Chrome runs all demos much faster than any other browsers. It has a great rendering engine named Skia. CPUs are already enough fast to calculate most things, you know, and now JITs are implemented as well. But canvas renderers admit of their performance. Skia is special. Safari is also fine. Firefox, 3.0 and 3.1 JIT-ed, are seem to be slower, unfortunately. We don&apos;t have to say that IE have no capability to run these.&lt;br /&gt;&lt;br /&gt;Gyuque runs several benchmarks to describe Skia has significant advantage on its canvas rendering engine.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://d.hatena.ne.jp/gyuque/20090211#1234364019&quot; style=&quot;display:block; margin: 0 auto; text-decoration: none; text-align: center;&quot;&gt;&lt;img style=&quot;border: none;&quot; src=&quot;http://3.bp.blogspot.com/_cgZUdkW7lzE/SaLf_gbwmoI/AAAAAAAAAgI/Wo3w2b5BYA8/s400/skia-vs-cairo.png&quot; border=&quot;0&quot; alt=&quot;&quot;id=&quot;BLOGGER_PHOTO_ID_5306049593126984322&quot; /&gt;&lt;br /&gt;http://d.hatena.ne.jp/gyuque/20090211#1234364019&lt;/a&gt;&lt;br /&gt;The 3D JavaScript tech could be one of the killer applications of Chrome now. I guess the next generation of browsers will soon compete on Canvas performance.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://kawa.at.webry.info/200902/article_5.html&quot;&gt;Original of this post&lt;/a&gt; was written for my Japanese blog.&lt;br /&gt;You must see more detail on &lt;a href=&quot;http://d.hatena.ne.jp/gyuque/20090211#1234364019&quot;&gt;gyuque&apos;s post&lt;/a&gt;.</description>
+</item>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/29">
+<title>XML::TreePP version 0.37</title>
+<link>http://tech.groups.yahoo.com/group/xml-treepp/message/29</link>
+<dc:creator>Kawasaki Yusuke</dc:creator>
+<dc:date>2009-01-17T17:13:28Z</dc:date>
+<description>XML::TreePP version 0.37 was shipped. http://search.cpan.org/dist/XML-TreePP/ http://www.kawa.net/works/perl/treepp/dist/XML-TreePP-0.37.tar.gz </description>
+</item>
+<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/31">
+<title>XML::FeedPP version 0.37</title>
+<link>http://tech.groups.yahoo.com/group/xml-feedpp/message/31</link>
+<dc:creator>Kawasaki Yusuke</dc:creator>
+<dc:date>2009-01-17T17:12:08Z</dc:date>
+<description>XML::FeedPP version 0.37 was shipped. http://search.cpan.org/dist/XML-FeedPP/ http://www.kawa.net/works/perl/feedpp/dist/XML-FeedPP-0.37.tar.gz </description>
+</item>
+<item rdf:about="http://www.kawa.net/works/perl/feedpp/feedpp-e.html">
+<title>[Perl] XML::FeedPP - Parse/write/merge/edit RSS/RDF/Atom syndication feeds</title>
+<link>http://www.kawa.net/works/perl/feedpp/feedpp-e.html</link>
+<dc:date>2009-01-18T01:55:00+09:00</dc:date>
+<dc:subject>Perl</dc:subject>
+<description>XML::FeedPP is an all-purpose syndication utility that parses and publishes
+RSS 2.0, RSS 1.0 (RDF), Atom 0.3 and 1.0 feeds.
+It allows you to add new content, merge feeds, and convert among various formats.
+It is a pure Perl implementation and does not require any other module except for XML::TreePP.
+Released version:
+XML-FeedPP-0.37.tar.gz
+TARGZ
+CPAN
+Subversion repository:
+http://xml-treepp.googlecode.com/svn/trunk/XML-FeedPP/
+SVN
+Documents:
+README
+README
+Changes
+Changes</description>
+</item>
 <item rdf:about="http://www.kawa.net/works/perl/treepp/treepp-e.html">
 <title>[Perl] XML::TreePP - A pure Perl implementation for parsing/writing xml file</title>
 <link>http://www.kawa.net/works/perl/treepp/treepp-e.html</link>
-<dc:date>2009-01-17T23:54:00+09:00</dc:date>
+<dc:date>2009-01-18T00:20:00+09:00</dc:date>
 <dc:subject>Perl</dc:subject>
 <description>XML::TreePP module parses XML file and expand it for a hash tree.
 And also this generates XML file from a hash tree.
@@ -119,7 +180,7 @@ You can also fetch an XML file from remote web server
 like an XMLHttpRequest object in JavaScript language.
 I think that XML::TreePP is enough fast and easy to use!
 Released version:
-XML-TreePP-0.36.tar.gz
+XML-TreePP-0.37.tar.gz
 TARGZ
 CPAN
 Subversion repository:
@@ -286,26 +347,6 @@ Rs.25 (50円)。
 <media:thumbnail url="http://1.bp.blogspot.com/_cgZUdkW7lzE/RyxgdWnZg_I/AAAAAAAAAGo/Gbm2KR5kgjw/s72-c/xdev-title-400%5B1%5D.jpg" xmlns:media="http://search.yahoo.com/mrss/" width="72" height="72" />
 <thr:total xmlns:thr="http://purl.org/syndication/thread/1.0">0</thr:total>
 <description>I gave a presentation at the &lt;a href=&quot;http://itpro.nikkeibp.co.jp/ev/xdev/index.html&quot;&gt;X-over Development Conference 2007&lt;/a&gt; in Tokyo. My talk is titled as &lt;a href=&quot;http://www.tkrb.jp/modules/feature0/index.php?id=16&quot;&gt;Web Service / Business and Mashing up&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://www.tkrb.jp/modules/feature0/index.php?id=16&quot;&gt;&lt;img style=&quot;display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;&quot; src=&quot;http://1.bp.blogspot.com/_cgZUdkW7lzE/RyxgdWnZg_I/AAAAAAAAAGo/Gbm2KR5kgjw/s400/xdev-title-400%5B1%5D.jpg&quot; border=&quot;0&quot; alt=&quot;&quot;id=&quot;BLOGGER_PHOTO_ID_5128580133071455218&quot; /&gt;&lt;/a&gt;&lt;br /&gt;In the talk, I mentioned the Facebook platform and Google Universal Gadgets in iGoogle.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;hr&gt;&lt;i&gt;* The &lt;a href=&quot;http://kawa.at.webry.info/200709/article_1.html&quot;&gt;original post&lt;/a&gt; of this was written in Japanese.&lt;/i&gt;</description>
-</item>
-<item rdf:about="http://kawanet.blogspot.com/2007/11/cd-voices-of-beauty-wagram-music.html">
-<title>[Event] Mash up Caravan in Osaka</title>
-<link>http://kawanet.blogspot.com/2007/11/cd-voices-of-beauty-wagram-music.html</link>
-<app:edited xmlns:app="http://purl.org/atom/app#">2008-11-13T20:09:42.635+09:00</app:edited>
-<dc:creator>Yusuke Kawasaki</dc:creator>
-<dc:date>2008-11-13T20:09:42.635+09:00</dc:date>
-<media:thumbnail url="http://2.bp.blogspot.com/_cgZUdkW7lzE/Ryw6xmnZg-I/AAAAAAAAAGg/fphXheiuc8g/s72-c/P1060870-480%5B1%5D.jpg" xmlns:media="http://search.yahoo.com/mrss/" width="72" height="72" />
-<thr:total xmlns:thr="http://purl.org/syndication/thread/1.0">0</thr:total>
-<description>The first day of &lt;a href=&quot;http://jp.sun.com/mashupaward/caravan/&quot;&gt;Mash up Caravan&lt;/a&gt; is started from Osaka.&lt;br /&gt;This tour is projected as a promotion campaign for &lt;a href=&quot;http://jp.sun.com/mashupaward/&quot;&gt;Mash up Award&lt;/a&gt; which is the most largest contest of web applications which use web services in Japan.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://kawa.at.webry.info/200707/article_5.html&quot;&gt;&lt;img style=&quot;display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;&quot; src=&quot;http://2.bp.blogspot.com/_cgZUdkW7lzE/Ryw6xmnZg-I/AAAAAAAAAGg/fphXheiuc8g/s400/P1060870-480%5B1%5D.jpg&quot; border=&quot;0&quot; alt=&quot;&quot; id=&quot;BLOGGER_PHOTO_ID_5128538699521950690&quot; /&gt;&lt;/a&gt;&lt;br /&gt;I made a talk for leading-edge technics of JavaScript and some libraries.&lt;br /&gt;After Osaka, the caravan will get to Sapporo, Fukuoka and Tokyo.&lt;br /&gt;&lt;br /&gt;&lt;hr&gt;The original post written in Japanese:&lt;br /&gt;&lt;a href=&quot;http://kawa.at.webry.info/200707/article_5.html&quot;&gt;Kawa.net Blog (2007/07/24)&lt;/a&gt;</description>
-</item>
-<item rdf:about="http://kawanet.blogspot.com/2007/11/cd-voices-of-beauty-wagram-music_4654.html">
-<title>[CD] VOICES OF BEAUTY // Wagram Music</title>
-<link>http://kawanet.blogspot.com/2007/11/cd-voices-of-beauty-wagram-music_4654.html</link>
-<app:edited xmlns:app="http://purl.org/atom/app#">2008-11-13T20:09:42.740+09:00</app:edited>
-<dc:creator>Yusuke Kawasaki</dc:creator>
-<dc:date>2008-11-13T20:09:42.740+09:00</dc:date>
-<media:thumbnail url="http://4.bp.blogspot.com/_cgZUdkW7lzE/Ryw2XGnZg9I/AAAAAAAAAGY/5vcZlwnh-FI/s72-c/P1060244-240%5B1%5D.jpg" xmlns:media="http://search.yahoo.com/mrss/" width="72" height="72" />
-<thr:total xmlns:thr="http://purl.org/syndication/thread/1.0">0</thr:total>
-<description>&lt;a href=&quot;http://www.amazon.co.jp/o/ASIN/B0009PS6H0/kawanetxp-22/ref=nosim&quot;&gt;VOICES OF BEAUTY&lt;/a&gt; is my current favorite cd imported from &lt;a href=&quot;http://www.wagram.fr/&quot;&gt;France&lt;/a&gt;.&lt;br /&gt;I like listening this when I write some JavaScript or Perl codes as well.&lt;br /&gt;&lt;div align=&quot;center&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/o/ASIN/B0009PS6H0/kawanetxp-22/ref=nosim&quot; target=&quot;_blank&quot;&gt;&lt;img id=&quot;BLOGGER_PHOTO_ID_5128533846208906194&quot; src=&quot;http://4.bp.blogspot.com/_cgZUdkW7lzE/Ryw2XGnZg9I/AAAAAAAAAGY/5vcZlwnh-FI/s400/P1060244-240%5B1%5D.jpg&quot; height=&quot;240&quot; width=&quot;240&quot;&gt;&lt;/a&gt;&lt;/div&gt;&lt;blockquote&gt;1. One Evening / Feist&lt;br /&gt;2. Guns Of Brixton / Nouvelle Vague&lt;br /&gt;3. It&apos;s Been Done / &lt;a href=&quot;http://www.angelamccluskey.com/&quot;&gt;Angela McCluskey&lt;/a&gt;&lt;br /&gt;4. Waiting / Cibelle&lt;br /&gt;5. Desert / &lt;a href=&quot;http://emiliesimon.artistes.universalmusic.fr/&quot;&gt;Emilie Simon&lt;/a&gt;  - La Marche de l&apos;empereur &lt;a href=&quot;http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewArtistSongs?artistId=15066140&quot; style=&quot;font-size: 0.8em;&quot;&gt;[iTunes]&lt;/a&gt;&lt;br /&gt;6. Get On With Your Life / Stina Nordenstam &lt;br /&gt;7. Radar / Kelly De Martino&lt;br /&gt;8. Sand River / Beth Gibbons &amp;amp; Rustin&apos; Man&lt;br /&gt;9. Close My Eyes / &lt;a href=&quot;http://www.shivaree.com/&quot;&gt;Shivaree&lt;/a&gt; - &lt;a href=&quot;http://www.shivaree.com/index.php?id=video.php&quot;&gt;PV&lt;/a&gt;&lt;a href=&quot;http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?playlistId=136812589&amp;amp;s=143462&amp;amp;i=136812781&quot; style=&quot;font-size: 0.8em;&quot;&gt;[iTunes]&lt;/a&gt;&lt;br /&gt;10. Until The Morning / Thievery Corporation Feat. Emiliana Torrini&lt;br /&gt;11. Inna City Woman / Slow Train Feat. Lady Z&lt;br /&gt;12. Purple Shoes / MaliA&lt;br /&gt;13. Melody / Molly Johnson&lt;br /&gt;14. New York City / The Peter Malick Group Feat. Norah Jones&lt;br /&gt;15. Never Ending Story / &lt;a href=&quot;http://www.indian.co.uk/baz/&quot;&gt;BAZ&lt;/a&gt; - So pretty! &quot;If you!&quot; &lt;a href=&quot;http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?playlistId=99232690&amp;amp;s=143462&amp;amp;i=99232670&quot; style=&quot;font-size: 0.8em;&quot;&gt;[iTunes]&lt;/a&gt;&lt;br /&gt;16. Cada Beijo / Bebel Gilberto&lt;br /&gt;17. Amado Mio / Pink Martini&lt;br /&gt;18. Small Song / Lhasa&lt;br /&gt;19. River Of Life / Heather Nova&lt;br /&gt;20. Forward And Reverse / Bang Gang&lt;br /&gt;21. The Closest Thing To Crazy / &lt;a href=&quot;http://www.katiemelua.com/&quot;&gt;Katie Melua&lt;/a&gt; &lt;/blockquote&gt;&lt;br /&gt;&lt;br /&gt;&lt;hr&gt;&lt;i&gt;&lt;a href=&quot;http://kawa.at.webry.info/200706/article_1.html&quot;&gt;The original post&lt;/a&gt; of this was written in Japanese.&lt;/i&gt;</description>
 </item>
 <item rdf:about="http://kawanet.blogspot.com/2007/11/event-john-resig-and-future-of.html">
 <title>[Event] John Resig and The Future of JavaScript</title>
@@ -508,28 +549,6 @@ Rs.25 (50円)。
 <dc:date>2008-10-26T06:47:22Z</dc:date>
 <description>Marcin, The problem you told me was a bug on Perl 5.10.0. http://rt.perl.org/rt3/Public/Bug/Display.html?id=59516 Anyway, as many installed environments would</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/perl/feedpp/feedpp-e.html">
-<title>[Perl] XML::FeedPP - Parse/write/merge/edit RSS/RDF/Atom syndication feeds</title>
-<link>http://www.kawa.net/works/perl/feedpp/feedpp-e.html</link>
-<dc:date>2008-10-26T13:22:00+09:00</dc:date>
-<dc:subject>Perl</dc:subject>
-<description>XML::FeedPP is an all-purpose syndication utility that parses and publishes
-RSS 2.0, RSS 1.0 (RDF), Atom 0.3 and 1.0 feeds.
-It allows you to add new content, merge feeds, and convert among various formats.
-It is a pure Perl implementation and does not require any other module except for XML::TreePP.
-Released version:
-XML-FeedPP-0.36.tar.gz
-TARGZ
-CPAN
-Subversion repository:
-http://xml-treepp.googlecode.com/svn/trunk/XML-FeedPP/
-SVN
-Documents:
-README
-README
-Changes
-Changes</description>
-</item>
 <item rdf:about="http://youtube.com/?v=FUFOWlhnS1Y">
 <title>Mashup Awards 4 授賞式オープニングムービー</title>
 <link>http://youtube.com/?v=FUFOWlhnS1Y</link>
@@ -637,13 +656,6 @@ This page is implemented by ajax and POX over HTTP.</description>
 <dc:date>2007-09-25T19:15:25Z</dc:date>
 <description>I announce that XML::TreePP version 0.31 was released last weekend. Previous versions had a problem in writefile() method used without utf8_flag =&gt; 1. I</description>
 </item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-feedpp/message/16">
-<title>XML::FeedPP 0.30 Released!</title>
-<link>http://tech.groups.yahoo.com/group/xml-feedpp/message/16</link>
-<dc:creator>Kawasaki Yusuke</dc:creator>
-<dc:date>2007-08-19T18:48:54Z</dc:date>
-<description>I announce that XML::FeedPP version 0.30 released. ======================================================== # XML::FeedPP Changes 2007/08/20 (0.30) * Atom 1.0</description>
-</item>
 <item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/20">
 <title>XML::TreePP 0.27 Released!</title>
 <link>http://tech.groups.yahoo.com/group/xml-treepp/message/20</link>
@@ -692,13 +704,6 @@ CPAN</description>
 <dc:creator>Kawasaki Yusuke</dc:creator>
 <dc:date>2007-07-22T11:06:19Z</dc:date>
 <description>... Before version 0.20, first_order option have sorted every elements on generating XML. After version 0.20, it now keeps the order given in a array for the</description>
-</item>
-<item rdf:about="http://tech.groups.yahoo.com/group/xml-treepp/message/14">
-<title>XML::TreePP 0.20 Released!</title>
-<link>http://tech.groups.yahoo.com/group/xml-treepp/message/14</link>
-<dc:creator>Kawasaki Yusuke</dc:creator>
-<dc:date>2007-07-22T10:59:23Z</dc:date>
-<description>I announce the release of XML::TreePP module&apos;s new version 0.20 after a long interval. You can get the source from: </description>
 </item>
 <item rdf:about="http://www.kawa.net/works/perl/html/tagparser-e.html">
 <title>[Perl] HTML::TagParser - Yet another HTML tag parser by pure Perl implementation</title>
@@ -1082,19 +1087,19 @@ Firefox and Opera supports the data: scheme, but IE doesn&apos;t yet.</descripti
 <description>Here are my User Scripts
 for Greasemonkey.</description>
 </item>
-<item rdf:about="http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html">
-<title>[ajax] Content-Type: availablity on XMLHttpRequest</title>
-<link>http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html</link>
-<dc:date>2006-02-09T01:05:00+09:00</dc:date>
-<dc:subject>ajax</dc:subject>
-<description>Some of content-types are only available on many browsers&apos; XMLHttpRequest.</description>
-</item>
 <item rdf:about="http://www.kawa.net/works/ajax/rss/rss-box-e.html">
 <title>[ajax] RSS BOX in your website</title>
 <link>http://www.kawa.net/works/ajax/rss/rss-box-e.html</link>
 <dc:date>2006-02-09T01:04:00+09:00</dc:date>
 <dc:subject>ajax</dc:subject>
 <description>How to put a RSS BOX in your website.</description>
+</item>
+<item rdf:about="http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html">
+<title>[ajax] Content-Type: availablity on XMLHttpRequest</title>
+<link>http://www.kawa.net/works/ajax/tips/mimetype/content-type-e.html</link>
+<dc:date>2006-02-09T01:04:00+09:00</dc:date>
+<dc:subject>ajax</dc:subject>
+<description>Some of content-types are only available on many browsers&apos; XMLHttpRequest.</description>
 </item>
 <item rdf:about="http://www.kawa.net/works/js/passwd/gen-passwds-e.html">
 <title>JavaScript: Generating Random Passwords</title>
